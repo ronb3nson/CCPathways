@@ -52,14 +52,15 @@ The page reads as a day's walk, from dawn to night, and every section uses the s
 - **One white card style** holds every boxed thing.
 - **Waypoint diamonds** mark lists and steps.
 
-The sections, in order:
+The sections, in order, follow the questions a first-time visitor asks:
 
-1. **Hero (dawn):** a layered landscape where the sun rises as you scroll. The five starting points are the arms of a signpost.
-2. **What is discipleship? (morning):** the church's definition, set as it opens the PATHways report: "walking with Jesus" in bold, and each area's phrase marked in its color. A color bar names the four areas.
-3. **Get your bearings (cream fields):** three steps (the two assessments and the report), with a sample page of the report beside them, so the outcome is shown rather than described.
-4. **Find your next step (midday):** the four areas as stops on the trail, each described in the report's own words. Each opens a panel of next steps, drawn from the 31 active on-ramps in the PATHways app's approved catalogue.
-5. **Who walks with you (dusk):** three companions, each with a small illustration (a lantern, a campfire, footprints side by side), and the guide form.
-6. **Footer (night):** stars, a moon, and one closing line.
+1. **Hero (dawn): "Is this for me? What can I do?"** A layered landscape where the sun rises as you scroll. The five starting points are the arms of a signpost, and one line under it offers the 20-minute assessment.
+2. **Find your next step (morning to midday): "What are my options?"** It opens with the church's definition of discipleship, set as it opens the PATHways report: "walking with Jesus" in bold, and each area's phrase marked in its color like a highlighter. One line says what PATH stands for. Then come the four areas as stops on the trail, each described in the report's own words. Each opens a panel of next steps, drawn from the 31 active on-ramps in the PATHways app's approved catalogue.
+3. **Get your bearings (cream fields): "Which one is right for me?"** Three steps (the two assessments and the report), with a sample page of the report beside them, so the outcome is shown rather than described.
+4. **Who walks with you (dusk): "Can someone help me?"** Three companions, each with a small illustration (a lantern, a campfire, footprints side by side), and the guide form.
+5. **Footer (night):** stars, a moon, and one closing line.
+
+The floating "Not sure where to start?" button opens two choices: take the assessment, or talk to a guide. It replaced the handoff's three-question quiz, which duplicated the assessment less accurately.
 
 A sandy footpath links them all. It fades in from the hero's footpath and winds through the four area stops, past a cairn beside "Who walks with you", then turns off the edge of the screen. Four marker posts, a few tree blazes and wildflowers carry the area colors. Headings rise word by word, the definition's marks sweep in like a highlighter, and a fine film grain covers the page. A trail-map guide appears on screens 1200px and wider.
 

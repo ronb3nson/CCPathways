@@ -32,8 +32,8 @@ main { position: relative; }
 @media (max-width: 1100px) { .sc-margin { display: none; } }
 
 /* Terrain: each section's top edge rolls like a hill line into the one above */
-.define, .assess, .choose, .walk, .foot { position: relative; }
-.define::before, .assess::before, .choose::before, .walk::before, .foot::before {
+.choose, .assess, .walk, .foot { position: relative; }
+.choose::before, .assess::before, .walk::before, .foot::before {
   content: "";
   position: absolute;
   left: 0;
@@ -46,8 +46,8 @@ main { position: relative; }
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 56' preserveAspectRatio='none'%3E%3Cpath d='M0 56V34C240 8 420 6 650 24S1080 52 1270 24C1350 12 1410 14 1440 18V56Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 56' preserveAspectRatio='none'%3E%3Cpath d='M0 56V34C240 8 420 6 650 24S1080 52 1270 24C1350 12 1410 14 1440 18V56Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
 }
-.assess::before, .walk::before { transform: scaleX(-1); }
-.choose::before, .foot::before {
+.choose::before, .walk::before { transform: scaleX(-1); }
+.assess::before, .foot::before {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 56' preserveAspectRatio='none'%3E%3Cpath d='M0 56V20C200 40 400 46 620 28S1010 2 1210 20C1320 30 1400 34 1440 30V56Z'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 56' preserveAspectRatio='none'%3E%3Cpath d='M0 56V20C200 40 400 46 620 28S1010 2 1210 20C1320 30 1400 34 1440 30V56Z'/%3E%3C/svg%3E");
 }
@@ -114,6 +114,10 @@ main { position: relative; }
 .hi-btn:focus-visible, .hi-btn:active { color: var(--ink); background: var(--yel); text-decoration: none; }
 .hi-btn:focus-visible { transform: translateX(6px) rotate(0); }
 .hi-main { flex: 1; font-size: 17.5px; line-height: 1.3; }
+.hi-alt { position: relative; margin-top: 26px; padding-left: 64px; font-size: 16.5px; text-shadow: 1px 1px 0 #000; }
+.hi-alt a { color: var(--white); text-decoration: underline; text-decoration-color: var(--yel); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.hi-alt a::after { content: " →"; }
+.hi-alt a:hover { color: var(--yel); }
 @media (hover: hover) {
   .hi-btn:hover { color: var(--ink); background: var(--yel); text-decoration: none; transform: translateX(6px) rotate(0); }
 }
@@ -129,44 +133,6 @@ main { position: relative; }
   .hi-list { gap: 8px; }
   .hi-btn { padding: 9px 36px 9px 16px; }
   .hi-main { font-size: 15px; }
-}
-
-/* =========================================================================
-   What is discipleship? Set like the opening of the PATHways report
-   ========================================================================= */
-.define { background: var(--white); text-align: center; }
-.define-text { max-width: 22em; margin: 0 auto 48px; font-family: var(--fs); font-size: clamp(28px, 3.6vw, 44px); line-height: 1.55; letter-spacing: 0; }
-.define-text strong { font-weight: 700; }
-/* Each area's phrase is marked in that area's color exactly as in the PATHways report: a highlighter
-   stroke over the lower half of the words, the area color at 32% on white. main.js sweeps the marks in. */
-.hl { padding: 0 .06em; color: inherit; background-color: transparent; background-repeat: no-repeat; background-position: 0 0; background-size: 100% 100%; background-image: linear-gradient(transparent 52%, var(--hl) 52%); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-.hl-p { --hl: color-mix(in srgb, var(--p) 32%, white); }
-.hl-a { --hl: color-mix(in srgb, var(--a) 32%, white); }
-.hl-t { --hl: color-mix(in srgb, var(--t) 32%, white); }
-.hl-h { --hl: color-mix(in srgb, var(--h) 32%, white); }
-.marks .hl { background-size: 0 100%; transition: background-size .9s var(--ease); }
-.marks .hl-a { transition-delay: .25s; }
-.marks .hl-t { transition-delay: .5s; }
-.marks .hl-h { transition-delay: .75s; }
-.marks.in .hl { background-size: 100% 100%; }
-/* The four areas in a color bar, like the foot of the report's cover */
-.define-key { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 760px; margin: 0 auto 40px; list-style: none; text-align: left; }
-.dk { padding-top: 14px; border-top: 6px solid var(--dk); }
-.dk-p { --dk: var(--p); }
-.dk-a { --dk: var(--a); }
-.dk-t { --dk: var(--t); }
-.dk-h { --dk: var(--h); }
-.dk + .dk { padding-left: 14px; }
-.dk-name { display: block; font-family: var(--fh); font-size: 18px; font-weight: 600; }
-.dk-tag { display: block; font-family: var(--fs); font-style: italic; font-size: 16px; color: var(--muted); }
-.define-cite { font-size: 15px; color: var(--muted); }
-.define-quote { margin-right: 6px; font-family: var(--fs); font-style: italic; font-size: 18px; color: var(--ink); }
-
-@media (max-width: 640px) {
-  .define { text-align: left; }
-  .define-text { margin-bottom: 36px; }
-  .define-key { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 0; }
-  .dk:nth-child(3) { padding-left: 0; }
 }
 
 /* =========================================================================
@@ -237,7 +203,23 @@ main { position: relative; }
    Find your next step: the four areas, and each area's panel of next steps
    ========================================================================= */
 .choose { background: var(--white); text-align: center; }
-.choose-sub { margin: 14px auto 0; font-size: var(--lede); }
+/* The church's definition opens the section, set as it opens the PATHways report */
+.define-text { max-width: 25em; margin: 26px auto 16px; font-family: var(--fs); font-size: clamp(24px, 2.7vw, 32px); line-height: 1.55; letter-spacing: 0; }
+.define-text strong { font-weight: 700; }
+/* Each area's phrase is marked in that area's color exactly as in the PATHways report: a highlighter
+   stroke over the lower half of the words, the area color at 32% on white. main.js sweeps the marks in. */
+.hl { padding: 0 .06em; color: inherit; background-color: transparent; background-repeat: no-repeat; background-position: 0 0; background-size: 100% 100%; background-image: linear-gradient(transparent 52%, var(--hl) 52%); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.hl-p { --hl: color-mix(in srgb, var(--p) 32%, white); }
+.hl-a { --hl: color-mix(in srgb, var(--a) 32%, white); }
+.hl-t { --hl: color-mix(in srgb, var(--t) 32%, white); }
+.hl-h { --hl: color-mix(in srgb, var(--h) 32%, white); }
+.marks .hl { background-size: 0 100%; transition: background-size .9s var(--ease); }
+.marks .hl-a { transition-delay: .25s; }
+.marks .hl-t { transition-delay: .5s; }
+.marks .hl-h { transition-delay: .75s; }
+.marks.in .hl { background-size: 100% 100%; }
+.path-line { max-width: 36em; margin: 0 auto; font-size: 17px; color: var(--muted); }
+.path-line b { color: var(--ink); }
 
 /* Each area's letter circle sits above its card as a stop on the trail */
 .stepper { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 84px 20px; margin-top: 108px; list-style: none; }
@@ -303,6 +285,7 @@ main { position: relative; }
   .st:hover, .rc:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
 }
 @media (max-width: 1020px) { .stepper { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .choose { text-align: left; } .define-text, .path-line { margin-left: 0; } }
 @media (max-width: 640px) {
   .stepper, .rg, .rx-grid { grid-template-columns: 1fr; }
   .detail { padding: 56px 18px 24px; }
@@ -391,30 +374,19 @@ main { position: relative; }
 }
 
 /* =========================================================================
-   Floating help, quiz and trail map
+   Floating help menu and trail map
    ========================================================================= */
 .fab { position: fixed; left: 24px; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 180; padding: 14px 26px; font-family: var(--fbtn); font-size: 14px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: #000; background: var(--yel); border: none; border-radius: 999px; box-shadow: 0 4px 14px rgba(0, 0, 0, .18); cursor: pointer; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(12px); transition: opacity .2s, transform .2s, visibility .2s; }
 .fab.show { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
 
-.ov { position: fixed; inset: 0; z-index: 300; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(0, 0, 0, .6); }
-.ov.open { display: flex; }
-.modal { position: relative; width: 100%; max-width: 520px; max-height: 90vh; overflow: auto; padding: 40px 36px 32px; background: var(--white); border-radius: var(--r-md); }
-.m-close { position: absolute; top: 8px; right: 8px; width: 44px; height: 44px; font-size: 22px; color: var(--ink); background: none; border: none; cursor: pointer; }
-.modal h3 { margin-bottom: 4px; }
-.m-sub { margin-bottom: 24px; }
-.m-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-.m-prog { font-size: 15px; color: var(--muted); }
-.m-back { font-size: 15px; }
-.m-q { margin-bottom: 16px; font-family: var(--fh); font-size: 24px; font-weight: 600; }
-.m-ans { display: flex; flex-direction: column; gap: 10px; }
-.ans { padding: 14px 16px; font-family: var(--fb); font-size: 17px; letter-spacing: .5px; text-align: left; color: var(--ink); background: var(--white); border: 1.5px solid var(--field-line); border-radius: var(--r-sm); cursor: pointer; }
-.ans:hover, .ans[aria-pressed="true"] { background: var(--off); border-color: var(--ink); }
-.res-head { display: flex; align-items: center; gap: 14px; margin: 8px 0 12px; }
-.res-head h3 { margin: 0; font-size: 34px; }
-.res-desc { margin-bottom: 22px; }
-.modal .btn { width: 100%; }
-.m-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-top: 20px; }
-.m-links .link-btn { font-size: 16px; }
+/* Help menu: two choices that open above the floating button */
+.help-menu { position: fixed; left: 24px; bottom: calc(86px + env(safe-area-inset-bottom, 0px)); z-index: 181; display: flex; flex-direction: column; width: min(340px, calc(100vw - 32px)); padding: 8px; box-shadow: var(--shadow-lift); }
+.help-opt { display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; color: var(--ink); font-weight: 400; border-radius: 8px; }
+.help-opt:hover, .help-opt:focus-visible { color: var(--ink); text-decoration: none; background: var(--off); }
+.help-opt + .help-opt { border-top: 1px dashed rgba(17, 17, 17, .14); }
+.help-name { font-family: var(--fh); font-size: 19px; font-weight: 600; }
+.help-name::after { content: " →"; color: var(--red); }
+.help-note { font-family: var(--fs); font-style: italic; font-size: 15.5px; letter-spacing: 0; color: var(--muted); }
 
 /* The trail map: a quiet guide to the sections on wide screens */
 .trailmap { position: fixed; right: 22px; top: 50%; z-index: 170; transform: translateY(-50%); opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
@@ -430,8 +402,10 @@ main { position: relative; }
 .trailmap a[aria-current="true"] .tm-dot { background: var(--yel); border-color: var(--ink); }
 
 @media (max-width: 1199px) { .trailmap { display: none; } }
-@media (max-width: 640px) { .fab { left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); } }
-@media (max-width: 380px) { .modal { padding: 40px 22px 24px; } }
+@media (max-width: 640px) {
+  .fab { left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+  .help-menu { left: 16px; right: 16px; width: auto; bottom: calc(78px + env(safe-area-inset-bottom, 0px)); }
+}
 
 /* =========================================================================
    Reduced motion: everything still, nothing hidden

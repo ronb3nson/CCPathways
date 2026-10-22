@@ -1,4 +1,4 @@
-/* PATHways landing: menu, stage panels, see more, form, floating button, quiz */
+/* PATHways landing: menu, area panels, see more, form, trail, parallax, reveals, help menu */
 (function () {
   'use strict';
 
@@ -118,7 +118,9 @@
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { inView[en.target.dataset.fab] = en.isIntersecting; });
-      fab.classList.toggle('show', !inView.hero && !inView.guide && !inView.foot);
+      var showFab = !inView.hero && !inView.guide && !inView.foot;
+      fab.classList.toggle('show', showFab);
+      if (!showFab && !helpMenu.hidden) setHelp(false);
       trailmap.classList.toggle('show', !inView.hero && !inView.foot);
     });
     [['.hero', 'hero'], ['#guide', 'guide'], ['.foot', 'foot']].forEach(function (pair) {
@@ -191,9 +193,8 @@
     var L = contentLeft / 2;
     var R = W - contentLeft / 2;
     var wig = Math.min(34, contentLeft * 0.25);
-    var pad = parseFloat(getComputedStyle($('.assess')).paddingTop);
+    var pad = parseFloat(getComputedStyle($('.choose')).paddingTop);
     var hero = rel($('.hero'));
-    var df = rel($('.define'));
     var as = rel($('.assess'));
     var ch = rel($('.choose'));
     var wk = rel($('.walk'));
@@ -215,11 +216,10 @@
 
     // Picks up where the hero's footpath leaves the bottom of the landscape
     pts.push([hero.cx + 6, hero.bottom - 40]);
-    run(R, df.top + pad * 0.7, df.bottom - pad * 0.7, -1);
-    run(L, as.top + pad * 0.7, as.bottom - pad * 0.7, 1);
     run(L, ch.top + pad * 0.7, stops[0].cy - 60, 1);
     stops.forEach(function (s) { pts.push([s.cx, s.cy]); });
     run(R, stops[stops.length - 1].cy + 60, ch.bottom - pad * 0.7, -1);
+    run(R, as.top + pad * 0.7, as.bottom - pad * 0.7, -1);
     // A cairn marks the spot beside "Who walks with you"
     run(L, wk.top + pad * 0.7, wk.bottom - 300, 1);
     cairnAt = pts[pts.length - 1];
@@ -283,7 +283,7 @@
       trailVerge.appendChild(el);
     }
     // Just four marker posts, one where the trail enters each section, banded in the area colors in order
-    var gates = ['.define', '.assess', '.choose', '.walk'].map(function (sel) { return rel($(sel)).top + 70; });
+    var gates = ['.choose', '.assess', '.walk'].map(function (sel) { return rel($(sel)).top + 70; });
     var g = 0;
     for (var p = 0; p < trailLen && g < gates.length; p += 6) {
       var c = path.getPointAtLength(p);
@@ -400,7 +400,7 @@
         revealIO.unobserve(en.target);
       });
     }, { rootMargin: '0px 0px -8% 0px' });
-    $$('.define-key, .define-cite, .assess-copy, .report-preview, .choose .wrap > .lbl, .choose-sub, .walk-copy, .walk-in > .form')
+    $$('.path-line, .assess-copy, .report-preview, .choose .wrap > .lbl, .choose-sub, .walk-copy, .walk-in > .form')
       .forEach(function (el) {
         el.classList.add('reveal');
         revealIO.observe(el);
@@ -451,120 +451,20 @@
   if ('ResizeObserver' in window) new ResizeObserver(queueBuild).observe(main);
   buildTrail();
 
-  /* Quiz modal */
-  var Q = [
-    { q: 'Where are you with Jesus right now?',
-      a: ["I'm still exploring who He is", 'I recently started following Him', "I've followed Him for a while", 'I help others follow Him'] },
-    { q: 'How connected do you feel at Christ Church?',
-      a: ["I'm new or just visiting", "I come, but I haven't connected yet", "I'm in a group or class", 'I serve on a team or disciple others'] },
-    { q: 'What would help you most right now?',
-      a: ['Understanding the basics of faith', 'Growing in prayer and the Bible', 'Finding a place to serve', 'Helping someone else follow Jesus'] }
-  ];
-  var STAGES = [
-    { id: 'participate', k: 'p', L: 'P', name: 'Participate',
-      d: 'Belong. Visit a weekend service, fill in a connection card and find your people.' },
-    { id: 'apply', k: 'a', L: 'A', name: 'Apply',
-      d: 'Become. Grow more like Jesus through prayer, Scripture and a Life Group.' },
-    { id: 'takeaction', k: 't', L: 'T', name: 'Take Action',
-      d: 'Serve. Discover your gifts, join a serve team and make a real difference.' },
-    { id: 'helpothers', k: 'h', L: 'H', name: 'Help Others',
-      d: 'Multiply. Invite a friend, walk alongside someone and help them make disciples too.' }
-  ];
+  /* Help menu on the floating button: take the assessment, or talk to a guide */
+  var helpMenu = byId('help-menu');
 
-  var overlay = byId('ns-overlay');
-  var quiz = byId('ns-quiz');
-  var result = byId('ns-result');
-  var back = byId('ns-back');
-  var retake = byId('ns-retake');
-  var step = 0;
-  var answers = [];
-  var picked = null;
-
-  function focusables() {
-    return $$('#ns-overlay button:not([hidden]), #ns-overlay [href]').filter(function (el) {
-      return el.offsetParent !== null && !el.disabled && getComputedStyle(el).visibility !== 'hidden';
-    });
+  function setHelp(open) {
+    helpMenu.hidden = !open;
+    fab.setAttribute('aria-expanded', String(open));
+    if (open) helpMenu.querySelector('a').focus();
   }
-
-  function openModal() {
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    byId('ns-close').focus();
-  }
-  function closeModal(returnFocus) {
-    if (!overlay.classList.contains('open')) return;
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    if (returnFocus) fab.focus();
-  }
-
-  function renderQuestion() {
-    quiz.hidden = false;
-    result.hidden = true;
-    retake.hidden = true;
-    back.style.visibility = step ? 'visible' : 'hidden';
-    byId('ns-prog').textContent = 'Question ' + (step + 1) + ' of ' + Q.length;
-    byId('ns-q').textContent = Q[step].q;
-    var box = byId('ns-ans');
-    box.innerHTML = '';
-    Q[step].a.forEach(function (text, i) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'ans';
-      b.textContent = text;
-      if (answers[step] === i) b.setAttribute('aria-pressed', 'true');
-      b.addEventListener('click', function () {
-        answers[step] = i;
-        if (step < Q.length - 1) { step++; renderQuestion(); } else { showResult(); }
-        var first = box.querySelector('.ans');
-        if (first && !quiz.hidden) first.focus();
-      });
-      box.appendChild(b);
-    });
-  }
-
-  function showResult() {
-    var mean = answers.reduce(function (s, v) { return s + v; }, 0) / answers.length;
-    picked = STAGES[Math.min(3, Math.round(mean))];
-    var lc = byId('ns-res-lc');
-    lc.className = 'lc lc-' + picked.k;
-    lc.textContent = picked.L;
-    byId('ns-res-stage').textContent = picked.name;
-    byId('ns-res-desc').textContent = picked.d;
-    byId('ns-go').textContent = 'Explore ' + picked.name;
-    quiz.hidden = true;
-    result.hidden = false;
-    retake.hidden = false;
-    byId('ns-go').focus();
-  }
-
-  function startQuiz() { step = 0; answers = []; renderQuestion(); }
-
-  fab.addEventListener('click', function () { startQuiz(); openModal(); });
-  byId('ns-close').addEventListener('click', function () { closeModal(true); });
-  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(true); });
-  back.addEventListener('click', function () { if (step > 0) { step--; renderQuestion(); } });
-  retake.addEventListener('click', startQuiz);
-  byId('ns-go').addEventListener('click', function () {
-    closeModal(false);
-    setStage(picked.id);
-    scrollToEl(detail);
+  fab.addEventListener('click', function () { setHelp(helpMenu.hidden); });
+  helpMenu.addEventListener('click', function (e) { if (e.target.closest('a')) setHelp(false); });
+  document.addEventListener('click', function (e) {
+    if (!helpMenu.hidden && !e.target.closest('#help')) setHelp(false);
   });
-  byId('ns-guide').addEventListener('click', function () {
-    closeModal(false);
-    scrollToEl(byId('guide'));
-    byId('conn-name').focus({ preventScroll: true });
-  });
-
   document.addEventListener('keydown', function (e) {
-    if (!overlay.classList.contains('open')) return;
-    if (e.key === 'Escape') { closeModal(true); return; }
-    if (e.key !== 'Tab') return;
-    var items = focusables();
-    if (!items.length) return;
-    var first = items[0];
-    var last = items[items.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    if (e.key === 'Escape' && !helpMenu.hidden) { setHelp(false); fab.focus(); }
   });
 })();
