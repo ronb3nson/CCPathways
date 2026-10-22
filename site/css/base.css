@@ -121,7 +121,8 @@ body::after {
 /* ---------- Motion: added by main.js, and only when the visitor hasn't asked for reduced motion ---------- */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
-/* Headings rise word by word from behind a mask */
-.split .w { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 .08em .14em 0; margin: 0 -.08em -.14em 0; }
-.split .w > span { display: inline-block; transform: translateY(110%); transition: transform 1s cubic-bezier(.16, .84, .24, 1) calc(var(--i, 0) * 55ms); }
+/* Headings rise word by word from behind a mask. The mask is a clip, not overflow: hidden, so each
+   word keeps its own baseline and the serif and sans words sit on the same line. */
+.split .w { display: inline-block; vertical-align: baseline; clip-path: inset(-.5em -.25em -.2em -.25em); }
+.split .w > span { display: inline-block; transform: translateY(125%); transition: transform 1s cubic-bezier(.16, .84, .24, 1) calc(var(--i, 0) * 55ms); }
 .split.in .w > span { transform: none; }
