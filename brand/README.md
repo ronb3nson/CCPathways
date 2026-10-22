@@ -11,6 +11,8 @@ The shared reference for everything PATHways: the landing page, the brochure and
 | Take Action | Serve | T | `#F4AF00` |
 | Help Others | Multiply | H | `#DE2A50` |
 
+The taglines are used in the PATHways app and report. The landing page leaves them out, so a newcomer learns one name per area, and explains each area with its line from the definition (below).
+
 Help Others means making disciples who make disciples, not leadership. Treat the four as ways to grow, not ranked stages.
 
 Letter circles use dark text (`#111111`) on Participate, Apply and Take Action, and white text on Help Others, for contrast.
@@ -43,7 +45,14 @@ Gill Sans and Proxima Nova are paid fonts. Confirm the license before embedding 
 
 Set it in Charis SIL with *walking with Jesus* in bold, and mark each area's phrase in that area's color like a highlighter: a band over the lower half of the words (from 52% of the line down), in the area color at 32% on white, with no underline. *together* is Participate, *becoming like Him* is Apply, *living like Him* is Take Action and *helping others do the same* is Help Others. This matches the opening of the PATHways report.
 
-Each area in a few words, from the report: Belong, being known and connected in a church family. Become, growing in your own walk with Jesus. Serve, using what God has given you to meet needs. Multiply, making disciples who make disciples.
+On the landing page's area cards, each line opens with that area's phrase from the definition, then says how in a few words:
+
+- Participate: Walking with Jesus together as part of a church family.
+- Apply: Becoming like Jesus in your everyday life.
+- Take Action: Living like Jesus by using your gifts to serve others.
+- Help Others: Helping others become like Jesus, so they make disciples too.
+
+Each area in a few words, as the report puts it: Belong, being known and connected in a church family. Become, growing in your own walk with Jesus. Serve, using what God has given you to meet needs. Multiply, making disciples who make disciples.
 
 ## Voice
 

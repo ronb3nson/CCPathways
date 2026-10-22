@@ -64,7 +64,7 @@ The floating "Not sure where to start?" button opens two choices: take the asses
 
 A sandy footpath links them all. It fades in from the hero's footpath and winds through the four area stops, past a cairn beside "Who walks with you", then turns off the edge of the screen. Four marker posts, a few tree blazes and wildflowers carry the area colors. Headings rise word by word, the definition's marks sweep in like a highlighter, and a fine film grain covers the page. A trail-map guide appears on screens 1200px and wider.
 
-Areas and taglines: Participate (Belong), Apply (Become), Take Action (Serve), Help Others (Multiply). The wording describes each person's own walk with Jesus, never "the path". No paid font files are included; see `brand/README.md` for type and colors.
+The four areas are Participate, Apply, Take Action and Help Others. The page leaves out the taglines (Belong, Become, Serve, Multiply) that the app and report use: each area's card line, taken from the definition, says what it means instead. The wording describes each person's own walk with Jesus, never "the path". No paid font files are included; see `brand/README.md` for type and colors.
 
 ### Still to do
 

@@ -230,9 +230,7 @@ main { position: relative; }
 .st-t[data-active="true"] { outline-color: var(--t); }
 .st-h[data-active="true"] { outline-color: var(--h); }
 .st .lc { position: absolute; top: -64px; left: 50%; transform: translateX(-50%); box-shadow: 0 0 0 6px var(--white); }
-.st h3 { margin-bottom: 2px; }
-.st-tag, .s-tag { font-family: var(--fh); font-size: 15px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
-.st-tag { margin-bottom: 12px; }
+.st h3 { margin-bottom: 10px; }
 .st-desc { flex: 1; margin-bottom: 20px; font-family: var(--fs); font-style: italic; font-size: 17px; line-height: 1.4; letter-spacing: 0; }
 .st .btn { width: 100%; padding: 12px 22px; }
 /* The cards only fade in, so the trail's stops never move */
@@ -253,7 +251,7 @@ main { position: relative; }
 .s-ph { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 32px; padding-right: 80px; }
 .s-ph .lc { box-shadow: 0 0 0 6px var(--white); }
 .s-ph h3 { font-size: 36px; }
-.s-tag { margin: 2px 0 10px; }
+.s-ph h3 { margin-bottom: 8px; }
 .s-ph p { max-width: 620px; font-size: 18px; }
 
 /* Next-step cards: a small landscape in the area's color, a trail-sign tag, then the step */
@@ -293,9 +291,8 @@ main { position: relative; }
   /* The panel intro runs the full width under the letter and name */
   .s-ph { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-items: center; padding-right: 0; }
   .s-ph > div { display: contents; }
-  .s-ph .lc { grid-row: 1 / 3; width: 50px; height: 50px; font-size: 24px; }
-  .s-ph h3 { grid-column: 2; font-size: 30px; }
-  .s-ph .s-tag { grid-column: 2; margin-bottom: 0; }
+  .s-ph .lc { width: 50px; height: 50px; font-size: 24px; }
+  .s-ph h3 { grid-column: 2; margin-bottom: 0; font-size: 30px; }
   .s-ph p { grid-column: 1 / -1; margin-top: 14px; font-size: 17px; }
   .rc { padding: 0 22px 22px; }
   .rc-art { margin: 0 -22px; }
