@@ -1,0 +1,41 @@
+/* Design tokens. Stage colors follow the PATHways app and logo icon. */
+:root {
+  --ink: #111111;
+  --white: #FFFFFF;
+  --off: #FAFAFA;
+  --cream: #FCF1D8;
+  --gray: #EDEDED;
+  --blue: #97CAEB;
+  --yel: #FBCF00;
+  --yel-hover: #E8BF00;
+  --red: #EA1B43;
+  --red-hover: #C3123A;
+  --foot: #1C1C1C;
+  --muted: #555555;
+  --line: #DDDDDD;
+  --field-line: #CFCFCF;
+
+  /* Stages: color for letter circles and the active outline, tint for card backgrounds */
+  --p: #7FB3E5; --p-lt: #E6F0FA; --p-on: var(--ink);
+  --a: #14A8C2; --a-lt: #DCF2F6; --a-on: var(--ink);
+  --t: #F4AF00; --t-lt: #FDEFCC; --t-on: var(--ink);
+  --h: #DE2A50; --h-lt: #FADDE3; --h-on: var(--white);
+
+  /* Gill Sans and Proxima Nova are used when installed; otherwise the free fallbacks load from Google Fonts */
+  --fh: 'Gill Sans', 'Gill Sans MT', Lato, sans-serif;
+  --fb: 'Proxima Nova', Montserrat, sans-serif;
+  --fbtn: Montserrat, sans-serif;
+
+  --r-sm: 4px;
+  --r-md: 10px;
+  --mw: 930px;
+  --mw-hero: 1080px;
+  --mw-foot: 1100px;
+  --gutter: 24px;
+  --sec-pad: 90px;
+  --hdr-h: 80px;
+}
+
+@media (max-width: 640px) {
+  :root { --sec-pad: 64px; }
+}
