@@ -123,11 +123,13 @@
 
   /* Floating button: shown only while the hero, the form and the footer are all out of view */
   var fab = byId('fab-open');
+  var trailmap = byId('trailmap');
   var inView = { hero: true, guide: false, foot: false };
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { inView[en.target.dataset.fab] = en.isIntersecting; });
       fab.classList.toggle('show', !inView.hero && !inView.guide && !inView.foot);
+      trailmap.classList.toggle('show', !inView.hero && !inView.foot);
     });
     [['.hero', 'hero'], ['#guide', 'guide'], ['.foot', 'foot']].forEach(function (pair) {
       var el = $(pair[0]);
@@ -138,8 +140,29 @@
     fab.classList.add('show');
   }
 
+  /* Trail map: marks the section you're in */
+  var mapLinks = $$('#trailmap a');
+  if ('IntersectionObserver' in window) {
+    var mapIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        mapLinks.forEach(function (a) {
+          a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + en.target.id));
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    mapLinks.forEach(function (a) { mapIO.observe(byId(a.getAttribute('href').slice(1))); });
+  }
+  mapLinks.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      scrollToEl(byId(a.getAttribute('href').slice(1)), 0);
+    });
+  });
+
   /* Trail: the hero's footpath continues down the page, edged with grass, stones, wildflowers and
-     trail marker posts. Its dotted centre line steps forward a little as you scroll. */
+     trail marker posts. It fades in out of the hero and fades out into the night of the footer, so the
+     walk carries on past both ends. Its dotted centre line steps forward a little as you scroll. */
   var main = $('main');
   var NS = 'http://www.w3.org/2000/svg';
   var trail = document.createElementNS(NS, 'svg');
@@ -147,15 +170,22 @@
   trail.setAttribute('aria-hidden', 'true');
   trail.setAttribute('focusable', 'false');
   trail.innerHTML =
+    '<defs><linearGradient id="trail-fade-grad" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="0"></linearGradient>' +
+    '<mask id="trail-fade" maskUnits="userSpaceOnUse" x="0" y="0"><rect fill="url(#trail-fade-grad)"/></mask></defs>' +
+    '<g mask="url(#trail-fade)">' +
     '<path class="trail-edge"/><path class="trail-bed"/><path class="trail-dots"/>' +
     '<g class="trail-verge"></g>' +
-    '<use class="trail-cairn" href="#i-cairn" width="48" height="56"/>';
+    '<use class="trail-cairn" href="#i-cairn" width="48" height="56"/>' +
+    '</g>';
   main.insertBefore(trail, main.firstChild);
   var trailPaths = $$('.trail path');
   var trailDots = trail.querySelector('.trail-dots');
   var trailVerge = trail.querySelector('.trail-verge');
   var trailCairn = trail.querySelector('.trail-cairn');
+  var trailFade = trail.querySelector('#trail-fade-grad');
+  var trailFadeRect = trail.querySelector('#trail-fade rect');
   var trailLen = 0;
+  var cairnAt = null;
   var FLOWERS = ['#7FB3E5', '#14A8C2', '#F4AF00', '#DE2A50'];
 
   function rel(el) {
@@ -198,8 +228,14 @@
     run(L, ch.top + pad * 0.7, stops[0].cy - 60, 1);
     stops.forEach(function (s) { pts.push([s.cx, s.cy]); });
     run(R, stops[stops.length - 1].cy + 60, ch.bottom - pad * 0.7, -1);
-    // The trail ends at a cairn beside "Who walks with you"
+    // A cairn marks the spot beside "Who walks with you"
     run(L, wk.top + pad * 0.7, wk.bottom - pad, 1);
+    cairnAt = pts[pts.length - 1];
+    // Then on past the app section and into the footer, where it fades away
+    var ap = rel($('.app'));
+    var ft = rel($('.foot'));
+    run(R, ap.top + pad * 0.7, ap.bottom - pad * 0.4, -1);
+    pts.push([R - wig * 2, ft.top + 160]);
     return pts;
   }
 
@@ -256,17 +292,19 @@
       }
       trailVerge.appendChild(el);
     }
-    // A marker post every so often, banded in the next area color, like blazes on a hiking trail
-    for (var p = 220, k = 0; p < trailLen - 120; p += 380, k++) {
+    // Just four marker posts, one where the trail enters each section, banded in the area colors in order
+    var gates = ['.assess', '.choose', '.walk', '.app'].map(function (sel) { return rel($(sel)).top + 70; });
+    var g = 0;
+    for (var p = 0; p < trailLen && g < gates.length; p += 6) {
       var c = path.getPointAtLength(p);
+      if (c.y < gates[g]) continue;
       var c2 = path.getPointAtLength(p + 1);
       var ex = c2.x - c.x, ey = c2.y - c.y, el2 = Math.hypot(ex, ey) || 1;
-      // Where the path runs across the page, posts stand on its upper side so they never overlap it
+      // Where the path runs across the page, the post stands on its upper side so it never covers it
       var ny = ex / el2;
-      var s2 = Math.abs(ny) > 0.5 ? (ny > 0 ? -1 : 1) : (k % 2 ? -1 : 1);
+      var s2 = Math.abs(ny) > 0.5 ? (ny > 0 ? -1 : 1) : 1;
       var px = c.x + (-ey / el2) * (width / 2 + 20) * s2;
-      var py = c.y + (ex / el2) * (width / 2 + 20) * s2;
-      if (stops.some(function (s) { return Math.hypot(s.cx - px, s.cy - py) < 70; })) continue;
+      var py = c.y + ny * (width / 2 + 20) * s2;
       var post = document.createElementNS(NS, 'use');
       post.setAttribute('href', '#i-post');
       post.setAttribute('class', 'verge-post');
@@ -274,14 +312,17 @@
       post.setAttribute('height', 54);
       post.setAttribute('x', (px - 9.5).toFixed(1));
       post.setAttribute('y', (py - 50).toFixed(1));
-      post.style.color = FLOWERS[k % 4];
+      post.style.color = FLOWERS[g];
       trailVerge.appendChild(post);
+      g++;
     }
   }
 
   function buildTrail() {
     var W = main.clientWidth;
-    var H = main.offsetHeight;
+    // The trail reaches past the bottom of <main> into the top of the footer
+    var footTop = rel($('.foot')).top;
+    var H = footTop + 200;
     trail.setAttribute('width', W);
     trail.setAttribute('height', H);
     trail.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
@@ -296,9 +337,17 @@
     var bed = trail.querySelector('.trail-bed');
     trailLen = bed.getTotalLength();
     buildVerge(bed, width);
-    var end = pts[pts.length - 1];
-    trailCairn.setAttribute('x', (end[0] - 24).toFixed(1));
-    trailCairn.setAttribute('y', (end[1] - 46).toFixed(1));
+    trailCairn.setAttribute('x', (cairnAt[0] + width / 2 + 6).toFixed(1));
+    trailCairn.setAttribute('y', (cairnAt[1] - 46).toFixed(1));
+    // Fade in over the first 170px below the hero, and out over the top of the footer
+    var y0 = pts[0][1];
+    var stops = [[y0, 0], [y0 + 170, 1], [footTop - 90, 1], [footTop + 130, 0]];
+    trailFade.setAttribute('y2', H);
+    trailFade.innerHTML = stops.map(function (st) {
+      return '<stop offset="' + (st[0] / H).toFixed(4) + '" stop-color="#fff" stop-opacity="' + st[1] + '"/>';
+    }).join('');
+    trailFadeRect.setAttribute('width', W);
+    trailFadeRect.setAttribute('height', H);
     stepTrail();
   }
 
@@ -360,11 +409,36 @@
         revealIO.unobserve(en.target);
       });
     }, { rootMargin: '0px 0px -8% 0px' });
-    $$('.assess-in > div, .choose .wrap > .lbl, .choose .wrap > h2, .choose-sub, .def-toggle, .walk-in > *, .app-in > div')
+    $$('.assess-in > div, .choose .wrap > .lbl, .choose-sub, .def-toggle, .walk-in > *, .app-in > div')
       .forEach(function (el) {
         el.classList.add('reveal');
         revealIO.observe(el);
       });
+    // Section headings rise word by word
+    $$('.sec h2, .foot-close-h').forEach(function (h) {
+      var i = 0;
+      (function split(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+          if (child.nodeType === 1) { split(child); return; }
+          if (child.nodeType !== 3 || !child.textContent.trim()) return;
+          var frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            var w = document.createElement('span');
+            w.className = 'w';
+            var inner = document.createElement('span');
+            inner.textContent = part;
+            inner.style.setProperty('--i', i++);
+            w.appendChild(inner);
+            frag.appendChild(w);
+          });
+          node.replaceChild(frag, child);
+        });
+      })(h);
+      h.classList.add('split');
+      revealIO.observe(h);
+    });
     // The area cards only fade, so the trail's stops never move
     $$('.st').forEach(function (el, i) {
       el.classList.add('reveal-fade');

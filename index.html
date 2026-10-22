@@ -10,7 +10,7 @@
 <link rel="icon" href="assets/img/pathways-icon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400&family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/sections.css">
@@ -59,7 +59,7 @@
           <stop offset="1" stop-color="#F2C27B"/>
         </linearGradient>
       </defs>
-      <rect x="-200" y="-400" width="1840" height="1200" fill="url(#sky)"/>
+      <rect x="-200" y="-400" width="1840" height="1200" fill="url(#sky)"/><g fill="#FFFFFF"><circle cx="140" cy="60" r="1.4" opacity=".55"/><circle cx="310" cy="130" r="1" opacity=".4"/><circle cx="520" cy="40" r="1.2" opacity=".5"/><circle cx="1180" cy="70" r="1.5" opacity=".5"/><circle cx="1320" cy="150" r="1" opacity=".35"/><circle cx="960" cy="110" r="1" opacity=".3"/><circle cx="60" cy="210" r="1" opacity=".3"/><circle cx="1400" cy="30" r="1.2" opacity=".45"/></g>
     </svg>
     <svg class="hero-layer" data-depth="0.04" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" focusable="false">
       <defs>
@@ -73,6 +73,17 @@
     </svg>
     <svg class="hero-layer" data-depth="0.22" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" focusable="false">
       <path fill="#3A4566" d="M0 600 L110 548 L200 578 L320 506 L440 562 L560 522 L680 576 L800 520 L900 556 L1040 498 L1170 556 L1290 522 L1440 566 V800 H0Z"/>
+    </svg>
+    <svg class="hero-layer" data-depth="0.17" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" focusable="false">
+      <defs>
+        <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#E8D2C0" stop-opacity="0"/>
+          <stop offset=".55" stop-color="#E8D2C0" stop-opacity=".22"/>
+          <stop offset="1" stop-color="#E8D2C0" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <rect x="-100" y="560" width="1640" height="110" fill="url(#mist)"/>
+      <g fill="none" stroke="#1B2333" stroke-width="1.6" stroke-linecap="round" opacity=".7"><path d="M1090 330q5-5 10 0q5-5 10 0"/><path d="M1122 312q4-4 8 0q4-4 8 0"/><path d="M1068 352q3-3 6 0q3-3 6 0"/></g>
     </svg>
     <svg class="hero-layer" data-depth="0.13" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" focusable="false">
       <path fill="#26314A" d="M0 660 C160 612 300 640 430 616 C560 592 650 650 800 630 C950 610 1080 586 1220 620 C1320 645 1390 630 1440 624 V800 H0Z"/>
@@ -92,7 +103,7 @@
   <div class="hero-in">
     <div>
       <h1 id="hero-h1"><img class="hero-logo" src="assets/img/pathways-logo-white-text.svg" alt="PATHways" width="395" height="64"></h1>
-      <p class="hero-sub">Follow Jesus one step at a time</p>
+      <p class="hero-sub">Follow Jesus <em class="accent">one step at a time</em></p>
       <p class="hero-intro">Wherever you are on your journey with Jesus, there's a next step for you, and people ready to walk it with you.</p>
     </div>
     <nav aria-label="Choose where to start">
@@ -112,14 +123,13 @@
   <div class="scenery" aria-hidden="true">
     <svg class="sc-cloud sc-margin" style="left:3%;top:14%;width:150px;color:#FFFFFF" viewBox="0 0 120 50" data-depth="0.18" data-drift="0.06"><use href="#i-cloud"/></svg>
     <svg class="sc-cloud sc-margin" style="right:5%;top:8%;width:96px;color:#FFFFFF" viewBox="0 0 120 50" data-depth="0.26" data-drift="-0.05"><use href="#i-cloud"/></svg>
-    <svg class="sc-post sc-margin" style="left:9%;top:58%;color:#7FB3E5" viewBox="0 0 14 40" data-depth="0.08"><use href="#i-post"/></svg>
     <svg class="sc-compass" style="" viewBox="-100 -100 200 200" data-spin="0.06"><use href="#i-compass"/></svg>
     <svg class="sc-band" viewBox="0 0 1440 200" preserveAspectRatio="none" data-depth="0.06"><path fill="#F6E6C4" d="M0 200V90C180 60 360 80 520 100S860 50 1040 70 1300 110 1440 80V200Z"/><path fill="#F0DBB0" d="M0 200V130C220 104 420 132 640 120S1060 90 1240 116C1330 128 1400 124 1440 118V200Z"/></svg>
   </div>
   <div class="wrap assess-in">
     <div>
       <span class="lbl">Get your bearings</span>
-      <h2 id="assess-title">See where you are in your walk with Jesus</h2>
+      <h2 id="assess-title">See where you are in your <em class="accent">walk with Jesus</em></h2>
       <p class="assess-desc">Every walk with Jesus is unique. PATHways helps you see where you are today and how to keep growing to become more like Him.</p>
     </div>
     <div>
@@ -136,16 +146,14 @@
     <svg class="sc-tree sc-margin" style="left:1.2%;top:20%;width:40px;color:#CFDDD2" viewBox="0 0 40 80" data-depth="0.2"><use href="#i-pine"/></svg>
     <svg class="sc-tree sc-margin" style="left:3.8%;top:23%;width:56px;color:#A3BDA9;--blaze:#F4AF00" viewBox="0 0 40 80" data-depth="0.1"><use href="#i-pine"/></svg>
     <svg class="sc-tree sc-margin" style="right:1.5%;top:44%;width:60px;color:#A3BDA9;--blaze:#DE2A50" viewBox="0 0 40 80" data-depth="0.1"><use href="#i-pine"/></svg>
-    <svg class="sc-post sc-margin" style="right:9.2%;top:30%;color:#F4AF00" viewBox="0 0 14 40" data-depth="0.1"><use href="#i-post"/></svg>
     <svg class="sc-tree sc-margin" style="right:5.5%;top:48%;width:38px;color:#CFDDD2" viewBox="0 0 40 80" data-depth="0.2"><use href="#i-pine"/></svg>
     <svg class="sc-tree sc-margin" style="left:1.5%;top:68%;width:66px;color:#B7CBBB;--blaze:#14A8C2" viewBox="0 0 50 70" data-depth="0.12"><use href="#i-oak"/></svg>
-    <svg class="sc-post sc-margin" style="left:8.4%;top:80%;color:#14A8C2" viewBox="0 0 14 40" data-depth="0.12"><use href="#i-post"/></svg>
     <svg class="sc-tree sc-margin" style="left:5.6%;top:72%;width:36px;color:#D3E0D6" viewBox="0 0 40 80" data-depth="0.2"><use href="#i-pine"/></svg>
     <svg class="sc-band" viewBox="0 0 1440 200" preserveAspectRatio="none" data-depth="0.05"><path fill="#F1F6F0" d="M0 200V96C200 70 400 92 600 104S980 70 1180 82 1380 104 1440 96V200Z"/><path fill="#E6EFE5" d="M0 200V140C240 118 460 140 700 132S1160 112 1440 136V200Z"/></svg>
   </div>
   <div class="wrap">
     <span class="lbl">Four ways to grow</span>
-    <h2 id="stages-title">Find your next step</h2>
+    <h2 id="stages-title">Find your <em class="accent">next step</em></h2>
     <p class="choose-sub">No two people's walk with Jesus looks the same. Start with whichever of these sounds most like you today.</p>
     <button type="button" class="link-btn def-toggle" id="def-toggle" aria-expanded="false" aria-controls="explainer">What is discipleship? →</button>
 
@@ -259,12 +267,12 @@
   </div>
 </section>
 
-<section class="sec walk" aria-labelledby="walk-title">
+<section class="sec walk" id="walk" aria-labelledby="walk-title">
   <div class="scenery" aria-hidden="true">
+    <div class="sc-words" data-drift="0.45">Belong · Become · Serve · Multiply · Belong · Become · Serve · Multiply ·</div>
     <svg class="sc-bird sc-margin" style="right:13%;top:10%;width:26px;color:#8C8C8C" viewBox="0 0 24 10" data-depth="0.3" data-drift="-0.12"><use href="#i-bird"/></svg>
     <svg class="sc-bird sc-margin" style="right:10%;top:13%;width:18px;color:#9C9C9C" viewBox="0 0 24 10" data-depth="0.34" data-drift="-0.14"><use href="#i-bird"/></svg>
     <svg class="sc-bird sc-margin" style="right:15.5%;top:15%;width:14px;color:#A8A8A8" viewBox="0 0 24 10" data-depth="0.36" data-drift="-0.1"><use href="#i-bird"/></svg>
-    <svg class="sc-post sc-margin" style="right:10.5%;top:58%;color:#DE2A50" viewBox="0 0 14 40" data-depth="0.1"><use href="#i-post"/></svg>
     <svg class="sc-tree sc-margin" style="right:2.2%;top:38%;width:72px;color:#CDD2C9" viewBox="0 0 50 70" data-depth="0.12"><use href="#i-oak"/></svg>
     <svg class="sc-tree sc-margin" style="right:6.4%;top:45%;width:46px;color:#B6BDB1;--blaze:#7FB3E5" viewBox="0 0 50 70" data-depth="0.07"><use href="#i-oak"/></svg>
     <svg class="sc-band" viewBox="0 0 1440 200" preserveAspectRatio="none" data-depth="0.05"><path fill="#E5E5E2" d="M0 200V120L120 82 230 110 360 62 500 106 640 76 780 112 920 70 1060 104 1200 66 1330 100 1440 84V200Z"/><path fill="#DFDFDA" d="M0 200V150C240 128 480 150 720 140S1200 126 1440 146V200Z"/></svg>
@@ -272,7 +280,7 @@
   <div class="wrap walk-in">
     <div>
       <span class="lbl">You're not alone</span>
-      <h2 id="walk-title">Who walks with you</h2>
+      <h2 id="walk-title">Who walks <em class="accent">with you</em></h2>
       <p class="walk-p">Following Jesus was never meant to be done alone. At every step, real people at Christ Church are praying for you and walking with you, from your first Sunday to the day you help someone else follow Jesus.</p>
       <div class="people">
         <div class="person"><div class="person-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div><h4>Pastors &amp; chaplains</h4><p>Prayer, guidance and care in every season of life.</p></div></div>
@@ -295,7 +303,7 @@
   </div>
 </section>
 
-<section class="sec app" aria-labelledby="app-title">
+<section class="sec app" id="stay-connected" aria-labelledby="app-title">
   <div class="scenery" aria-hidden="true">
     <div class="sc-dusk"></div>
     <svg class="sc-bird sc-margin" style="left:9%;top:12%;width:24px;color:#8F8AA0" viewBox="0 0 24 10" data-depth="0.3" data-drift="0.12"><use href="#i-bird"/></svg>
@@ -304,8 +312,8 @@
   </div>
   <div class="wrap app-in">
     <div>
-      <span class="lbl">For the road</span>
-      <h2 id="app-title">Take your church family with you</h2>
+      <span class="lbl">Stay connected</span>
+      <h2 id="app-title">Take your church family <em class="accent">for the road</em></h2>
       <p class="app-p">Watch messages, give, find groups and events, and see your next step, all in one place. Download the Christ Church app and stay connected all week long.</p>
       <div class="app-btns">
         <!-- Placeholder store URLs -->
@@ -326,6 +334,14 @@
   <div class="scenery" aria-hidden="true">
     <svg class="sc-stars" viewBox="0 0 1440 70" preserveAspectRatio="xMidYMin slice"><circle cx="652" cy="38" r="1.5" fill="#FFFFFF" fill-opacity="0.56" class="tw" style="animation-delay:2.5s"/><circle cx="844" cy="19" r="1.2" fill="#FFFFFF" fill-opacity="0.65"/><circle cx="1136" cy="15" r="1.0" fill="#FFFFFF" fill-opacity="0.35"/><circle cx="1160" cy="45" r="0.7" fill="#FFFFFF" fill-opacity="0.84"/><circle cx="1380" cy="43" r="1.3" fill="#FFFFFF" fill-opacity="0.39" class="tw" style="animation-delay:0.1s"/><circle cx="760" cy="13" r="0.9" fill="#FFFFFF" fill-opacity="0.43"/><circle cx="53" cy="33" r="1.1" fill="#FFFFFF" fill-opacity="0.76"/><circle cx="747" cy="42" r="1.1" fill="#FFFFFF" fill-opacity="0.66"/><circle cx="659" cy="24" r="1.6" fill="#FFFFFF" fill-opacity="0.85" class="tw" style="animation-delay:4.2s"/><circle cx="1015" cy="26" r="0.9" fill="#FFFFFF" fill-opacity="0.46"/><circle cx="110" cy="48" r="1.1" fill="#FFFFFF" fill-opacity="0.77"/><circle cx="559" cy="58" r="1.5" fill="#FFFFFF" fill-opacity="0.30"/><circle cx="308" cy="56" r="1.1" fill="#FFFFFF" fill-opacity="0.84" class="tw" style="animation-delay:2.0s"/><circle cx="114" cy="41" r="1.4" fill="#FFFFFF" fill-opacity="0.45"/><circle cx="134" cy="27" r="1.6" fill="#FFFFFF" fill-opacity="0.72"/><circle cx="178" cy="22" r="0.8" fill="#FFFFFF" fill-opacity="0.33"/><circle cx="1142" cy="19" r="1.2" fill="#FFFFFF" fill-opacity="0.55" class="tw" style="animation-delay:1.0s"/><circle cx="1049" cy="17" r="1.3" fill="#FFFFFF" fill-opacity="0.36"/><circle cx="607" cy="21" r="0.9" fill="#FFFFFF" fill-opacity="0.83"/><circle cx="1151" cy="25" r="1.5" fill="#FFFFFF" fill-opacity="0.42"/><circle cx="570" cy="53" r="1.3" fill="#FFFFFF" fill-opacity="0.36" class="tw" style="animation-delay:4.9s"/><circle cx="313" cy="23" r="1.4" fill="#FFFFFF" fill-opacity="0.48"/><circle cx="431" cy="14" r="0.8" fill="#FFFFFF" fill-opacity="0.62"/><circle cx="355" cy="40" r="1.0" fill="#FFFFFF" fill-opacity="0.55"/><circle cx="1372" cy="34" r="1.2" fill="#FFFFFF" fill-opacity="0.78" class="tw" style="animation-delay:0.9s"/><circle cx="229" cy="55" r="1.4" fill="#FFFFFF" fill-opacity="0.44"/><circle cx="280" cy="47" r="1.5" fill="#FFFFFF" fill-opacity="0.41"/><circle cx="1359" cy="54" r="1.2" fill="#FFFFFF" fill-opacity="0.53"/><circle cx="157" cy="12" r="1.6" fill="#FFFFFF" fill-opacity="0.43" class="tw" style="animation-delay:3.5s"/><circle cx="375" cy="51" r="1.2" fill="#FFFFFF" fill-opacity="0.46"/><circle cx="259" cy="46" r="0.8" fill="#FFFFFF" fill-opacity="0.43"/><circle cx="804" cy="53" r="1.3" fill="#FFFFFF" fill-opacity="0.45"/><circle cx="1313" cy="20" r="0.7" fill="#FFFFFF" fill-opacity="0.45" class="tw" style="animation-delay:2.2s"/><circle cx="96" cy="19" r="1.0" fill="#FFFFFF" fill-opacity="0.61"/></svg>
     <svg class="sc-moon" viewBox="0 0 40 40" data-depth="0.12"><circle cx="20" cy="20" r="14" fill="#F3EBD6"/><circle cx="27" cy="15" r="12" fill="#1C1C1C"/></svg>
+  </div>
+  <div class="foot-close">
+    <p class="foot-close-lbl">The walk goes on</p>
+    <p class="foot-close-h">Wherever you are, <em class="accent">there's a next step.</em></p>
+    <div class="foot-close-btns">
+      <a class="btn btn-yel" href="https://pathways.jimgottshall.com" target="_blank" rel="noopener">Take the assessment</a>
+      <a class="btn btn-ghost" href="#guide">Talk to a guide</a>
+    </div>
   </div>
   <div class="foot-in">
     <div class="foot-brand">
@@ -354,6 +370,14 @@
   </div>
 </footer>
 
+<nav class="trailmap" id="trailmap" aria-label="Page sections">
+  <ol>
+    <li><a href="#assessment"><span class="tm-dot" aria-hidden="true"></span><span class="tm-lbl">Get your bearings</span></a></li>
+    <li><a href="#choose-path"><span class="tm-dot" aria-hidden="true"></span><span class="tm-lbl">Find your next step</span></a></li>
+    <li><a href="#walk"><span class="tm-dot" aria-hidden="true"></span><span class="tm-lbl">Who walks with you</span></a></li>
+    <li><a href="#stay-connected"><span class="tm-dot" aria-hidden="true"></span><span class="tm-lbl">Stay connected</span></a></li>
+  </ol>
+</nav>
 <button type="button" class="fab" id="fab-open" aria-haspopup="dialog">Not sure where to start?</button>
 <div class="ov" id="ns-overlay">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ns-title">
