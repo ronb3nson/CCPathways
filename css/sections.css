@@ -3,14 +3,12 @@ main { position: relative; }
 .sec > .wrap { position: relative; z-index: 2; }
 .trail { position: absolute; top: 0; left: 0; z-index: 1; pointer-events: none; }
 .trail path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.trail-ghost { stroke: rgba(17, 17, 17, .2); stroke-width: 2.5px; stroke-dasharray: 0 10; }
 .trail-edge { stroke: #D6C39E; }
 .trail-bed { stroke: #EEE2CA; }
 .trail-dots { stroke: #FFFFFF; stroke-opacity: .95; stroke-width: 3px; stroke-dasharray: 0 12; }
-.trail-reveal { stroke: #fff; transition: stroke-dashoffset .8s cubic-bezier(.2, .7, .2, 1); }
 .verge-tuft { color: #8DAA8A; }
 .verge-stone { fill: #CFC5B1; }
-@media (prefers-reduced-motion: reduce) { .trail-reveal { transition: none; } }
+.sc-post { width: 24px; }
 
 /* Scenery: one landscape layer per section, behind the trail and content; main.js adds the parallax */
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }

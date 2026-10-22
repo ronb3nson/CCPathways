@@ -19,8 +19,9 @@
 <body>
 <!-- Scenery shapes, reused by the section scenery and the trail -->
 <svg class="sprite" aria-hidden="true" focusable="false">
-  <symbol id="i-pine" viewBox="0 0 40 80"><path fill="currentColor" d="M20 0L33 26H26L37 48H28L40 70H23V80H17V70H0L12 48H3L14 26H7Z"/></symbol>
-  <symbol id="i-oak" viewBox="0 0 50 70"><path fill="currentColor" d="M23 44h4v26h-4z"/><path fill="currentColor" d="M25 2c9 0 15 6 16 13 6 2 9 8 8 14-1 8-8 13-16 13H17C9 42 2 37 1 29c-1-6 2-12 8-14C10 8 16 2 25 2Z"/></symbol>
+  <symbol id="i-pine" viewBox="0 0 40 80"><path fill="currentColor" d="M20 0L33 26H26L37 48H28L40 70H23V80H17V70H0L12 48H3L14 26H7Z"/><path fill="var(--blaze, transparent)" d="M18 71h4v6h-4z"/></symbol>
+  <symbol id="i-oak" viewBox="0 0 50 70"><path fill="currentColor" d="M23 44h4v26h-4z"/><path fill="var(--blaze, transparent)" d="M23 52h4v6h-4z"/><path fill="currentColor" d="M25 2c9 0 15 6 16 13 6 2 9 8 8 14-1 8-8 13-16 13H17C9 42 2 37 1 29c-1-6 2-12 8-14C10 8 16 2 25 2Z"/></symbol>
+  <symbol id="i-post" viewBox="0 0 14 40"><path fill="#7A5C3E" d="M4 5h6v35H4z"/><path fill="#5E462F" d="M3 2h8v4H3z"/><path fill="currentColor" d="M4 10h6v8H4z"/><path fill="#FFFFFF" d="M5.5 12.5 7 11l1.5 1.5L7 16z" opacity=".9"/></symbol>
   <symbol id="i-cloud" viewBox="0 0 120 50"><path fill="currentColor" d="M18 50a18 18 0 0 1 3-35 26 26 0 0 1 49-7 20 20 0 0 1 33 13 15 15 0 0 1-1 29Z"/></symbol>
   <symbol id="i-bird" viewBox="0 0 24 10"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M1 7Q6 1 12 7Q18 1 23 7"/></symbol>
   <symbol id="i-tuft" viewBox="0 0 20 14"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M4 14 1 5M8 14V1M12 14l3-11M16 14l3-7"/></symbol>
@@ -111,6 +112,7 @@
   <div class="scenery" aria-hidden="true">
     <svg class="sc-cloud sc-margin" style="left:3%;top:14%;width:150px;color:#FFFFFF" viewBox="0 0 120 50" data-depth="0.18" data-drift="0.06"><use href="#i-cloud"/></svg>
     <svg class="sc-cloud sc-margin" style="right:5%;top:8%;width:96px;color:#FFFFFF" viewBox="0 0 120 50" data-depth="0.26" data-drift="-0.05"><use href="#i-cloud"/></svg>
+    <svg class="sc-post sc-margin" style="left:9%;top:58%;color:#7FB3E5" viewBox="0 0 14 40" data-depth="0.08"><use href="#i-post"/></svg>
     <svg class="sc-compass" style="" viewBox="-100 -100 200 200" data-spin="0.06"><use href="#i-compass"/></svg>
     <svg class="sc-band" viewBox="0 0 1440 200" preserveAspectRatio="none" data-depth="0.06"><path fill="#F6E6C4" d="M0 200V90C180 60 360 80 520 100S860 50 1040 70 1300 110 1440 80V200Z"/><path fill="#F0DBB0" d="M0 200V130C220 104 420 132 640 120S1060 90 1240 116C1330 128 1400 124 1440 118V200Z"/></svg>
   </div>
@@ -132,10 +134,12 @@
     <svg class="sc-cloud sc-margin" style="left:7%;top:4%;width:120px;color:#EDF1F5" viewBox="0 0 120 50" data-depth="0.2" data-drift="0.05"><use href="#i-cloud"/></svg>
     <svg class="sc-cloud sc-margin" style="right:4%;top:12%;width:84px;color:#EDF1F5" viewBox="0 0 120 50" data-depth="0.28" data-drift="-0.04"><use href="#i-cloud"/></svg>
     <svg class="sc-tree sc-margin" style="left:1.2%;top:20%;width:40px;color:#CFDDD2" viewBox="0 0 40 80" data-depth="0.2"><use href="#i-pine"/></svg>
-    <svg class="sc-tree sc-margin" style="left:3.8%;top:23%;width:56px;color:#A3BDA9" viewBox="0 0 40 80" data-depth="0.1"><use href="#i-pine"/></svg>
-    <svg class="sc-tree sc-margin" style="right:1.5%;top:44%;width:60px;color:#A3BDA9" viewBox="0 0 40 80" data-depth="0.1"><use href="#i-pine"/></svg>
+    <svg class="sc-tree sc-margin" style="left:3.8%;top:23%;width:56px;color:#A3BDA9;--blaze:#F4AF00" viewBox="0 0 40 80" data-depth="0.1"><use href="#i-pine"/></svg>
+    <svg class="sc-tree sc-margin" style="right:1.5%;top:44%;width:60px;color:#A3BDA9;--blaze:#DE2A50" viewBox="0 0 40 80" data-depth="0.1"><use href="#i-pine"/></svg>
+    <svg class="sc-post sc-margin" style="right:9.2%;top:30%;color:#F4AF00" viewBox="0 0 14 40" data-depth="0.1"><use href="#i-post"/></svg>
     <svg class="sc-tree sc-margin" style="right:5.5%;top:48%;width:38px;color:#CFDDD2" viewBox="0 0 40 80" data-depth="0.2"><use href="#i-pine"/></svg>
-    <svg class="sc-tree sc-margin" style="left:1.5%;top:68%;width:66px;color:#B7CBBB" viewBox="0 0 50 70" data-depth="0.12"><use href="#i-oak"/></svg>
+    <svg class="sc-tree sc-margin" style="left:1.5%;top:68%;width:66px;color:#B7CBBB;--blaze:#14A8C2" viewBox="0 0 50 70" data-depth="0.12"><use href="#i-oak"/></svg>
+    <svg class="sc-post sc-margin" style="left:8.4%;top:80%;color:#14A8C2" viewBox="0 0 14 40" data-depth="0.12"><use href="#i-post"/></svg>
     <svg class="sc-tree sc-margin" style="left:5.6%;top:72%;width:36px;color:#D3E0D6" viewBox="0 0 40 80" data-depth="0.2"><use href="#i-pine"/></svg>
     <svg class="sc-band" viewBox="0 0 1440 200" preserveAspectRatio="none" data-depth="0.05"><path fill="#F1F6F0" d="M0 200V96C200 70 400 92 600 104S980 70 1180 82 1380 104 1440 96V200Z"/><path fill="#E6EFE5" d="M0 200V140C240 118 460 140 700 132S1160 112 1440 136V200Z"/></svg>
   </div>
@@ -260,8 +264,9 @@
     <svg class="sc-bird sc-margin" style="right:13%;top:10%;width:26px;color:#8C8C8C" viewBox="0 0 24 10" data-depth="0.3" data-drift="-0.12"><use href="#i-bird"/></svg>
     <svg class="sc-bird sc-margin" style="right:10%;top:13%;width:18px;color:#9C9C9C" viewBox="0 0 24 10" data-depth="0.34" data-drift="-0.14"><use href="#i-bird"/></svg>
     <svg class="sc-bird sc-margin" style="right:15.5%;top:15%;width:14px;color:#A8A8A8" viewBox="0 0 24 10" data-depth="0.36" data-drift="-0.1"><use href="#i-bird"/></svg>
+    <svg class="sc-post sc-margin" style="right:10.5%;top:58%;color:#DE2A50" viewBox="0 0 14 40" data-depth="0.1"><use href="#i-post"/></svg>
     <svg class="sc-tree sc-margin" style="right:2.2%;top:38%;width:72px;color:#CDD2C9" viewBox="0 0 50 70" data-depth="0.12"><use href="#i-oak"/></svg>
-    <svg class="sc-tree sc-margin" style="right:6.4%;top:45%;width:46px;color:#B6BDB1" viewBox="0 0 50 70" data-depth="0.07"><use href="#i-oak"/></svg>
+    <svg class="sc-tree sc-margin" style="right:6.4%;top:45%;width:46px;color:#B6BDB1;--blaze:#7FB3E5" viewBox="0 0 50 70" data-depth="0.07"><use href="#i-oak"/></svg>
     <svg class="sc-band" viewBox="0 0 1440 200" preserveAspectRatio="none" data-depth="0.05"><path fill="#E5E5E2" d="M0 200V120L120 82 230 110 360 62 500 106 640 76 780 112 920 70 1060 104 1200 66 1330 100 1440 84V200Z"/><path fill="#DFDFDA" d="M0 200V150C240 128 480 150 720 140S1200 126 1440 146V200Z"/></svg>
   </div>
   <div class="wrap walk-in">
