@@ -13,6 +13,8 @@ assets/img/         PATH wheel, PATHways logo and icon
 
 All paths are relative, so the site works from any folder.
 
+It is built for phones, tablets and desktops alike. I tested it at 320, 375, 768 and 1024 wide, at 1440 wide, and on a phone held sideways (812 × 375). Every tap target is at least 44px. Hover effects only apply to devices with a mouse or trackpad, so taps never leave them stuck. The hero is sized to the visible screen on mobile browsers. Visitors who turn on reduced motion in their system settings get a still page.
+
 ## Changes from the handoff
 
 - **Stage taglines:** Belong, Become, Serve, Multiply. Help Others means making disciples who make disciples. The copy that mentioned Grow or Lead has been rewritten.
@@ -31,7 +33,8 @@ All paths are relative, so the site works from any folder.
 
 1. In cPanel's File Manager, create `public_html/cc/pathways/`.
 2. Upload `index.html` and the `css`, `js` and `assets` folders into it. Don't upload `PATHways (1)/` or this README.
-3. To require a password, use cPanel's **Directory Privacy** on `cc/pathways`. Turn on password protection and add a user there. The password lives only on the server.
+3. After changing a CSS or JS file, raise the `?v=` number on its link in `index.html` (for example `?v=3` to `?v=4`), so visitors' browsers load the new file instead of a cached copy.
+4. To require a password, use cPanel's **Directory Privacy** on `cc/pathways`. Turn on password protection and add a user there. The password lives only on the server.
 
 ## Still to do
 

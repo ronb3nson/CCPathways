@@ -76,6 +76,7 @@ a:hover { color: var(--red-hover); text-decoration: underline; }
 }
 
 .link-btn {
+  min-height: 44px;
   background: none;
   border: none;
   font-family: var(--fb);
