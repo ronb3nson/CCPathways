@@ -41,7 +41,7 @@ Gill Sans and Proxima Nova are paid fonts. Confirm the license before embedding 
 
 > Discipleship is **walking with Jesus** together — becoming like Him, living like Him, and helping others do the same.
 
-Set it in Charis SIL with *walking with Jesus* in bold, and mark each area's phrase in that area's color: a light tint behind it and a 3px line under it. *together* is Participate, *becoming like Him* is Apply, *living like Him* is Take Action and *helping others do the same* is Help Others. This matches the opening of the PATHways report.
+Set it in Charis SIL with *walking with Jesus* in bold, and mark each area's phrase in that area's color like a highlighter: a band over the lower half of the words (from 52% of the line down), in the area color at 32% on white, with no underline. *together* is Participate, *becoming like Him* is Apply, *living like Him* is Take Action and *helping others do the same* is Help Others. This matches the opening of the PATHways report.
 
 Each area in a few words, from the report: Belong, being known and connected in a church family. Become, growing in your own walk with Jesus. Serve, using what God has given you to meet needs. Multiply, making disciples who make disciples.
 

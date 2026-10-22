@@ -135,19 +135,20 @@ main { position: relative; }
    What is discipleship? Set like the opening of the PATHways report
    ========================================================================= */
 .define { background: var(--white); text-align: center; }
-.define-text { max-width: 22em; margin: 0 auto 48px; font-family: var(--fs); font-size: clamp(28px, 3.6vw, 44px); line-height: 1.45; letter-spacing: 0; }
+.define-text { max-width: 22em; margin: 0 auto 48px; font-family: var(--fs); font-size: clamp(28px, 3.6vw, 44px); line-height: 1.55; letter-spacing: 0; }
 .define-text strong { font-weight: 700; }
-/* Each area's phrase is marked in that area's color, as in the report; main.js sweeps the marks in */
-.hl { padding: 0 .08em; color: inherit; background-color: transparent; background-repeat: no-repeat; background-image: linear-gradient(var(--hl-line), var(--hl-line)), linear-gradient(var(--hl-bg), var(--hl-bg)); background-position: 0 100%, 0 0; background-size: 100% 3px, 100% 100%; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-.hl-p { --hl-bg: var(--p-lt); --hl-line: var(--p); }
-.hl-a { --hl-bg: var(--a-lt); --hl-line: var(--a); }
-.hl-t { --hl-bg: var(--t-lt); --hl-line: var(--t); }
-.hl-h { --hl-bg: var(--h-lt); --hl-line: var(--h); }
-.marks .hl { background-size: 0 3px, 0 100%; transition: background-size .9s var(--ease); }
+/* Each area's phrase is marked in that area's color exactly as in the PATHways report: a highlighter
+   stroke over the lower half of the words, the area color at 32% on white. main.js sweeps the marks in. */
+.hl { padding: 0 .06em; color: inherit; background-color: transparent; background-repeat: no-repeat; background-position: 0 0; background-size: 100% 100%; background-image: linear-gradient(transparent 52%, var(--hl) 52%); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.hl-p { --hl: color-mix(in srgb, var(--p) 32%, white); }
+.hl-a { --hl: color-mix(in srgb, var(--a) 32%, white); }
+.hl-t { --hl: color-mix(in srgb, var(--t) 32%, white); }
+.hl-h { --hl: color-mix(in srgb, var(--h) 32%, white); }
+.marks .hl { background-size: 0 100%; transition: background-size .9s var(--ease); }
 .marks .hl-a { transition-delay: .25s; }
 .marks .hl-t { transition-delay: .5s; }
 .marks .hl-h { transition-delay: .75s; }
-.marks.in .hl { background-size: 100% 3px, 100% 100%; }
+.marks.in .hl { background-size: 100% 100%; }
 /* The four areas in a color bar, like the foot of the report's cover */
 .define-key { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 760px; margin: 0 auto 40px; list-style: none; text-align: left; }
 .dk { padding-top: 14px; border-top: 6px solid var(--dk); }
@@ -438,7 +439,7 @@ main { position: relative; }
 @media (prefers-reduced-motion: reduce) {
   .tw { animation: none; }
   .split .w > span { transform: none; transition: none; }
-  .marks .hl { background-size: 100% 3px, 100% 100%; transition: none; }
+  .marks .hl { background-size: 100% 100%; transition: none; }
   .st:hover, .rc:hover { transform: none; }
   .rp-paper { transform: none; }
 }
