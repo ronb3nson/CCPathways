@@ -33,7 +33,7 @@ It was rebuilt from the coworker's design handoff, now in `design/landing-page-h
 2. In cPanel's File Manager, open `public_html/cc/pathways/` (create it the first time), upload the zip, and use **Extract**. Then delete the zip from the server.
 3. To require a password, use cPanel's **Directory Privacy** on `cc/pathways`. Turn on password protection and add a user there. The password lives only on the server, never in this repo.
 
-After changing a CSS or JS file, raise the `?v=` number on its link in `site/index.html` (for example `?v=4` to `?v=5`), so visitors' browsers load the new file instead of a cached copy.
+After changing a CSS or JS file, run `scripts/bump-version.sh`. It raises the `?v=` number on the CSS and JS links in `site/index.html`, so visitors' browsers load the new files instead of cached copies, and it leaves every other link alone.
 
 ### Built for every screen
 
@@ -60,7 +60,7 @@ The sections, in order, follow the questions a first-time visitor asks:
 4. **Who walks with you (dusk): "Can someone help me?"** Three companions, each with a small illustration (a lantern, a campfire, footprints side by side), and the guide form.
 5. **Footer (night):** stars, a moon, and one closing line.
 
-The floating "Not sure where to start?" button opens two choices: take the assessment, or talk to a guide. It replaced the handoff's three-question quiz, which duplicated the assessment less accurately.
+The floating "Not sure where to start?" button opens two choices: take the assessments, or talk to a guide. It replaced the handoff's three-question quiz, which duplicated the assessments less accurately.
 
 A sandy footpath links them all. It fades in from the hero's footpath and winds through the four area stops, past a cairn beside "Who walks with you", then turns off the edge of the screen. Four marker posts, a few tree blazes and wildflowers carry the area colors. Headings rise word by word, the definition's marks sweep in like a highlighter, and a fine film grain covers the page. A trail-map guide appears on screens 1200px and wider.
 
