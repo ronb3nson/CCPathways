@@ -58,7 +58,7 @@ Tested at 320, 375, 768, 1024 and 1440 wide, and on a phone held sideways (812 Ã
 
 ### Still to do
 
-- One round photo per next-step card (they are light placeholders).
+- Optional: real photos for the next-step cards. Each card opens with a small illustrated landscape in its area's color; to use a photo instead, replace that card's `rc-art` div with `<img class="rc-art" src="assets/img/â€¦" alt="">`.
 - App Store and Google Play links, social icons and the X handle.
 - A white Christ Church logo for the footer. A CSS filter whitens the color logo for now, and both Christ Church logos are loaded from christchurchusa.org.
 - Swap the guide form's `mailto:` for a real form service before launch.

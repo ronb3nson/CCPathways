@@ -32,6 +32,7 @@
   function setStage(id) {
     activeStage = id;
     detail.hidden = !id;
+    if (id) detail.dataset.area = id;
     $$('.s-panel').forEach(function (p) { p.classList.toggle('on', p.id === 'panel-' + id); });
     $$('.st').forEach(function (card) {
       var on = card.dataset.stage === id;
