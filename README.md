@@ -19,10 +19,10 @@ A plain static site with no build step. Open `site/index.html` in a browser, or 
 ```
 site/index.html          the page, with the next steps written in
 site/css/tokens.css      colors, fonts, sizes
-site/css/base.css        reset, type, buttons, signs, letter circles
+site/css/base.css        reset, type and the shared pieces: signs, cards, buttons, circles
 site/css/sections.css    trail, scenery, header, hero, sections, footer, quiz
-site/js/main.js          menu, stage panels, trail, parallax, reveals, form, quiz
-site/assets/img/         PATH wheel, PATHways logo and icon
+site/js/main.js          menu, area panels, trail, parallax, reveals, form, quiz
+site/assets/img/         PATHways logo and icon
 ```
 
 It was rebuilt from the coworker's design handoff, now in `design/landing-page-handoff/`.
@@ -43,22 +43,31 @@ Tested at 320, 375, 768, 1024 and 1440 wide, and on a phone held sideways (812 Ã
 - The hero is sized to the visible screen on mobile browsers.
 - Visitors who turn on reduced motion get a still page.
 
-### Changes from the handoff
+### How the page is built
 
-- **Areas and taglines:** Participate (Belong), Apply (Become), Take Action (Serve), Help Others (Multiply). Help Others means making disciples who make disciples. The wording describes each person's own walk with Jesus, never "the path".
-- **Colors:** the PATHways app's area colors and #111111 text. See `brand/README.md`.
-- **Next steps:** the 31 active on-ramps from the PATHways app's approved catalogue, with its names, descriptions and links. Each area shows its four highest-priority items as cards; the rest go under See more. Items without a link point to the guide form.
-- **Fonts:** no paid font files are included. Gill Sans and Proxima Nova are used when installed, with Lato and Montserrat as fallbacks. A soft italic serif, Fraunces, picks out the emotional words in headings. All three come from Google Fonts.
-- **A day's walk:** the page runs from dawn to night.
-  - The hero is a layered dawn landscape. The sun rises over the hills as you scroll, and the five starting choices are the arms of a signpost.
-  - A sandy footpath fades in from the hero and winds down the page through the four area stops. It passes a cairn beside "Who walks with you", then turns right through the dusk hills and off the edge of the screen.
-  - Each section has its own scenery: morning clouds and a compass, midday pines and meadow, afternoon birds and mountains, dusk hills, and a starry footer with a closing line.
-  - Four marker posts and a few tree blazes carry the area colors.
-- **Details:** section labels are trail signs, section edges are hill lines, headings rise word by word, and a fine film grain covers the page. A trail-map guide appears on screens 1200px and wider.
+The page reads as a day's walk, from dawn to night, and every section uses the same few pieces:
+- **A trail sign** names each section.
+- **A heading** pairs Gill Sans with an italic accent in Charis SIL, the serif of the PATHways report.
+- **One short line** sits under the heading, then a visual does the rest.
+- **One white card style** holds every boxed thing.
+- **Waypoint diamonds** mark lists and steps.
+
+The sections, in order:
+
+1. **Hero (dawn):** a layered landscape where the sun rises as you scroll. The five starting points are the arms of a signpost.
+2. **What is discipleship? (morning):** the church's definition, set as it opens the PATHways report: "walking with Jesus" in bold, and each area's phrase marked in its color. A color bar names the four areas.
+3. **Get your bearings (cream fields):** three steps (the two assessments and the report), with a sample page of the report beside them, so the outcome is shown rather than described.
+4. **Find your next step (midday):** the four areas as stops on the trail, each described in the report's own words. Each opens a panel of next steps, drawn from the 31 active on-ramps in the PATHways app's approved catalogue.
+5. **Who walks with you (dusk):** three companions, each with a small illustration (a lantern, a campfire, footprints side by side), and the guide form.
+6. **Footer (night):** stars, a moon, and one closing line.
+
+A sandy footpath links them all. It fades in from the hero's footpath and winds through the four area stops, past a cairn beside "Who walks with you", then turns off the edge of the screen. Four marker posts, a few tree blazes and wildflowers carry the area colors. Headings rise word by word, the definition's marks sweep in like a highlighter, and a fine film grain covers the page. A trail-map guide appears on screens 1200px and wider.
+
+Areas and taglines: Participate (Belong), Apply (Become), Take Action (Serve), Help Others (Multiply). The wording describes each person's own walk with Jesus, never "the path". No paid font files are included; see `brand/README.md` for type and colors.
 
 ### Still to do
 
 - Optional: real photos for the next-step cards. Each card opens with a small illustrated landscape in its area's color; to use a photo instead, replace that card's `rc-art` div with `<img class="rc-art" src="assets/img/â€¦" alt="">`.
-- App Store and Google Play links, social icons and the X handle.
+- Social icons and the X handle.
 - A white Christ Church logo for the footer. A CSS filter whitens the color logo for now, and both Christ Church logos are loaded from christchurchusa.org.
 - Swap the guide form's `mailto:` for a real form service before launch.

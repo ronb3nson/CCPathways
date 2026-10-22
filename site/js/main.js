@@ -75,17 +75,6 @@
     });
   });
 
-  /* Explainer */
-  var defToggle = byId('def-toggle');
-  var explainer = byId('explainer');
-  defToggle.addEventListener('click', function () {
-    var open = explainer.hidden;
-    explainer.hidden = !open;
-    defToggle.setAttribute('aria-expanded', String(open));
-    defToggle.textContent = open ? 'Hide explainer ↑' : 'What is discipleship? →';
-    queueBuild();
-  });
-
   /* See more */
   $$('.more-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -204,6 +193,7 @@
     var wig = Math.min(34, contentLeft * 0.25);
     var pad = parseFloat(getComputedStyle($('.assess')).paddingTop);
     var hero = rel($('.hero'));
+    var df = rel($('.define'));
     var as = rel($('.assess'));
     var ch = rel($('.choose'));
     var wk = rel($('.walk'));
@@ -225,18 +215,17 @@
 
     // Picks up where the hero's footpath leaves the bottom of the landscape
     pts.push([hero.cx + 6, hero.bottom - 40]);
-    run(R, as.top + pad * 0.7, as.bottom - pad * 0.7, -1);
+    run(R, df.top + pad * 0.7, df.bottom - pad * 0.7, -1);
+    run(L, as.top + pad * 0.7, as.bottom - pad * 0.7, 1);
     run(L, ch.top + pad * 0.7, stops[0].cy - 60, 1);
     stops.forEach(function (s) { pts.push([s.cx, s.cy]); });
     run(R, stops[stops.length - 1].cy + 60, ch.bottom - pad * 0.7, -1);
     // A cairn marks the spot beside "Who walks with you"
-    run(L, wk.top + pad * 0.7, wk.bottom - pad, 1);
+    run(L, wk.top + pad * 0.7, wk.bottom - 300, 1);
     cairnAt = pts[pts.length - 1];
-    // Then down past the app section, turning right through the dusk hills and off the edge of the screen
-    var ap = rel($('.app'));
-    run(R, ap.top + pad * 0.7, ap.bottom - 230, -1);
-    pts.push([R + (W - R) * 0.6, ap.bottom - 130]);
-    pts.push([W + 160, ap.bottom - 105]);
+    // Then the trail turns right through the dusk hills, below the content, and walks off the edge of the screen
+    pts.push([L + (W - L) * 0.3, wk.bottom - 150]);
+    pts.push([W + 160, wk.bottom - 120]);
     return pts;
   }
 
@@ -294,7 +283,7 @@
       trailVerge.appendChild(el);
     }
     // Just four marker posts, one where the trail enters each section, banded in the area colors in order
-    var gates = ['.assess', '.choose', '.walk', '.app'].map(function (sel) { return rel($(sel)).top + 70; });
+    var gates = ['.define', '.assess', '.choose', '.walk'].map(function (sel) { return rel($(sel)).top + 70; });
     var g = 0;
     for (var p = 0; p < trailLen && g < gates.length; p += 6) {
       var c = path.getPointAtLength(p);
@@ -400,7 +389,10 @@
   sceneryMove();
 
   /* Content rises into view as you arrive at it */
-  if ('IntersectionObserver' in window && !reduceMotion) {
+  var canReveal = 'IntersectionObserver' in window && !reduceMotion;
+  // Without scroll reveals, the definition's color marks are shown straight away
+  if (!canReveal) $$('.marks').forEach(function (el) { el.classList.add('in'); });
+  if (canReveal) {
     var revealIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
@@ -408,13 +400,15 @@
         revealIO.unobserve(en.target);
       });
     }, { rootMargin: '0px 0px -8% 0px' });
-    $$('.assess-in > div, .choose .wrap > .lbl, .choose-sub, .def-toggle, .walk-in > *, .app-in > div')
+    $$('.define-key, .define-cite, .assess-copy, .report-preview, .choose .wrap > .lbl, .choose-sub, .walk-copy, .walk-in > .form')
       .forEach(function (el) {
         el.classList.add('reveal');
         revealIO.observe(el);
       });
     // Section headings rise word by word
-    $$('.sec h2, .foot-close-h').forEach(function (h) {
+    // The definition's color marks sweep in, as a highlighter would
+    $$('.marks').forEach(function (el) { revealIO.observe(el); });
+    $$('.sec h2:not(.lbl), .foot-close-h').forEach(function (h) {
       var i = 0;
       (function split(node) {
         Array.prototype.slice.call(node.childNodes).forEach(function (child) {

@@ -10,11 +10,11 @@
 <link rel="icon" href="assets/img/pathways-icon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400&family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap">
-<link rel="stylesheet" href="css/tokens.css?v=7">
-<link rel="stylesheet" href="css/base.css?v=7">
-<link rel="stylesheet" href="css/sections.css?v=7">
-<script src="js/main.js?v=7" defer></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@400;700&family=Montserrat:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="css/tokens.css?v=12">
+<link rel="stylesheet" href="css/base.css?v=12">
+<link rel="stylesheet" href="css/sections.css?v=12">
+<script src="js/main.js?v=12" defer></script>
 </head>
 <body>
 <!-- Scenery shapes, reused by the section scenery and the trail -->
@@ -26,6 +26,9 @@
   <symbol id="i-scene-b" viewBox="0 0 320 120"><path fill="var(--area)" opacity=".3" d="M0 92L46 52 84 80 136 34 186 78 236 46 288 82 320 64V120H0Z"/><path fill="#FFFFFF" opacity=".8" d="M136 34 148 45 141 44 136 50 130 44 124 45ZM236 46 246 55 240 54 236 59 231 54 226 55Z"/><path fill="var(--area)" opacity=".75" d="M0 104C80 90 160 104 240 96S300 92 320 98V120H0Z"/><path fill="#7A5C3E" d="M62 84h5v22h-5z"/><path fill="#FFFFFF" d="M62 88h5v6h-5z"/></symbol>
   <symbol id="i-scene-c" viewBox="0 0 320 120"><path fill="var(--area)" opacity=".35" d="M0 90C90 74 200 84 320 76V120H0Z"/><g style="color: var(--area)" opacity=".85"><use href="#i-pine" x="34" y="56" width="22" height="44"/><use href="#i-pine" x="54" y="66" width="16" height="32"/><use href="#i-pine" x="250" y="50" width="24" height="48"/><use href="#i-pine" x="274" y="64" width="16" height="32"/></g><path fill="var(--area)" opacity=".7" d="M0 108C100 98 220 110 320 102V120H0Z"/></symbol>
   <symbol id="i-scene-d" viewBox="0 0 320 120"><path fill="var(--area)" opacity=".3" d="M0 84C80 66 170 80 240 70S300 66 320 72V120H0Z"/><path fill="var(--area)" opacity=".7" d="M0 102C90 92 190 104 320 96V120H0Z"/><use href="#i-cairn" x="206" y="58" width="36" height="42"/><g fill="none" stroke="var(--area)" stroke-width="1.8" stroke-linecap="round"><path d="M70 100 68 92M74 100V90M78 100l3-8M120 100l-2-7M124 100v-9"/></g></symbol>
+  <symbol id="i-lantern" viewBox="0 0 120 120"><defs><radialGradient id="lantern-glow"><stop offset="0" stop-color="#FBCF00" stop-opacity=".55"/><stop offset="1" stop-color="#FBCF00" stop-opacity="0"/></radialGradient></defs><path fill="#EADFC8" d="M0 92C30 82 70 88 120 80V120H0Z"/><path fill="#DCCDAE" d="M0 106C40 98 80 106 120 100V120H0Z"/><circle cx="64" cy="62" r="38" fill="url(#lantern-glow)"/><path fill="none" stroke="#5E462F" stroke-width="4" stroke-linecap="round" d="M30 112V30h34"/><path fill="none" stroke="#2B2B2B" stroke-width="2" d="M64 30v8"/><path fill="#2B2B2B" d="M54 38h20l-3 6H57Z"/><rect x="55" y="44" width="18" height="26" rx="3" fill="#FFE7A3" stroke="#2B2B2B" stroke-width="2.5"/><path fill="#F4AF00" d="M64 50c3 4 4 7 0 12-4-5-3-8 0-12Z"/><path fill="#2B2B2B" d="M53 70h22v4H53Z"/></symbol>
+  <symbol id="i-campfire" viewBox="0 0 120 120"><defs><radialGradient id="fire-glow"><stop offset="0" stop-color="#F4AF00" stop-opacity=".5"/><stop offset="1" stop-color="#F4AF00" stop-opacity="0"/></radialGradient></defs><path fill="#EADFC8" d="M0 90C34 80 76 88 120 82V120H0Z"/><path fill="#DCCDAE" d="M0 104C40 96 82 104 120 98V120H0Z"/><circle cx="60" cy="80" r="40" fill="url(#fire-glow)"/><path fill="#DE2A50" d="M60 46c10 10 14 20 8 32H52c-6-12-2-22 8-32Z"/><path fill="#F4AF00" d="M60 58c6 6 8 12 4 20h-8c-4-8-2-14 4-20Z"/><path fill="none" stroke="#5E462F" stroke-width="6" stroke-linecap="round" d="M42 92 78 80M42 80l36 12"/><ellipse cx="22" cy="94" rx="9" ry="5" fill="#A7A195"/><ellipse cx="98" cy="94" rx="9" ry="5" fill="#B9B3A7"/></symbol>
+  <symbol id="i-footprints" viewBox="0 0 120 120"><path fill="#EADFC8" d="M0 96C34 86 76 92 120 86V120H0Z"/><path fill="#EEE2CA" d="M20 120C40 84 62 52 104 6H122C86 50 66 86 54 120Z"/><g fill="#2B2B2B" opacity=".7"><ellipse cx="44" cy="104" rx="4" ry="6.5" transform="rotate(30 44 104)"/><ellipse cx="54" cy="88" rx="4" ry="6.5" transform="rotate(30 54 88)"/><ellipse cx="62" cy="72" rx="4" ry="6.5" transform="rotate(32 62 72)"/><ellipse cx="72" cy="57" rx="3.6" ry="6" transform="rotate(34 72 57)"/><ellipse cx="80" cy="42" rx="3.4" ry="5.6" transform="rotate(36 80 42)"/></g><g fill="#2B2B2B" opacity=".4"><ellipse cx="34" cy="96" rx="3.4" ry="5.6" transform="rotate(30 34 96)"/><ellipse cx="44" cy="80" rx="3.4" ry="5.6" transform="rotate(30 44 80)"/><ellipse cx="52" cy="64" rx="3.2" ry="5.2" transform="rotate(32 52 64)"/><ellipse cx="62" cy="49" rx="3" ry="5" transform="rotate(34 62 49)"/></g></symbol>
   <symbol id="i-cloud" viewBox="0 0 120 50"><path fill="currentColor" d="M18 50a18 18 0 0 1 3-35 26 26 0 0 1 49-7 20 20 0 0 1 33 13 15 15 0 0 1-1 29Z"/></symbol>
   <symbol id="i-bird" viewBox="0 0 24 10"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M1 7Q6 1 12 7Q18 1 23 7"/></symbol>
   <symbol id="i-tuft" viewBox="0 0 20 14"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M4 14 1 5M8 14V1M12 14l3-11M16 14l3-7"/></symbol>
@@ -123,6 +126,25 @@
   </div>
 </section>
 
+<section class="sec define" id="discipleship" aria-labelledby="define-title">
+  <div class="scenery" aria-hidden="true">
+    <svg class="sc-cloud sc-margin" style="left:4%;top:16%;width:140px;color:#EEF2F6" viewBox="0 0 120 50" data-depth="0.18" data-drift="0.06"><use href="#i-cloud"/></svg>
+    <svg class="sc-cloud sc-margin" style="right:6%;top:26%;width:92px;color:#EEF2F6" viewBox="0 0 120 50" data-depth="0.26" data-drift="-0.05"><use href="#i-cloud"/></svg>
+    <svg class="sc-band" viewBox="0 0 1440 200" preserveAspectRatio="none" data-depth="0.06"><path fill="#F3F6F8" d="M0 200V100C200 74 400 96 620 88S1040 66 1240 84C1340 92 1400 90 1440 86V200Z"/><path fill="#EAF0F3" d="M0 200V146C240 126 480 146 720 138S1200 120 1440 140V200Z"/></svg>
+  </div>
+  <div class="wrap define-in">
+    <h2 class="lbl" id="define-title">What is discipleship?</h2>
+    <p class="define-text marks">Discipleship is <strong>walking with Jesus</strong> <mark class="hl hl-p">together</mark> — <mark class="hl hl-a">becoming like Him</mark>, <mark class="hl hl-t">living like Him</mark>, and <mark class="hl hl-h">helping others do the same</mark>.</p>
+    <ol class="define-key" aria-label="The four areas of PATHways">
+      <li class="dk dk-p"><span class="dk-name">Participate</span><span class="dk-tag">Belong</span></li>
+      <li class="dk dk-a"><span class="dk-name">Apply</span><span class="dk-tag">Become</span></li>
+      <li class="dk dk-t"><span class="dk-name">Take Action</span><span class="dk-tag">Serve</span></li>
+      <li class="dk dk-h"><span class="dk-name">Help Others</span><span class="dk-tag">Multiply</span></li>
+    </ol>
+    <p class="define-cite"><span class="define-quote">“Come, follow me.”</span> Jesus, Matthew 4:19</p>
+  </div>
+</section>
+
 <section class="sec assess" id="assessment" aria-labelledby="assess-title">
   <div class="scenery" aria-hidden="true">
     <svg class="sc-cloud sc-margin" style="left:3%;top:14%;width:150px;color:#FFFFFF" viewBox="0 0 120 50" data-depth="0.18" data-drift="0.06"><use href="#i-cloud"/></svg>
@@ -131,15 +153,36 @@
     <svg class="sc-band" viewBox="0 0 1440 200" preserveAspectRatio="none" data-depth="0.06"><path fill="#F6E6C4" d="M0 200V90C180 60 360 80 520 100S860 50 1040 70 1300 110 1440 80V200Z"/><path fill="#F0DBB0" d="M0 200V130C220 104 420 132 640 120S1060 90 1240 116C1330 128 1400 124 1440 118V200Z"/></svg>
   </div>
   <div class="wrap assess-in">
-    <div>
+    <div class="assess-copy">
       <span class="lbl">Get your bearings</span>
-      <h2 id="assess-title">See where you are in your <em class="accent">walk with Jesus</em></h2>
-      <p class="assess-desc">Every walk with Jesus is unique. PATHways helps you see where you are today and how to keep growing to become more like Him.</p>
+      <h2 id="assess-title">See where you are, and <em class="accent">what's next</em></h2>
+      <p class="lede">Two short assessments. One personal report, with next steps chosen from your answers.</p>
+      <ol class="steps">
+        <li class="step"><span class="step-mark" aria-hidden="true">1</span><div><h3>Walking With Jesus <span class="step-time">about 9 min</span></h3><p>Where you are in each area</p></div></li>
+        <li class="step"><span class="step-mark" aria-hidden="true">2</span><div><h3>Spiritual Gifts <span class="step-time">about 13 min</span></h3><p>The gifts God has given you</p></div></li>
+        <li class="step"><span class="step-mark step-mark-end" aria-hidden="true">3</span><div><h3>Your PATHways report</h3><p>Next steps chosen for you, to keep and come back to</p></div></li>
+      </ol>
+      <a class="btn btn-yel" href="https://pathways.jimgottshall.com" target="_blank" rel="noopener">Take the assessment</a>
+      <p class="assess-note">Nothing is scored or compared. It shows where you are, not how you measure up.</p>
     </div>
-    <div>
-      <p class="assess-desc">These two assessments are one part of PATHways. They help you see where you are and the gifts and desires God has given you, so we can suggest next steps that fit you.</p>
-      <a class="btn btn-yel btn-block" href="https://pathways.jimgottshall.com" target="_blank" rel="noopener">Take the assessment</a>
-    </div>
+    <figure class="report-preview">
+      <div class="rp-paper card" aria-hidden="true">
+        <p class="rp-brand"><img src="assets/img/pathways-icon.svg" alt="" width="18" height="18"> Your PATHways</p>
+        <p class="rp-kicker">From Walking With Jesus</p>
+        <p class="rp-title">Where you are in each area</p>
+        <div class="rp-head"><span>Area and next step</span><span>Where you are</span></div>
+        <ol class="rp-rows">
+          <li class="rp-row rp-p"><span class="rp-l">P</span><span class="rp-area"><span class="rp-name">Participate</span><span class="rp-next">Next: Encounter With God</span></span><span class="rp-track rp-at-1" aria-label="On the way"><i></i><i></i><i></i></span></li>
+          <li class="rp-row rp-a"><span class="rp-l">A</span><span class="rp-area"><span class="rp-name">Apply</span><span class="rp-next">Next: Bible Reading Plan</span></span><span class="rp-track rp-at-1" aria-label="On the way"><i></i><i></i><i></i></span></li>
+          <li class="rp-row rp-t"><span class="rp-l">T</span><span class="rp-area"><span class="rp-name">Take Action</span><span class="rp-next">Next: Food for HOPE</span></span><span class="rp-track rp-at-0" aria-label="Starting out"><i></i><i></i><i></i></span></li>
+          <li class="rp-row rp-h"><span class="rp-l">H</span><span class="rp-area"><span class="rp-name">Help Others</span><span class="rp-next">Next: Invite Someone</span></span><span class="rp-track rp-at-0" aria-label="Starting out"><i></i><i></i><i></i></span></li>
+        </ol>
+        <div class="rp-scale"><span class="rp-scale-in"><span>Starting out</span><span>Walking steadily</span></span></div>
+        <p class="rp-kicker">Gifts that came through</p>
+        <ul class="rp-gifts"><li>Helps</li><li>Hospitality</li><li>Mercy</li></ul>
+      </div>
+      <figcaption>From a sample report. Yours is built from your own answers.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -156,48 +199,37 @@
     <svg class="sc-band" viewBox="0 0 1440 200" preserveAspectRatio="none" data-depth="0.05"><path fill="#F1F6F0" d="M0 200V96C200 70 400 92 600 104S980 70 1180 82 1380 104 1440 96V200Z"/><path fill="#E6EFE5" d="M0 200V140C240 118 460 140 700 132S1160 112 1440 136V200Z"/></svg>
   </div>
   <div class="wrap">
-    <span class="lbl">Four ways to grow</span>
+    <span class="lbl">Pick a direction</span>
     <h2 id="stages-title">Find your <em class="accent">next step</em></h2>
-    <p class="choose-sub">No two people's walk with Jesus looks the same. Start with whichever of these sounds most like you today.</p>
-    <button type="button" class="link-btn def-toggle" id="def-toggle" aria-expanded="false" aria-controls="explainer">What is discipleship? →</button>
+    <p class="choose-sub">Start with whichever sounds most like you today.</p>
 
-    <div class="explainer" id="explainer" hidden>
-      <div>
-        <h3>Following Jesus, one step at a time</h3>
-        <p>Discipleship is the lifelong work of becoming more like Jesus — in how you think, how you love, how you serve, and how you invest in the people around you. It's not a class to finish or a box to check. It's a daily “yes” to follow Jesus a little further than yesterday.</p>
-        <blockquote class="scrip">“Come, follow me… and I will make you fishers of men.”<cite>— Matthew 4:19</cite></blockquote>
-        <p>At Christ Church, this looks different for everyone, but it's never meant to happen alone. <strong>Wherever you are right now is the right place to start.</strong> PATHways is simply a clearer way to see where you are, what's next, and who's walking with you.</p>
-      </div>
-      <img src="assets/img/path-wheel.png" alt="The PATH discipleship wheel: Participate, Apply, Take Action and Help Others around the Christ Church logo" width="400" height="400">
-    </div>
-
-    <ol class="stepper" aria-label="Four ways to grow">
+    <ol class="stepper" aria-label="The four areas">
       <li class="st st-p" data-stage="participate" data-active="false">
         <span class="lc lc-lg lc-p" aria-hidden="true">P</span>
         <h3>Participate</h3>
         <div class="st-tag">Belong</div>
-        <p class="st-desc">Discover hope and community. Come as you are and find your people.</p>
+        <p class="st-desc">Being known and connected in a church family.</p>
         <button type="button" class="btn btn-dark st-cta" aria-expanded="false" aria-controls="stage-detail" data-stage="participate">Explore</button>
       </li>
       <li class="st st-a" data-stage="apply" data-active="false">
         <span class="lc lc-lg lc-a" aria-hidden="true">A</span>
         <h3>Apply</h3>
         <div class="st-tag">Become</div>
-        <p class="st-desc">Become more like Jesus with daily rhythms of prayer, Scripture and community.</p>
+        <p class="st-desc">Growing in your own walk with Jesus.</p>
         <button type="button" class="btn btn-dark st-cta" aria-expanded="false" aria-controls="stage-detail" data-stage="apply">Explore</button>
       </li>
       <li class="st st-t" data-stage="takeaction" data-active="false">
         <span class="lc lc-lg lc-t" aria-hidden="true">T</span>
         <h3>Take Action</h3>
         <div class="st-tag">Serve</div>
-        <p class="st-desc">Put your faith to work. Find the team that fits how God made you.</p>
+        <p class="st-desc">Using what God has given you to meet needs.</p>
         <button type="button" class="btn btn-dark st-cta" aria-expanded="false" aria-controls="stage-detail" data-stage="takeaction">Explore</button>
       </li>
       <li class="st st-h" data-stage="helpothers" data-active="false">
         <span class="lc lc-lg lc-h" aria-hidden="true">H</span>
         <h3>Help Others</h3>
         <div class="st-tag">Multiply</div>
-        <p class="st-desc">Make disciples who make disciples. Help someone else take their next step with Jesus.</p>
+        <p class="st-desc">Making disciples who make disciples.</p>
         <button type="button" class="btn btn-dark st-cta" aria-expanded="false" aria-controls="stage-detail" data-stage="helpothers">Explore</button>
       </li>
     </ol>
@@ -207,13 +239,13 @@
       <div class="s-panel" id="panel-participate" role="region" aria-label="Participate next steps">
         <div class="s-ph"><span class="lc lc-lg lc-p" aria-hidden="true">P</span><div><h3>Participate</h3><div class="s-tag">Belong</div><p>Every journey with Jesus begins with belonging. Whether you attend an in-person campus or online, there&#x27;s a place for you here.</p></div></div>
         <div class="rg">
-          <div class="rc" id="card-worship-service"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-a"/></svg></div><span class="rc-b">First step</span><h4>Worship Services</h4><p>Come any Sunday in Montclair, Rockaway or Lodi, or watch online, for about eighty minutes of lively songs and a practical message from the Bible.</p><a href="https://christchurchusa.org/visit/">Plan a visit →</a></div>
-          <div class="rc" id="card-join-church-family"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-b"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Join Our Church Family</h4><p>Become an official member through a free, self-paced online course of eight short lessons on who the church is and what it believes.</p><a href="https://christchurchusa.org/membership/">Start the course →</a></div>
-          <div class="rc" id="card-connection-card"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-c"/></svg></div><span class="rc-b">First step</span><h4>Connection Cards</h4><p>Fill in a short card, online or on paper at a service, so the church can get to know you; then stop by the New Here? cart in your campus lobby to be greeted with a thank-you gift.</p><a href="https://my.christchurchusa.org/econnect">Fill in a card →</a></div>
-          <div class="rc" id="card-life-activity-group"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-d"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Life Activity Groups</h4><p>Join a group built around a shared interest, such as photography, fitness, painting or line dancing, and make friends while doing what you enjoy.</p><a href="https://christchurchusa.org/smallgroups/typesofgroups">Find a group →</a></div>
+          <div class="rc card" id="card-worship-service"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-a"/></svg></div><span class="rc-b">First step</span><h4>Worship Services</h4><p>Come any Sunday in Montclair, Rockaway or Lodi, or watch online, for about eighty minutes of lively songs and a practical message from the Bible.</p><a href="https://christchurchusa.org/visit/">Plan a visit →</a></div>
+          <div class="rc card" id="card-join-church-family"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-b"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Join Our Church Family</h4><p>Become an official member through a free, self-paced online course of eight short lessons on who the church is and what it believes.</p><a href="https://christchurchusa.org/membership/">Start the course →</a></div>
+          <div class="rc card" id="card-connection-card"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-c"/></svg></div><span class="rc-b">First step</span><h4>Connection Cards</h4><p>Fill in a short card, online or on paper at a service, so the church can get to know you; then stop by the New Here? cart in your campus lobby to be greeted with a thank-you gift.</p><a href="https://my.christchurchusa.org/econnect">Fill in a card →</a></div>
+          <div class="rc card" id="card-life-activity-group"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-d"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Life Activity Groups</h4><p>Join a group built around a shared interest, such as photography, fitness, painting or line dancing, and make friends while doing what you enjoy.</p><a href="https://christchurchusa.org/smallgroups/typesofgroups">Find a group →</a></div>
         </div>
         <button type="button" class="link-btn more-btn" aria-expanded="false" aria-controls="more-participate">See more ▾</button>
-        <div class="rx-grid" id="more-participate" hidden>
+        <div class="rx-grid card" id="more-participate" hidden>
           <a class="rx" href="https://christchurchusa.org/questkids/"><div class="rx-t">Register Your Children for Quest Kids</div><p class="rx-d">Register your children in the check-in system, then on Sundays they enjoy safe, age-appropriate classes, from nursery through fifth grade, while you worship.</p></a>
           <a class="rx" href="https://christchurchusa.org/questteens/"><div class="rx-t">Connect Your Teen with Quest Teens</div><p class="rx-d">Connect your teen with Quest Teens: Friday nights in Montclair bring games, pizza, live music and a talk, plus Sunday gatherings in Rockaway and Lodi.</p></a>
           <a class="rx" href="https://christchurchusa.org/bloom/"><div class="rx-t">CCWomen</div><p class="rx-d">Women connect through book clubs, a mentoring program, events and Wednesday morning prayer, building friendships and growing in faith together.</p></a>
@@ -224,13 +256,13 @@
       <div class="s-panel" id="panel-apply" role="region" aria-label="Apply next steps">
         <div class="s-ph"><span class="lc lc-lg lc-a" aria-hidden="true">A</span><div><h3>Apply</h3><div class="s-tag">Become</div><p>Following Jesus shapes every part of your life. Here are simple ways to go deeper and become more like Him.</p></div></div>
         <div class="rg">
-          <div class="rc" id="card-alpha-class"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-a"/></svg></div><span class="rc-b">First step</span><h4>The Life Course</h4><p>A five-week course for anyone curious about faith: share a meal, hear a short talk and discuss life’s big questions, with no pressure to speak.</p><a href="https://christchurchusa.org/thelifecourse">Learn more →</a></div>
-          <div class="rc" id="card-life-group"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-b"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Life Groups</h4><p>Meet twice a month, in person or online, with a small group of five to twelve people for real conversation, prayer and the Bible.</p><a href="https://christchurchusa.org/smallgroups/">Find a group →</a></div>
-          <div class="rc" id="card-salvation-prayer"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-c"/></svg></div><span class="rc-b">First step</span><h4>Salvation Prayers</h4><p>Ready to follow Jesus? Tell the church, and its pastoral team will pray with you; short videos help you start praying and reading the Bible.</p><a href="https://christchurchusa.org/whatsnext/">Take your next step →</a></div>
-          <div class="rc" id="card-whats-the-word"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-d"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>What’s the Word? Bible Study</h4><p>A monthly online Bible study on the first Wednesday evening, where the teaching team and a panel of experts unpack the Bible and answer questions.</p><a href="https://www.youtube.com/playlist?list=PLaZ8aFdSxz7UaydIdnCs9do3jNN_AQH_M">Watch →</a></div>
+          <div class="rc card" id="card-alpha-class"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-a"/></svg></div><span class="rc-b">First step</span><h4>The Life Course</h4><p>A five-week course for anyone curious about faith: share a meal, hear a short talk and discuss life’s big questions, with no pressure to speak.</p><a href="https://christchurchusa.org/thelifecourse">Learn more →</a></div>
+          <div class="rc card" id="card-life-group"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-b"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Life Groups</h4><p>Meet twice a month, in person or online, with a small group of five to twelve people for real conversation, prayer and the Bible.</p><a href="https://christchurchusa.org/smallgroups/">Find a group →</a></div>
+          <div class="rc card" id="card-salvation-prayer"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-c"/></svg></div><span class="rc-b">First step</span><h4>Salvation Prayers</h4><p>Ready to follow Jesus? Tell the church, and its pastoral team will pray with you; short videos help you start praying and reading the Bible.</p><a href="https://christchurchusa.org/whatsnext/">Take your next step →</a></div>
+          <div class="rc card" id="card-whats-the-word"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-d"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>What’s the Word? Bible Study</h4><p>A monthly online Bible study on the first Wednesday evening, where the teaching team and a panel of experts unpack the Bible and answer questions.</p><a href="https://www.youtube.com/playlist?list=PLaZ8aFdSxz7UaydIdnCs9do3jNN_AQH_M">Watch →</a></div>
         </div>
         <button type="button" class="link-btn more-btn" aria-expanded="false" aria-controls="more-apply">See more ▾</button>
-        <div class="rx-grid" id="more-apply" hidden>
+        <div class="rx-grid card" id="more-apply" hidden>
           <a class="rx" href="https://christchurchusa.org/documents/TheDiscipleship-2020.pdf"><div class="rx-t">Bible Reading Plan</div><p class="rx-d">A printable plan to read through the Bible in a year, four passages a day with catch-up days built in; start any time.</p></a>
           <a class="rx" href="https://www.youtube.com/watch?v=lUYLv4XTj50"><div class="rx-t">Tithes &amp; Offerings</div><p class="rx-d">Watch Dr. Ireland’s message on the biblical principle of sowing and reaping, then make giving part of your walk with God: give at christchurchusa.org/giving, by text, Zelle or mail, or set up a recurring gift.</p></a>
           <a class="rx" href="https://christchurchusa.org/careministries/"><div class="rx-t">Care Groups</div><p class="rx-d">Care Groups meet regularly, online or in person, to support people through grief, divorce, addiction, past trauma or a loved one’s mental illness.</p></a>
@@ -242,26 +274,26 @@
       <div class="s-panel" id="panel-takeaction" role="region" aria-label="Take Action next steps">
         <div class="s-ph"><span class="lc lc-lg lc-t" aria-hidden="true">T</span><div><h3>Take Action</h3><div class="s-tag">Serve</div><p>Put your faith to work. Discover how God made you, join a team, and make a real difference in the church and beyond.</p></div></div>
         <div class="rg">
-          <div class="rc" id="card-spiritual-gifts-assessment"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-a"/></svg></div><span class="rc-b">First step</span><h4>Spiritual Gifts Assessment</h4><p>Answer questions about your strengths and interests, then receive a personal report on your spiritual gifts and the serving teams where they could fit.</p><a href="https://pathways.jimgottshall.com/a/gifts" target="_blank" rel="noopener">Take the assessment →</a></div>
-          <div class="rc" id="card-serve-team"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-b"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Join a Serve Team</h4><p>Watch Dr. Ireland’s message Answering the Call to Serve, then pick a team, from welcoming guests to kids, media or prayer, at christchurchusa.org/serve; a leader will help you find the right fit. Most teams are for members, or people becoming members within 90 days.</p><a href="https://www.youtube.com/watch?v=8ZQo9iGZrao">Watch the message →</a></div>
-          <div class="rc" id="card-food-for-hope"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-c"/></svg></div><span class="rc-b">First step</span><h4>Food for HOPE Outreach</h4><p>Volunteer at the Food for HOPE pantry in Rockaway or the mobile pantry in Montclair, helping neighbors in need choose free groceries with dignity.</p><a href="https://carecenterofnewjersey.org/foodforhope">Volunteer →</a></div>
-          <div class="rc" id="card-community-outreach"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-d"/></svg></div><span class="rc-b">First step</span><h4>Community Outreach</h4><p>Serve neighbors through the church’s CARE Center, in its teaching kitchen, community garden or art gallery, or at seasonal events like the Thanksgiving food drive.</p><a href="https://carecenterofnewjersey.org/volunteer/">Volunteer →</a></div>
+          <div class="rc card" id="card-spiritual-gifts-assessment"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-a"/></svg></div><span class="rc-b">First step</span><h4>Spiritual Gifts Assessment</h4><p>Answer questions about your strengths and interests, then receive a personal report on your spiritual gifts and the serving teams where they could fit.</p><a href="https://pathways.jimgottshall.com/a/gifts" target="_blank" rel="noopener">Take the assessment →</a></div>
+          <div class="rc card" id="card-serve-team"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-b"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Join a Serve Team</h4><p>Watch Dr. Ireland’s message Answering the Call to Serve, then pick a team, from welcoming guests to kids, media or prayer, at christchurchusa.org/serve; a leader will help you find the right fit. Most teams are for members, or people becoming members within 90 days.</p><a href="https://www.youtube.com/watch?v=12ZQo9iGZrao">Watch the message →</a></div>
+          <div class="rc card" id="card-food-for-hope"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-c"/></svg></div><span class="rc-b">First step</span><h4>Food for HOPE Outreach</h4><p>Volunteer at the Food for HOPE pantry in Rockaway or the mobile pantry in Montclair, helping neighbors in need choose free groceries with dignity.</p><a href="https://carecenterofnewjersey.org/foodforhope">Volunteer →</a></div>
+          <div class="rc card" id="card-community-outreach"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-d"/></svg></div><span class="rc-b">First step</span><h4>Community Outreach</h4><p>Serve neighbors through the church’s CARE Center, in its teaching kitchen, community garden or art gallery, or at seasonal events like the Thanksgiving food drive.</p><a href="https://carecenterofnewjersey.org/volunteer/">Volunteer →</a></div>
         </div>
         <button type="button" class="link-btn more-btn" aria-expanded="false" aria-controls="more-takeaction">See more ▾</button>
-        <div class="rx-grid" id="more-takeaction" hidden>
+        <div class="rx-grid card" id="more-takeaction" hidden>
           <a class="rx" href="https://schoolofworshipusa.org/"><div class="rx-t">School of Worship</div><p class="rx-d">Self-paced online video lessons and ready-made team resources for worship musicians and creative volunteers who want to grow their skills and lead well.</p></a>
         </div>
       </div>
       <div class="s-panel" id="panel-helpothers" role="region" aria-label="Help Others next steps">
         <div class="s-ph"><span class="lc lc-lg lc-h" aria-hidden="true">H</span><div><h3>Help Others</h3><div class="s-tag">Multiply</div><p>Jesus calls every follower to make disciples who make disciples. Invite a friend, walk alongside someone, and help them do the same for others.</p></div></div>
         <div class="rg">
-          <div class="rc" id="card-invite-someone"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-a"/></svg></div><span class="rc-b">First step</span><h4>Invite Someone to Church</h4><p>Invite a friend to church, especially on Friends and Family Sunday each month, using ready-made videos and graphics you can share from your phone.</p><a href="https://christchurchusa.org/invite/">Get the tools →</a></div>
-          <div class="rc" id="card-leading-small-group"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-b"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Leading a Small Group</h4><p>Lead a small group where people are welcomed, prayed for and encouraged; you guide the conversation, not teach, and the church trains and coaches you.</p><a href="https://christchurchusa.org/smallgroups/lead/">Start leading →</a></div>
-          <div class="rc" id="card-leading-serve-team"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-c"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Leading a Serve Team</h4><p>If you already serve, ask your team leader about taking on more, such as helping lead, train and care for the volunteers on your team.</p><a href="https://christchurchusa.org/serve/">Learn more →</a></div>
-          <div class="rc" id="card-mentoring-coaching"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-d"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Mentoring / Coaching Others</h4><p>Walk alongside a student or younger believer as a mentor, sharing your faith and life experience; the church trains you for the role.</p><a href="https://christchurchusa.org/serve/questcollege">Learn more →</a></div>
+          <div class="rc card" id="card-invite-someone"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-a"/></svg></div><span class="rc-b">First step</span><h4>Invite Someone to Church</h4><p>Invite a friend to church, especially on Friends and Family Sunday each month, using ready-made videos and graphics you can share from your phone.</p><a href="https://christchurchusa.org/invite/">Get the tools →</a></div>
+          <div class="rc card" id="card-leading-small-group"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-b"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Leading a Small Group</h4><p>Lead a small group where people are welcomed, prayed for and encouraged; you guide the conversation, not teach, and the church trains and coaches you.</p><a href="https://christchurchusa.org/smallgroups/lead/">Start leading →</a></div>
+          <div class="rc card" id="card-leading-serve-team"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-c"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Leading a Serve Team</h4><p>If you already serve, ask your team leader about taking on more, such as helping lead, train and care for the volunteers on your team.</p><a href="https://christchurchusa.org/serve/">Learn more →</a></div>
+          <div class="rc card" id="card-mentoring-coaching"><div class="rc-art" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMax slice" focusable="false"><use href="#i-scene-d"/></svg></div><span class="rc-b rc-b-deep">Go deeper</span><h4>Mentoring / Coaching Others</h4><p>Walk alongside a student or younger believer as a mentor, sharing your faith and life experience; the church trains you for the role.</p><a href="https://christchurchusa.org/serve/questcollege">Learn more →</a></div>
         </div>
         <button type="button" class="link-btn more-btn" aria-expanded="false" aria-controls="more-helpothers">See more ▾</button>
-        <div class="rx-grid" id="more-helpothers" hidden>
+        <div class="rx-grid card" id="more-helpothers" hidden>
           <a class="rx" href="https://christchurchusa.org/formedtolead/"><div class="rx-t">Formed to Lead</div><p class="rx-d">A leadership course for people who serve: six Saturday morning sessions with Dr. David Ireland and team, personal leadership assessments and a commissioning service. Dates for the next one will be announced.</p></a>
           <a class="rx" href="#guide"><div class="rx-t">Raising Up a New Leader</div><p class="rx-d">Choose one person you already lead or serve with and invite them to co-lead with you for a season. Hand them more to lead until they are ready to lead on their own.</p></a>
           <a class="rx" href="#guide"><div class="rx-t">Becoming a Team Lead</div><p class="rx-d">As a team captain, consider whether God is inviting you to lead a team. Talk with your team lead or staff resource person about the options.</p></a>
@@ -273,28 +305,29 @@
 
 <section class="sec walk" id="walk" aria-labelledby="walk-title">
   <div class="scenery" aria-hidden="true">
+    <div class="sc-dusk"></div>
     <div class="sc-words" data-drift="0.45">Belong · Become · Serve · Multiply · Belong · Become · Serve · Multiply ·</div>
-    <svg class="sc-bird sc-margin" style="right:13%;top:10%;width:26px;color:#8C8C8C" viewBox="0 0 24 10" data-depth="0.3" data-drift="-0.12"><use href="#i-bird"/></svg>
-    <svg class="sc-bird sc-margin" style="right:10%;top:13%;width:18px;color:#9C9C9C" viewBox="0 0 24 10" data-depth="0.34" data-drift="-0.14"><use href="#i-bird"/></svg>
-    <svg class="sc-bird sc-margin" style="right:15.5%;top:15%;width:14px;color:#A8A8A8" viewBox="0 0 24 10" data-depth="0.36" data-drift="-0.1"><use href="#i-bird"/></svg>
-    <svg class="sc-tree sc-margin" style="right:2.2%;top:38%;width:72px;color:#CDD2C9" viewBox="0 0 50 70" data-depth="0.12"><use href="#i-oak"/></svg>
-    <svg class="sc-tree sc-margin" style="right:6.4%;top:45%;width:46px;color:#B6BDB1;--blaze:#7FB3E5" viewBox="0 0 50 70" data-depth="0.07"><use href="#i-oak"/></svg>
-    <svg class="sc-band" viewBox="0 0 1440 200" preserveAspectRatio="none" data-depth="0.05"><path fill="#E5E5E2" d="M0 200V120L120 82 230 110 360 62 500 106 640 76 780 112 920 70 1060 104 1200 66 1330 100 1440 84V200Z"/><path fill="#DFDFDA" d="M0 200V150C240 128 480 150 720 140S1200 126 1440 146V200Z"/></svg>
+    <svg class="sc-bird sc-margin" style="right:13%;top:9%;width:26px;color:#8F8AA0" viewBox="0 0 24 10" data-depth="0.3" data-drift="-0.12"><use href="#i-bird"/></svg>
+    <svg class="sc-bird sc-margin" style="right:10%;top:12%;width:18px;color:#A19CB0" viewBox="0 0 24 10" data-depth="0.34" data-drift="-0.14"><use href="#i-bird"/></svg>
+    <svg class="sc-bird sc-margin" style="right:15.5%;top:14%;width:14px;color:#ADA8BB" viewBox="0 0 24 10" data-depth="0.36" data-drift="-0.1"><use href="#i-bird"/></svg>
+    <svg class="sc-tree sc-margin" style="right:2.2%;top:36%;width:72px;color:#CFCBD8" viewBox="0 0 50 70" data-depth="0.12"><use href="#i-oak"/></svg>
+    <svg class="sc-tree sc-margin" style="right:6.4%;top:43%;width:46px;color:#BBB6C8;--blaze:#7FB3E5" viewBox="0 0 50 70" data-depth="0.07"><use href="#i-oak"/></svg>
+    <svg class="sc-band sc-band-tall" viewBox="0 0 1440 260" preserveAspectRatio="none" data-depth="0.05"><path fill="#EEEAF2" d="M0 260V120C200 80 380 110 560 96S900 60 1080 88 1340 120 1440 100V260Z"/><path fill="#DDD8E7" d="M0 260V170C260 140 470 168 700 156S1120 128 1300 152C1370 162 1420 160 1440 156V260Z"/><path fill="#C7C2D6" d="M0 260V215C240 198 480 216 720 208S1200 194 1440 212V260Z"/></svg>
   </div>
   <div class="wrap walk-in">
-    <div>
+    <div class="walk-copy">
       <span class="lbl">You're not alone</span>
       <h2 id="walk-title">Who walks <em class="accent">with you</em></h2>
-      <p class="walk-p">Following Jesus was never meant to be done alone. At every step, real people at Christ Church are praying for you and walking with you, from your first Sunday to the day you help someone else follow Jesus.</p>
-      <div class="people">
-        <div class="person"><div class="person-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div><h4>Pastors &amp; chaplains</h4><p>Prayer, guidance and care in every season of life.</p></div></div>
-        <div class="person"><div class="person-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h4>Group leaders</h4><p>People who know your name and grow alongside you, week after week.</p></div></div>
-        <div class="person"><div class="person-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div><div><h4>Coaches &amp; mentors</h4><p>Experienced believers who invest in you personally and walk with you.</p></div></div>
-      </div>
+      <p class="lede">Real people at Christ Church pray for you and walk with you, every step of the way.</p>
+      <ul class="companions">
+        <li class="companion card"><svg class="cp-art" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#i-lantern"/></svg><div><h3>Pastors &amp; chaplains</h3><p>Prayer and care in every season</p></div></li>
+        <li class="companion card"><svg class="cp-art" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#i-campfire"/></svg><div><h3>Group leaders</h3><p>People who know your name</p></div></li>
+        <li class="companion card"><svg class="cp-art" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#i-footprints"/></svg><div><h3>Coaches &amp; mentors</h3><p>Someone a few steps ahead of you</p></div></li>
+      </ul>
     </div>
-    <form class="form" id="guide" aria-labelledby="conn-title" novalidate>
+    <form class="form card" id="guide" aria-labelledby="conn-title" novalidate>
       <h3 id="conn-title">Talk to a next-step guide</h3>
-      <p class="form-sub">Not sure what's next? Tell us a little about you, and someone from our team will reach out.</p>
+      <p class="form-sub">Tell us a little about you, and someone will reach out.</p>
       <div class="field"><label for="conn-name">Your name</label><input id="conn-name" type="text" placeholder="First and last name" autocomplete="name" required></div>
       <div class="field"><label for="conn-email">Email</label><input id="conn-email" type="email" placeholder="you@email.com" autocomplete="email" required></div>
       <div class="fields2">
@@ -304,31 +337,6 @@
       <button class="btn btn-dark" id="conn-submit" type="submit">Send my info</button>
       <p class="form-note">Your note goes to our Church Life team at ChurchLife@christchurchusa.org.</p>
     </form>
-  </div>
-</section>
-
-<section class="sec app" id="stay-connected" aria-labelledby="app-title">
-  <div class="scenery" aria-hidden="true">
-    <div class="sc-dusk"></div>
-    <svg class="sc-bird sc-margin" style="left:9%;top:12%;width:24px;color:#8F8AA0" viewBox="0 0 24 10" data-depth="0.3" data-drift="0.12"><use href="#i-bird"/></svg>
-    <svg class="sc-bird sc-margin" style="left:12%;top:16%;width:16px;color:#A19CB0" viewBox="0 0 24 10" data-depth="0.34" data-drift="0.14"><use href="#i-bird"/></svg>
-    <svg class="sc-band sc-band-tall" viewBox="0 0 1440 260" preserveAspectRatio="none" data-depth="0.05"><path fill="#EEEAF2" d="M0 260V120C200 80 380 110 560 96S900 60 1080 88 1340 120 1440 100V260Z"/><path fill="#DDD8E7" d="M0 260V170C260 140 470 168 700 156S1120 128 1300 152C1370 162 1420 160 1440 156V260Z"/><path fill="#C7C2D6" d="M0 260V215C240 198 480 216 720 208S1200 194 1440 212V260Z"/></svg>
-  </div>
-  <div class="wrap app-in">
-    <div>
-      <span class="lbl">Stay connected</span>
-      <h2 id="app-title">Take your church family <em class="accent">for the road</em></h2>
-      <p class="app-p">Watch messages, give, find groups and events, and see your next step, all in one place. Download the Christ Church app and stay connected all week long.</p>
-      <div class="app-btns">
-        <!-- Placeholder store URLs -->
-        <a class="btn btn-dark" href="https://apps.apple.com/app/christ-church">Get it on the App Store</a>
-        <a class="btn btn-out" href="https://play.google.com/store/apps/christ-church">Get it on Google Play</a>
-      </div>
-    </div>
-    <div class="reviews" aria-label="App reviews">
-      <div class="review"><div class="stars" role="img" aria-label="5 stars">★★★★★</div><p>"This app completely changed how I engage with my church. I can find my next step, watch sermons, and connect with my group all in one place."</p><span>— Montclair Campus</span></div>
-      <div class="review"><div class="stars" role="img" aria-label="5 stars">★★★★★</div><p>"The PATHways section helped me realize I'd been stuck for two years. I finally knew what to do next."</p><span>— Rockaway Campus</span></div>
-    </div>
   </div>
 </section>
 
@@ -365,7 +373,7 @@
     </div>
     <div class="f-col"><h4>Participate</h4><ul><li><a href="https://christchurchusa.org/visit/">Worship Services</a></li><li><a href="https://christchurchusa.org/membership/">Join Our Church Family</a></li><li><a href="https://my.christchurchusa.org/econnect">Connection Cards</a></li><li><a href="https://christchurchusa.org/smallgroups/typesofgroups">Life Activity Groups</a></li></ul></div>
     <div class="f-col"><h4>Apply</h4><ul><li><a href="https://christchurchusa.org/thelifecourse">The Life Course</a></li><li><a href="https://christchurchusa.org/smallgroups/">Life Groups</a></li><li><a href="https://christchurchusa.org/whatsnext/">Salvation Prayers</a></li><li><a href="https://www.youtube.com/playlist?list=PLaZ8aFdSxz7UaydIdnCs9do3jNN_AQH_M">What’s the Word? Bible Study</a></li></ul></div>
-    <div class="f-col"><h4>Take Action</h4><ul><li><a href="https://pathways.jimgottshall.com/a/gifts" target="_blank" rel="noopener">Spiritual Gifts Assessment</a></li><li><a href="https://www.youtube.com/watch?v=8ZQo9iGZrao">Join a Serve Team</a></li><li><a href="https://carecenterofnewjersey.org/foodforhope">Food for HOPE Outreach</a></li><li><a href="https://carecenterofnewjersey.org/volunteer/">Community Outreach</a></li></ul></div>
+    <div class="f-col"><h4>Take Action</h4><ul><li><a href="https://pathways.jimgottshall.com/a/gifts" target="_blank" rel="noopener">Spiritual Gifts Assessment</a></li><li><a href="https://www.youtube.com/watch?v=12ZQo9iGZrao">Join a Serve Team</a></li><li><a href="https://carecenterofnewjersey.org/foodforhope">Food for HOPE Outreach</a></li><li><a href="https://carecenterofnewjersey.org/volunteer/">Community Outreach</a></li></ul></div>
     <div class="f-col"><h4>Help Others</h4><ul><li><a href="https://christchurchusa.org/invite/">Invite Someone to Church</a></li><li><a href="https://christchurchusa.org/smallgroups/lead/">Leading a Small Group</a></li><li><a href="https://christchurchusa.org/serve/">Leading a Serve Team</a></li><li><a href="https://christchurchusa.org/serve/questcollege">Mentoring / Coaching Others</a></li></ul></div>
   </div>
   <div class="foot-bot">
@@ -376,10 +384,10 @@
 
 <nav class="trailmap" id="trailmap" aria-label="Page sections">
   <ol>
+    <li><a href="#discipleship"><span class="tm-dot" aria-hidden="true"></span><span class="tm-lbl">What is discipleship?</span></a></li>
     <li><a href="#assessment"><span class="tm-dot" aria-hidden="true"></span><span class="tm-lbl">Get your bearings</span></a></li>
     <li><a href="#choose-path"><span class="tm-dot" aria-hidden="true"></span><span class="tm-lbl">Find your next step</span></a></li>
     <li><a href="#walk"><span class="tm-dot" aria-hidden="true"></span><span class="tm-lbl">Who walks with you</span></a></li>
-    <li><a href="#stay-connected"><span class="tm-dot" aria-hidden="true"></span><span class="tm-lbl">Stay connected</span></a></li>
   </ol>
 </nav>
 <button type="button" class="fab" id="fab-open" aria-haspopup="dialog">Not sure where to start?</button>

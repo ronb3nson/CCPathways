@@ -1,41 +1,60 @@
-/* Design tokens. Stage colors follow the PATHways app and logo icon. */
+/* Design tokens. The area colors follow the PATHways app, logo and report; see brand/README.md. */
 :root {
+  /* Neutrals */
   --ink: #111111;
   --white: #FFFFFF;
   --off: #FAFAFA;
   --cream: #FCF1D8;
-  --gray: #EDEDED;
-  --blue: #97CAEB;
+  --muted: #555555;
+  --line: #DDDDDD;
+  --field-line: #CFCFCF;
+  --night: #1C1C1C;
+
+  /* Actions */
   --yel: #FBCF00;
   --yel-hover: #E8BF00;
   --red: #EA1B43;
   --red-hover: #C3123A;
-  --foot: #1C1C1C;
-  --muted: #555555;
-  --line: #DDDDDD;
-  --field-line: #CFCFCF;
 
-  /* Stages: color for letter circles and the active outline, tint for card backgrounds */
+  /* The four areas: color for marks and circles, tint for backgrounds, and the text color that sits on the color */
   --p: #7FB3E5; --p-lt: #E6F0FA; --p-on: var(--ink);
   --a: #14A8C2; --a-lt: #DCF2F6; --a-on: var(--ink);
   --t: #F4AF00; --t-lt: #FDEFCC; --t-on: var(--ink);
   --h: #DE2A50; --h-lt: #FADDE3; --h-on: var(--white);
 
-  /* Gill Sans and Proxima Nova are used when installed; otherwise the free fallbacks load from Google Fonts */
+  /* The trail and the illustrations around it */
+  --sand: #EEE2CA;
+  --sand-edge: #D6C39E;
+  --wood: #7A5C3E;
+
+  /* Type. Gill Sans and Proxima Nova are used when installed; Lato and Montserrat stand in otherwise.
+     Charis SIL is the serif of the PATHways report, used here for accents and the definition. */
   --fh: 'Gill Sans', 'Gill Sans MT', Lato, sans-serif;
   --fb: 'Proxima Nova', Montserrat, sans-serif;
+  --fs: 'Charis SIL', Georgia, serif;
   --fbtn: Montserrat, sans-serif;
+  --lede: 19px;
 
+  /* Shape and depth */
   --r-sm: 4px;
-  --r-md: 10px;
+  --r-md: 12px;
+  --shadow-card: 0 1px 0 rgba(17, 17, 17, .06), 0 14px 30px -24px rgba(17, 17, 17, .45);
+  --shadow-lift: 0 1px 0 rgba(17, 17, 17, .06), 0 22px 44px -24px rgba(17, 17, 17, .4);
+  --ease: cubic-bezier(.2, .7, .2, 1);
+
+  /* Layout */
   --mw: 930px;
   --mw-hero: 1080px;
   --mw-foot: 1100px;
   --gutter: 24px;
-  --sec-pad: 90px;
+  --sec-pad: 96px;
   --hdr-h: 80px;
 }
 
 @media (max-width: 640px) {
-  :root { --sec-pad: 64px; }
+  :root { --sec-pad: 68px; --lede: 18px; }
+}
+/* Phones held sideways get a shorter header */
+@media (max-height: 500px) and (min-width: 640px) and (orientation: landscape) {
+  :root { --hdr-h: 60px; }
 }
