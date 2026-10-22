@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PATHways — Christ Church</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --ink: #161d19;
+    --muted: #6c7a71;
+    --page: #f4fbf4;
+    --alt:  #eef6ee;
+    --dark: #2b322d;
+    --rule: #e5e7eb;
+    --body: #3c4a42;
+
+    --participate: #48abb4;
+    --apply:       #379eb4;
+    --action:      #e6cc1b;
+    --action-dk:   #a08800;
+    --help:        #e62e45;
+
+    --shadow-card: 0 4px 12px rgba(0,0,0,0.05);
+    --shadow-hover: 0 12px 28px rgba(0,0,0,0.10);
+  }
+  html, body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--page);
+    -webkit-font-smoothing: antialiased;
+  }
+  body { font-feature-settings: "cv11", "ss01"; }
+
+  /* ── Type ──────────────────────────────────────────── */
+  .h1 { font-size: 50px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; }
+  .h2 { font-size: 36px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.1; }
+  .h3 { font-size: 26px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+  .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .lede  { font-size: 18px; line-height: 1.7; color: var(--muted); }
+  .body  { font-size: 15px; line-height: 1.65; color: var(--body); }
+  .muted { color: var(--muted); }
+
+  @media (max-width: 640px) {
+    .h1 { font-size: 36px; }
+    .h2 { font-size: 28px; }
+    .h3 { font-size: 22px; }
+    .lede { font-size: 16px; }
+  }
+
+  /* ── Buttons ───────────────────────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-weight: 600; font-size: 14px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+  }
+  .btn-primary  { background: var(--participate); color: #fff; }
+  .btn-primary:hover { background: #3a969f; box-shadow: 0 8px 18px rgba(72,171,180,0.28); }
+  .btn-ghost    { background: #fff; color: var(--participate); border: 1.5px solid var(--participate); }
+  .btn-ghost:hover { background: rgba(72,171,180,0.06); }
+  .btn-apply    { background: var(--apply); color: #fff; }
+  .btn-apply:hover{ background: #2d8aa0; }
+  .btn-action   { background: var(--action); color: var(--ink); }
+  .btn-action:hover{ background: #d4bb13; }
+  .btn-help     { background: var(--help); color: #fff; }
+  .btn-help:hover{ background: #c92539; }
+
+  /* ── Cards ─────────────────────────────────────────── */
+  .card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+  .card-soon {
+    opacity: 0.55;
+    border-style: dashed;
+    background: #fbfbfa;
+    pointer-events: none;
+    box-shadow: none;
+  }
+  .card-soon:hover { transform: none; box-shadow: none; }
+
+  /* ── Badges (pills) ────────────────────────────────── */
+  .badge {
+    display: inline-flex; align-items: center;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .badge-p { background: rgba(72,171,180,0.10);  color: var(--participate); }
+  .badge-a { background: rgba(55,158,180,0.10);  color: var(--apply); }
+  .badge-x { background: rgba(230,204,27,0.14);  color: var(--action-dk); }
+  .badge-h { background: rgba(230,46,69,0.10);   color: var(--help); }
+  .badge-soon { background: #ececec; color: #8a8a8a; }
+
+  /* ── CTA links ─────────────────────────────────────── */
+  .cta-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 13px; font-weight: 700;
+    margin-top: auto;
+    padding-top: 10px;
+    text-decoration: none;
+    transition: gap 0.18s ease;
+  }
+  .cta-link:hover { gap: 8px; }
+  .cta-p { color: var(--participate); }
+  .cta-a { color: var(--apply); }
+  .cta-x { color: var(--action-dk); }
+  .cta-h { color: var(--help); }
+  .cta-soon { color: #9aa19c; }
+
+  /* ── Stage nodes (the spine) ───────────────────────── */
+  .stage-node {
+    width: 56px; height: 56px;
+    border-radius: 9999px;
+    display: flex; align-items: center; justify-content: center;
+    flex: 0 0 56px;
+    font-size: 24px;
+    color: #fff;
+    box-shadow: 0 0 0 6px var(--page);
+    position: relative; z-index: 2;
+  }
+  .stage-node.x { color: var(--ink); }
+
+  .spine-line {
+    width: 3px;
+    flex: 1 1 auto;
+    min-height: 60px;
+    border-radius: 2px;
+    margin: 6px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .line-p-a { background: linear-gradient(to bottom, var(--participate), var(--apply)); }
+  .line-a-x { background: linear-gradient(to bottom, var(--apply), var(--action)); }
+  .line-x-h { background: linear-gradient(to bottom, var(--action), var(--help)); }
+
+  /* ── Exit gate cards ───────────────────────────────── */
+  .gate {
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid;
+    margin: 16px 0 22px;
+    max-width: 700px;
+  }
+  .gate-p { background: rgba(72,171,180,0.06); border-color: rgba(72,171,180,0.30); }
+  .gate-a { background: rgba(55,158,180,0.06); border-color: rgba(55,158,180,0.30); }
+  .gate-x { background: rgba(230,204,27,0.08); border-color: rgba(230,204,27,0.40); }
+  .gate-h { background: rgba(230,46,69,0.05);  border-color: rgba(230,46,69,0.30); }
+  .gate-label { font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; }
+  .gate-label.p { color: var(--participate); }
+  .gate-label.a { color: var(--apply); }
+  .gate-label.x { color: var(--action-dk); }
+  .gate-label.h { color: var(--help); }
+
+  /* ── Stage name colors ─────────────────────────────── */
+  .name-p { color: var(--participate); }
+  .name-a { color: var(--apply); }
+  .name-x { color: var(--action-dk); }
+  .name-h { color: var(--help); }
+
+  /* ── Resource grid ─────────────────────────────────── */
+  .res-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    max-width: 720px;
+  }
+  .res-card {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-height: 148px;
+  }
+  .res-title { font-size: 13px; font-weight: 700; line-height: 1.35; color: var(--ink); }
+  .res-desc  { font-size: 12px; line-height: 1.55; color: var(--muted); }
+  .res-card.card-soon .res-title,
+  .res-card.card-soon .res-desc { color: #9aa19c; }
+
+  /* ── Nav ───────────────────────────────────────────── */
+  .nav-link {
+    font-size: 14px; font-weight: 500; color: var(--ink);
+    transition: color 0.18s ease;
+  }
+  .nav-link:hover { color: var(--participate); }
+  .nav-link.active { color: var(--participate); font-weight: 600; }
+
+  /* ── PATH acronym section ──────────────────────────── */
+  .acronym-row {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    column-gap: 18px;
+    row-gap: 4px;
+    align-items: baseline;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .acronym-row:last-child { border-bottom: none; }
+  .acronym-letter {
+    font-size: 30px; font-weight: 800; line-height: 1;
+    grid-row: span 2;
+    align-self: start;
+    padding-top: 2px;
+    letter-spacing: -0.02em;
+  }
+  .acronym-name {
+    font-size: 17px; font-weight: 700; letter-spacing: -0.005em;
+  }
+  .acronym-name .rest { color: var(--ink); font-weight: 600; opacity: 0.55; }
+  .acronym-desc { font-size: 14px; line-height: 1.55; color: var(--muted); grid-column: 2; }
+
+  /* ── Three questions ───────────────────────────────── */
+  .three-q { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .three-q .col { border-right: 1px solid var(--rule); }
+  .three-q .col:last-child { border-right: none; }
+  @media (max-width: 720px) {
+    .three-q .col { border-right: none; border-bottom: 1px solid var(--rule); }
+    .three-q .col:last-child { border-bottom: none; }
+  }
+
+  /* ── Responsive spine: stack nodes above content on mobile ── */
+  @media (max-width: 720px) {
+    .stage-block { flex-direction: column !important; gap: 18px !important; }
+    .spine-col { flex-direction: row !important; align-items: center !important; width: 100% !important; }
+    .spine-line { display: none !important; }
+    .stage-node { box-shadow: 0 0 0 4px var(--page); }
+    .res-grid { max-width: 100% !important; }
+  }
+
+  a { text-decoration: none; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--participate);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body class="bg-[var(--page)]">
+
+<!-- ════════════════════ NAV ════════════════════ -->
+<header class="sticky top-0 z-40 bg-white border-b border-[var(--rule)] h-16">
+  <div class="max-w-7xl mx-auto h-full px-5 sm:px-8 flex items-center justify-between">
+    <a href="#" class="font-semibold text-[15px] tracking-tight">Christ Church</a>
+
+    <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
+      <a href="#" class="nav-link active">PATHways</a>
+      <a href="#" class="nav-link">My Profile</a>
+      <a href="#journey" class="nav-link">Resources</a>
+      <a href="https://christchurchusa.org/contact" class="nav-link">Contact</a>
+    </nav>
+
+    <a href="#" class="btn btn-ghost" style="padding: 7px 14px; font-size: 13px;">Profile</a>
+  </div>
+</header>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section class="bg-white">
+  <div class="max-w-[680px] mx-auto px-6 text-center pt-[72px] pb-20">
+    <span class="badge badge-p">A Path Made for You</span>
+    <h1 class="h1 mt-5">Chart Your Discipleship Journey</h1>
+    <p class="lede mt-5 mx-auto" style="max-width: 520px;">
+      You don't have to figure this out alone. PATHways is Christ Church's guided system — showing you where you are, what's next, and who walks with you.
+    </p>
+    <div class="mt-8 flex items-center justify-center flex-wrap gap-3">
+      <a href="#journey" class="btn btn-primary">Begin My Journey →</a>
+      <a href="#how" class="btn btn-ghost">See How It Works</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ PATH ACRONYM ════════════════════ -->
+<section class="bg-white border-t border-[var(--rule)]">
+  <div class="max-w-6xl mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+      <span class="eyebrow">What PATH stands for</span>
+      <h2 class="h2 mt-3">Designed around four stages of growth.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
+      <!-- wheel image -->
+      <div class="flex justify-center md:justify-end">
+        <img
+          src="assets/path-wheel.png"
+          alt="Christ Church PATH wheel — Participate, Apply, Take Action, Help Others"
+          class="w-full max-w-[420px] h-auto"
+        />
+      </div>
+
+      <!-- acronym list -->
+      <div>
+        <div class="acronym-row">
+          <div class="acronym-letter name-p">P</div>
+          <div class="acronym-name">
+            <span class="name-p">Participate</span> <span class="rest">— Find connection, build relationships.</span>
+          </div>
+          <div class="acronym-desc">Explore faith, find community, and take your first steps at Christ Church.</div>
+        </div>
+        <div class="acronym-row">
+          <div class="acronym-letter name-a">A</div>
+          <div class="acronym-name">
+            <span class="name-a">Apply</span> <span class="rest">— Learn to follow Jesus, grow spiritually.</span>
+          </div>
+          <div class="acronym-desc">Commit to growing — Life Groups, daily disciplines, and faith put into practice.</div>
+        </div>
+        <div class="acronym-row">
+          <div class="acronym-letter name-x">T</div>
+          <div class="acronym-name">
+            <span class="name-x">Take Action</span> <span class="rest">— Use your gifts, make a difference.</span>
+          </div>
+          <div class="acronym-desc">Get off the sidelines — serve teams and community impact inside and beyond the church.</div>
+        </div>
+        <div class="acronym-row">
+          <div class="acronym-letter name-h">H</div>
+          <div class="acronym-name">
+            <span class="name-h">Help Others</span> <span class="rest">— Lead others, help others grow.</span>
+          </div>
+          <div class="acronym-desc">Reproduce what you've received — mentor, lead a group, and disciple newer believers.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ THREE QUESTIONS ════════════════════ -->
+<section id="how" class="three-q bg-[var(--page)]">
+  <div class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-3">
+      <div class="col px-6 py-3 text-center">
+        <div class="text-2xl mb-2" aria-hidden="true">🧭</div>
+        <div class="font-bold text-[15px]">Where am I?</div>
+        <p class="mt-1 muted text-[13px] leading-snug">Understand your current stage of spiritual growth.</p>
+      </div>
+      <div class="col px-6 py-3 text-center">
+        <div class="text-2xl mb-2" aria-hidden="true">📍</div>
+        <div class="font-bold text-[15px]">What's my next step?</div>
+        <p class="mt-1 muted text-[13px] leading-snug">Every stage has a clear, curated set of next actions.</p>
+      </div>
+      <div class="col px-6 py-3 text-center">
+        <div class="text-2xl mb-2" aria-hidden="true">🤝</div>
+        <div class="font-bold text-[15px]">Who walks with me?</div>
+        <p class="mt-1 muted text-[13px] leading-snug">Mentors, groups, and pastoral care at every stage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ JOURNEY SPINE ════════════════════ -->
+<section id="journey" class="py-20 bg-[var(--page)]">
+  <div class="max-w-[960px] mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="eyebrow">The PATH framework</span>
+      <h2 class="h2 mt-3">Choose your PATH.</h2>
+    </div>
+
+    <!-- ─── STAGE 1 · PARTICIPATE ─────────────────── -->
+    <div class="stage-block flex gap-8 items-stretch">
+      <div class="spine-col flex flex-col items-center" style="flex: 0 0 56px;">
+        <div class="stage-node" style="background: var(--participate);" aria-hidden="true">🧭</div>
+        <div class="spine-line line-p-a"></div>
+      </div>
+      <div class="flex-1 pb-12">
+        <span class="badge badge-p">Participate</span>
+        <h3 class="h3 name-p mt-3">Participate</h3>
+        <div class="eyebrow mt-1">Belong — Start Here</div>
+        <p class="body mt-3" style="max-width: 560px;">
+          Explore faith, find community, and take your first steps at Christ Church. Every journey starts with showing up.
+        </p>
+
+        <div class="gate gate-p">
+          <div class="gate-label p">To progress → Apply</div>
+          <p class="text-[13px] mt-1.5" style="color: var(--body);">
+            3+ service check-ins · Complete Membership 101 · Connect team follow-up · Express interest in growing
+          </p>
+        </div>
+
+        <div class="res-grid">
+          <a href="https://christchurchusa.org/checkusout" class="card res-card">
+            <div class="res-title">Weekend Services</div>
+            <p class="res-desc">Sun 9am, 11am &amp; 1pm — Montclair, Rockaway, Lodi + Online.</p>
+            <span class="cta-link cta-p">Plan a Visit →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/whatsnext" class="card res-card">
+            <div class="res-title">'What's Next'</div>
+            <p class="res-desc">New to faith? Start here — written just for you.</p>
+            <span class="cta-link cta-p">Get Started →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/membership" class="card res-card">
+            <span class="badge badge-p" style="align-self: flex-start;">PATH 101</span>
+            <div class="res-title">Joining Our Church Family</div>
+            <p class="res-desc">8-lesson online course — our mission, vision, and values.</p>
+            <span class="cta-link cta-p">Start Course →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/waterbaptism" class="card res-card">
+            <div class="res-title">Water Baptism</div>
+            <p class="res-desc">Take the public step of faith in your journey.</p>
+            <span class="cta-link cta-p">Sign Up →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/ccevents" class="card res-card">
+            <span class="badge badge-p" style="align-self: flex-start;">Monthly</span>
+            <div class="res-title">What's the Word?</div>
+            <p class="res-desc">Bible study every 1st Wednesday at 7pm. Live on YouTube and Facebook.</p>
+            <span class="cta-link cta-p">Watch Live →</span>
+          </a>
+
+          <a href="https://live.christchurchusa.org" class="card res-card">
+            <div class="res-title">CC Online</div>
+            <p class="res-desc">Worship live or on-demand from anywhere.</p>
+            <span class="cta-link cta-p">Watch Now →</span>
+          </a>
+
+          <div class="card res-card card-soon">
+            <span class="badge badge-soon" style="align-self: flex-start;">Coming Soon · Aug 25</span>
+            <div class="res-title">Discover Christ Church</div>
+            <p class="res-desc">Live 30-min orientation with a leader about Christ Church, beliefs, and history.</p>
+            <span class="cta-link cta-soon">Coming Soon →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── STAGE 2 · APPLY ─────────────────── -->
+    <div class="stage-block flex gap-8 items-stretch">
+      <div class="spine-col flex flex-col items-center" style="flex: 0 0 56px;">
+        <div class="stage-node" style="background: var(--apply);" aria-hidden="true">📖</div>
+        <div class="spine-line line-a-x"></div>
+      </div>
+      <div class="flex-1 pb-12">
+        <span class="badge badge-a">Apply</span>
+        <h3 class="h3 name-a mt-3">Apply</h3>
+        <div class="eyebrow mt-1">Grow — Get Equipped</div>
+        <p class="body mt-3" style="max-width: 560px;">
+          Commit to growing. Join a Life Group, build spiritual disciplines, and put your faith into practice every week.
+        </p>
+
+        <div class="gate gate-a">
+          <div class="gate-label a">To progress → Take Action</div>
+          <p class="text-[13px] mt-1.5" style="color: var(--body);">
+            8 weeks in a Life Group · Complete Foundations 201 · Take a giving step · Spiritual Health Assessment ≥ 60
+          </p>
+        </div>
+
+        <div class="res-grid">
+          <a href="https://christchurchusa.org/smallgroups" class="card res-card">
+            <span class="badge badge-a" style="align-self: flex-start;">Required</span>
+            <div class="res-title">Small Groups</div>
+            <p class="res-desc">Find a Life Group and commit to 8 weeks of community and growth.</p>
+            <span class="cta-link cta-a">Find a Group →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/careministries" class="card res-card">
+            <span class="badge badge-a" style="align-self: flex-start;">Healing Track</span>
+            <div class="res-title">Care Groups</div>
+            <p class="res-desc">Support for grief, divorce, addiction, and crisis. You don't carry this alone.</p>
+            <span class="cta-link cta-a">Find Support →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/documents/40DayBrochure.pdf" class="card res-card">
+            <div class="res-title">40-Day Prayer Journey</div>
+            <p class="res-desc">Build a consistent daily prayer life in 40 days.</p>
+            <span class="cta-link cta-a">Download →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/documents/TheDiscipleship-2020.pdf" class="card res-card">
+            <div class="res-title">Bible Reading Plan</div>
+            <p class="res-desc">'The Discipleship' — daily structured Bible reading.</p>
+            <span class="cta-link cta-a">Download →</span>
+          </a>
+
+          <a href="https://defendingfaith.org" class="card res-card">
+            <div class="res-title">Defending Your Faith</div>
+            <p class="res-desc">Online apologetics for the modern world.</p>
+            <span class="cta-link cta-a">Take Course →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/fem" class="card res-card">
+            <span class="badge badge-a" style="align-self: flex-start;">Stewardship</span>
+            <div class="res-title">Financial Empowerment</div>
+            <p class="res-desc">Biblical principles for money, debt, and generosity.</p>
+            <span class="cta-link cta-a">Learn More →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/marriage" class="card res-card">
+            <span class="badge badge-a" style="align-self: flex-start;">Marriage Track</span>
+            <div class="res-title">Marriage Ministry</div>
+            <p class="res-desc">Resources to strengthen your marriage at every stage.</p>
+            <span class="cta-link cta-a">Explore →</span>
+          </a>
+
+          <a href="https://schoolofprayerusa.org" class="card res-card">
+            <div class="res-title">School of Prayer</div>
+            <p class="res-desc">Deeper training in prayer and intercession.</p>
+            <span class="cta-link cta-a">Explore →</span>
+          </a>
+
+          <a href="https://churchlifeonline.org" class="card res-card">
+            <div class="res-title">Church Life Online</div>
+            <p class="res-desc">Upper Room community + spiritual formation.</p>
+            <span class="cta-link cta-a">Browse Courses →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/pastoralcare" class="card res-card">
+            <div class="res-title">Pastoral Care</div>
+            <p class="res-desc">Support, prayer, and guidance at every stage.</p>
+            <span class="cta-link cta-a">Reach Out →</span>
+          </a>
+
+          <div class="card res-card card-soon">
+            <span class="badge badge-soon" style="align-self: flex-start;">Coming Soon · Fall 2026</span>
+            <div class="res-title">PATH 201</div>
+            <p class="res-desc">6-week required discipleship course.</p>
+            <span class="cta-link cta-soon">Coming Soon →</span>
+          </div>
+
+          <div class="card res-card card-soon">
+            <span class="badge badge-soon" style="align-self: flex-start;">Coming Soon · Fall 2026</span>
+            <div class="res-title">Spiritual Health Assessment</div>
+            <p class="res-desc">20-question scored growth assessment.</p>
+            <span class="cta-link cta-soon">Coming Soon →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── STAGE 3 · TAKE ACTION ─────────────────── -->
+    <div class="stage-block flex gap-8 items-stretch">
+      <div class="spine-col flex flex-col items-center" style="flex: 0 0 56px;">
+        <div class="stage-node x" style="background: var(--action);" aria-hidden="true">⚡</div>
+        <div class="spine-line line-x-h"></div>
+      </div>
+      <div class="flex-1 pb-12">
+        <span class="badge badge-x">Take Action</span>
+        <h3 class="h3 name-x mt-3">Take Action</h3>
+        <div class="eyebrow mt-1">Serve — Step In</div>
+        <p class="body mt-3" style="max-width: 560px;">
+          Get off the sidelines. Join a serve team, discover how God wired you, and make a tangible difference inside the church and in your community.
+        </p>
+
+        <div class="gate gate-x">
+          <div class="gate-label x">To progress → Help Others</div>
+          <p class="text-[13px] mt-1.5" style="color: var(--body);">
+            Serve 2x/month for 12 consecutive weeks · Complete SHAPE assessment · Pastoral team approval
+          </p>
+        </div>
+
+        <div class="res-grid">
+          <a href="https://christchurchusa.org/serve" class="card res-card">
+            <span class="badge badge-x" style="align-self: flex-start;">15+ Teams</span>
+            <div class="res-title">Serve Team Directory</div>
+            <p class="res-desc">Welcome, Kids, Media, Worship, Prayer, Security, Hospitality &amp; more.</p>
+            <span class="cta-link cta-x">Browse Teams →</span>
+          </a>
+
+          <a href="https://carecenterofnewjersey.org/volunteer" class="card res-card">
+            <span class="badge badge-x" style="align-self: flex-start;">Community Impact</span>
+            <div class="res-title">CARE Center of NJ</div>
+            <p class="res-desc">Volunteer with CARE 4 Kids, Legal Clinic, Mental Health &amp; more.</p>
+            <span class="cta-link cta-x">Volunteer →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/foodpantry" class="card res-card">
+            <div class="res-title">Food Pantry</div>
+            <p class="res-desc">Serve families in need through our ongoing pantry ministry.</p>
+            <span class="cta-link cta-x">Get Involved →</span>
+          </a>
+
+          <a href="https://tricountyfair.org/volunteer" class="card res-card">
+            <span class="badge badge-x" style="align-self: flex-start;">Open to All</span>
+            <div class="res-title">Tri-County Fair</div>
+            <p class="res-desc">A great first step — no membership required to volunteer.</p>
+            <span class="cta-link cta-x">Volunteer →</span>
+          </a>
+
+          <div class="card res-card card-soon">
+            <span class="badge badge-soon" style="align-self: flex-start;">Coming Soon · Fall 2026</span>
+            <div class="res-title">PATH 301</div>
+            <p class="res-desc">Discover your design. SHAPE / gifts assessment to find your fit.</p>
+            <span class="cta-link cta-soon">Coming Soon →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── STAGE 4 · HELP OTHERS ─────────────────── -->
+    <div class="stage-block flex gap-8 items-stretch">
+      <div class="spine-col flex flex-col items-center" style="flex: 0 0 56px;">
+        <div class="stage-node" style="background: var(--help);" aria-hidden="true">🤝</div>
+        <!-- no line below -->
+      </div>
+      <div class="flex-1 pb-4">
+        <span class="badge badge-h">Help Others</span>
+        <h3 class="h3 name-h mt-3">Help Others</h3>
+        <div class="eyebrow mt-1">Lead — Reproduce</div>
+        <p class="body mt-3" style="max-width: 560px;">
+          You've grown. Now give it away. Lead a group, mentor someone newer in their faith, and help reproduce the discipleship process in others.
+        </p>
+
+        <div class="gate gate-h">
+          <div class="gate-label h">Ongoing Stage</div>
+          <p class="text-[13px] mt-1.5" style="color: var(--body);">
+            The ultimate metric: your mentee reaches Take Action or Help Others — reproduction, not just participation.
+          </p>
+        </div>
+
+        <div class="res-grid">
+          <a href="https://christchurchusa.org/formedtolead" class="card res-card">
+            <span class="badge badge-h" style="align-self: flex-start;">PATH 401</span>
+            <div class="res-title">Formed to Lead</div>
+            <p class="res-desc">6-session program with DiSC + IDI assessments, taught by Dr. David Ireland.</p>
+            <span class="cta-link cta-h">Learn More →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/smallgroups" class="card res-card">
+            <span class="badge badge-h" style="align-self: flex-start;">Ongoing</span>
+            <div class="res-title">Small Group Leadership</div>
+            <p class="res-desc">Host or facilitate a Life Group. Walk alongside others and build a Christ-centered community.</p>
+            <span class="cta-link cta-h">Inquire →</span>
+          </a>
+
+          <a href="https://churchlifeonline.org" class="card res-card">
+            <span class="badge badge-h" style="align-self: flex-start;">Elder Track</span>
+            <div class="res-title">Ministry of Elder</div>
+            <p class="res-desc">Formal course preparing aspiring elders for church leadership.</p>
+            <span class="cta-link cta-h">Browse Course →</span>
+          </a>
+
+          <a href="https://churchlifeonline.org" class="card res-card">
+            <span class="badge badge-h" style="align-self: flex-start;">Deacon Track</span>
+            <div class="res-title">Ministry of Deacon</div>
+            <p class="res-desc">Formation for those called to servant leadership as a deacon.</p>
+            <span class="cta-link cta-h">Browse Course →</span>
+          </a>
+
+          <a href="https://christchurchusa.org/legacygroup" class="card res-card">
+            <span class="badge badge-h" style="align-self: flex-start;">Senior Leaders</span>
+            <div class="res-title">Legacy Group</div>
+            <p class="res-desc">A community for experienced leaders investing in the next generation.</p>
+            <span class="cta-link cta-h">Learn More →</span>
+          </a>
+
+          <div class="card res-card card-soon">
+            <span class="badge badge-soon" style="align-self: flex-start;">Coming Soon · 2027</span>
+            <div class="res-title">Coaching Cohort</div>
+            <p class="res-desc">Monthly peer gathering for Help Others leaders.</p>
+            <span class="cta-link cta-soon">Coming Soon →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ BOTTOM CTA ════════════════════ -->
+<section class="bg-[var(--dark)] text-white">
+  <div class="max-w-[540px] mx-auto px-6 py-16 text-center">
+    <h2 class="h2 text-white">Not sure where you fit?</h2>
+    <p class="text-[16px] leading-relaxed mt-4" style="color: rgba(255,255,255,0.70);">
+      Our pastoral team is here to help you find your starting point and take the next right step — together.
+    </p>
+    <div class="mt-7">
+      <a href="https://christchurchusa.org/pastoralcare" class="btn btn-primary">Talk to a Pastor →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer class="bg-[var(--page)] border-t border-[var(--rule)]">
+  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div>
+      <div class="font-bold text-[14px]" style="color: var(--participate);">Christ Church PATHways</div>
+      <div class="text-[12px] muted mt-1">© 2026 Christ Church. All rights reserved.</div>
+    </div>
+    <div class="flex items-center gap-6 text-[12px] muted">
+      <a href="https://christchurchusa.org/about">About</a>
+      <a href="https://christchurchusa.org/contact">Contact</a>
+      <a href="https://christchurchusa.org/privacy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

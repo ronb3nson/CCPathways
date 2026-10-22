@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PATHways — Landing Page Wireframes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Caveat:wght@400;600;700&family=Architects+Daughter&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #2a2a2a;
+    --ink-soft: #555;
+    --ink-faint: #8a8a8a;
+    --paper: #fbfbf7;
+    --rule: #2a2a2a;
+    --participate: #48abb4;
+    --apply: #379eb4;
+    --action: #c9a900;
+    --help: #e62e45;
+  }
+  html, body { background: #efeee8; }
+  .wire {
+    font-family: "Architects Daughter", "Kalam", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+  }
+  .wire * { box-sizing: border-box; }
+  .wire h1, .wire h2, .wire h3, .wire .hand {
+    font-family: "Caveat", "Kalam", cursive;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: 0.005em;
+  }
+  .wire .scribble { font-family: "Kalam", cursive; }
+  .wire .label-cap {
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+  /* hand-drawn-style borders */
+  .wire .box {
+    border: 1.5px solid var(--rule);
+    border-radius: 6px 8px 7px 9px / 8px 6px 9px 7px;
+    background: #fff;
+    position: relative;
+  }
+  .wire .box-dash {
+    border: 1.5px dashed var(--rule);
+    border-radius: 6px 8px 7px 9px / 8px 6px 9px 7px;
+    background: #fff;
+  }
+  .wire .box-ghost { background: transparent; }
+  .wire .box-soft {
+    background: #f3f1ea;
+    border: 1.5px solid var(--rule);
+    border-radius: 7px 5px 9px 6px / 6px 8px 5px 9px;
+  }
+  .wire .img-ph {
+    background:
+      repeating-linear-gradient(45deg, transparent 0 8px, rgba(0,0,0,0.06) 8px 9px),
+      #f0eee5;
+    border: 1.5px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-faint);
+    font-family: "Kalam", cursive;
+    font-size: 12px;
+    border-radius: 4px 6px 5px 7px / 6px 4px 7px 5px;
+  }
+  .wire .img-ph::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px dashed rgba(0,0,0,0.18);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  .wire .img-ph { position: relative; }
+  .wire .pill {
+    display: inline-block;
+    padding: 3px 10px 4px;
+    border: 1.2px solid var(--rule);
+    border-radius: 999px;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-size: 11px;
+    background: #fff;
+  }
+  .wire .pill.t-p { color: var(--participate); border-color: var(--participate); background: rgba(72,171,180,0.08); }
+  .wire .pill.t-a { color: var(--apply); border-color: var(--apply); background: rgba(55,158,180,0.08); }
+  .wire .pill.t-x { color: var(--action); border-color: var(--action); background: rgba(201,169,0,0.10); }
+  .wire .pill.t-h { color: var(--help); border-color: var(--help); background: rgba(230,46,69,0.07); }
+  .wire .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px;
+    border: 1.5px solid var(--rule);
+    border-radius: 8px 10px 8px 11px / 10px 8px 11px 9px;
+    background: #fff;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .wire .btn-fill { background: var(--ink); color: #fff; }
+  .wire .btn-p { background: var(--participate); color: #fff; border-color: var(--participate); }
+  .wire .btn-ghost-p { color: var(--participate); border-color: var(--participate); background: #fff; }
+  .wire .node {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--rule);
+    background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-size: 18px;
+    flex: 0 0 auto;
+  }
+  .wire .node.p { background: var(--participate); color: #fff; border-color: var(--participate); }
+  .wire .node.a { background: var(--apply); color: #fff; border-color: var(--apply); }
+  .wire .node.x { background: var(--action); color: #1a1a1a; border-color: var(--action); }
+  .wire .node.h { background: var(--help); color: #fff; border-color: var(--help); }
+  .wire .x-mark { color: #c9c5b6; font-size: 26px; line-height: 1; }
+  .wire .scribble-line {
+    height: 0;
+    border-top: 1.5px dashed var(--rule);
+    margin: 12px 0;
+  }
+  .wire .arrow-r::after { content: " →"; }
+  .wire .meta { color: var(--ink-soft); font-size: 12px; font-family: "Architects Daughter"; line-height: 1.5; }
+  .wire .nav {
+    height: 56px;
+    border-bottom: 1.5px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px;
+    background: #fff;
+  }
+  .wire .nav .left { font-family: "Caveat", cursive; font-weight: 700; font-size: 22px; }
+  .wire .nav .left .pa { color: var(--participate); }
+  .wire .nav .center { display: flex; gap: 22px; color: var(--ink-soft); font-size: 14px; font-family: "Kalam", cursive; }
+
+  /* tag for wireframe annotations */
+  .wire .annotate {
+    position: absolute;
+    font-family: "Caveat", cursive;
+    color: #b03a2e;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.15;
+    transform: rotate(-3deg);
+    pointer-events: none;
+  }
+  .wire .annotate::before {
+    content: "↖ ";
+    color: #b03a2e;
+  }
+  .wire .annotate.r::before { content: ""; }
+  .wire .annotate.r::after  { content: " ↗"; }
+
+  .wire .frame-tag {
+    position: absolute;
+    top: 12px; right: 14px;
+    font-family: "Caveat", cursive;
+    color: var(--ink-faint);
+    font-size: 16px;
+    transform: rotate(2deg);
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="wireframes.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

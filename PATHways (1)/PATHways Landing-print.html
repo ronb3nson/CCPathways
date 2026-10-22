@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PATHways · Christ Church</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>doc-page:not(:defined){visibility:hidden}</style>
+<style>
+  :root{
+    --p:#7FB3E5;--p-dk:#3f7dbd;--p-lt:#EAF3FB;
+    --a:#14A8C2;--a-dk:#0c7d92;--a-lt:#DFF4F8;
+    --t:#F4AF00;--t-dk:#8A6200;--t-lt:#FFF3D6;
+    --h:#DE2A50;--h-dk:#A81F3D;--h-lt:#FCE4EA;
+    --blk:#111111;--drk:#1c1c1c;--g4:#3d3d3d;--g6:#6b6b6b;
+    --gl:#f4f4f4;--gb:#e0e0e0;
+    --fh:'Montserrat',sans-serif;--fb:'Open Sans',sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{font-family:var(--fb);color:var(--drk);line-height:1.55}
+  h1,h2,h3,h4{font-family:var(--fh);color:var(--blk);margin:0}
+  p{margin:0 0 10px}
+  .eyebrow{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p-dk);display:block;margin-bottom:6px}
+
+  /* Cover */
+  .cover{text-align:center;padding-bottom:22px;border-bottom:2px solid var(--gb);margin-bottom:26px}
+  .cover img{width:150px;height:150px;object-fit:contain;margin:0 auto 14px}
+  .cover h1{font-size:30px;font-weight:900;letter-spacing:-.01em;text-transform:uppercase;line-height:1.15}
+  .cover h1 span{color:var(--p-dk)}
+  .cover .tag{font-size:13px;color:var(--g6);max-width:5.6in;margin:10px auto 0;line-height:1.6}
+
+  /* Self-selection */
+  .choose h2{font-size:16px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:10px}
+  .choose-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:26px}
+  .cq{border:1px solid var(--gb);border-left:4px solid var(--c);border-radius:6px;padding:10px 12px;break-inside:avoid}
+  .cq.p{--c:var(--p)}.cq.a{--c:var(--a)}.cq.t{--c:var(--t)}.cq.h{--c:var(--h)}
+  .cq-num{font-family:var(--fh);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g6)}
+  .cq-stage{font-family:var(--fh);font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--c);margin:2px 0 4px}
+  .cq-stmt{font-size:12.5px;font-weight:600;color:var(--drk)}
+
+  /* Definition + framework */
+  .define{break-inside:avoid;margin-bottom:26px}
+  .define h2{font-size:20px;text-transform:uppercase;letter-spacing:-.005em;margin-bottom:8px}
+  .define h2 em{color:var(--p-dk);font-style:normal}
+  blockquote.scripture{font-style:italic;color:var(--g6);font-size:13px;border-left:2px solid var(--p);padding-left:12px;margin:10px 0}
+  blockquote.scripture cite{display:block;font-style:normal;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--p-dk);margin-top:4px}
+  .define p{font-size:13px;color:var(--g4)}
+
+  .four-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--gb);border-radius:6px;overflow:hidden;margin-top:14px;break-inside:avoid}
+  .fw{padding:12px 10px;border-right:1px solid var(--gb);position:relative}
+  .fw:last-child{border-right:none}
+  .fw::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--c)}
+  .fw.p{--c:var(--p)}.fw.a{--c:var(--a)}.fw.t{--c:var(--t)}.fw.h{--c:var(--h)}
+  .fw-ltr{font-family:var(--fh);font-size:26px;font-weight:900;color:var(--c);line-height:1;margin-bottom:4px}
+  .fw-name{font-family:var(--fh);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;margin-bottom:2px}
+  .fw-tag{font-size:9.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--g6)}
+
+  /* Stage sections */
+  .stage{break-before:page;padding-top:2px}
+  .stage:first-of-type{break-before:auto}
+  .stage-head{display:flex;align-items:center;gap:14px;margin-bottom:6px;break-after:avoid}
+  .stage-ico{width:44px;height:44px;border-radius:50%;background:var(--c);color:#fff;font-family:var(--fh);font-weight:900;font-size:19px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .stage.p{--c:var(--p);--cd:var(--p-dk)}.stage.a{--c:var(--a);--cd:var(--a-dk)}.stage.t{--c:var(--t);--cd:var(--t-dk)}.stage.h{--c:var(--h);--cd:var(--h-dk)}
+  .stage-name{font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:.01em;color:var(--cd)}
+  .stage-sub{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g6)}
+  .stage-desc{font-size:13px;color:var(--g4);margin:8px 0 14px;max-width:6.2in}
+
+  .res-list{display:flex;flex-direction:column;gap:0}
+  .res{display:grid;grid-template-columns:1fr;gap:2px;padding:9px 0;border-bottom:1px solid var(--gb);break-inside:avoid}
+  .res:last-child{border-bottom:none}
+  .res-title{font-family:var(--fh);font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+  .res-title::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--c);flex-shrink:0}
+  .res-badge{font-family:var(--fh);font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cd);background:var(--gl);padding:2px 6px;border-radius:3px;margin-left:6px}
+  .res-desc{font-size:11.5px;color:var(--g6);line-height:1.5;padding-left:14px}
+  .res-link{font-size:10.5px;color:var(--cd);font-weight:600;padding-left:14px}
+
+  .gate{margin-top:16px;padding:10px 14px;background:var(--gl);border:1px solid var(--gb);border-left:3px solid var(--c);border-radius:5px;font-size:11.5px;color:var(--g4);break-inside:avoid}
+  .gate b{font-family:var(--fh);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cd);display:block;margin-bottom:3px}
+
+  /* Who walks with you */
+  .walk{break-before:page;padding-top:2px}
+  .walk h2{font-size:20px;text-transform:uppercase;margin-bottom:8px}
+  .walk h2 em{color:var(--p-dk);font-style:normal}
+  .walk p{font-size:13px;color:var(--g4);max-width:6.4in}
+  .walk-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
+  .wc{border:1px solid var(--gb);border-radius:6px;padding:10px 12px;break-inside:avoid}
+  .wc-t{font-family:var(--fh);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+  .wc-s{font-size:11px;color:var(--g6);line-height:1.5}
+
+  .contact{margin-top:22px;padding:14px 18px;background:var(--gl);border-radius:6px;break-inside:avoid}
+  .contact b{font-family:var(--fh);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--p-dk);display:block;margin-bottom:4px}
+  .contact span{font-size:12px;color:var(--g4)}
+
+  footer.doc-footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--gb);display:flex;justify-content:space-between;font-size:10.5px;color:var(--g6)}
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail" data-bg-color="#111111">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#111111"/>
+    <circle cx="50" cy="50" r="26" fill="#7FB3E5"/>
+    <text x="50" y="58" text-anchor="middle" font-family="Arial" font-size="22" font-weight="900" fill="#111">P</text>
+  </svg>
+</template>
+
+<doc-page size="letter" margin="0.65in">
+
+  <div class="cover">
+    <img src="assets/path-wheel.png" alt="PATH wheel">
+    <h1>Follow Jesus <span>One Step at a Time</span></h1>
+    <p class="tag">PATHways is Christ Church's guided framework for discipleship — showing you where you are, what's next, and who walks with you. We're about uniting people to God, and people to people.</p>
+  </div>
+
+  <div class="choose">
+    <h2>No Matter Where You Are, There's a Next Step</h2>
+    <div class="choose-grid">
+      <div class="cq p"><span class="cq-num">Path 01</span><div class="cq-stage">Participate</div><div class="cq-stmt">I'm exploring faith or new to church.</div></div>
+      <div class="cq a"><span class="cq-num">Path 02</span><div class="cq-stage">Apply</div><div class="cq-stmt">I'm following Jesus and want to grow in my faith.</div></div>
+      <div class="cq t"><span class="cq-num">Path 03</span><div class="cq-stage">Take Action</div><div class="cq-stmt">I want to make a difference.</div></div>
+      <div class="cq h"><span class="cq-num">Path 04</span><div class="cq-stage">Help Others</div><div class="cq-stmt">I'm ready to help others grow in their faith.</div></div>
+    </div>
+  </div>
+
+  <div class="define">
+    <span class="eyebrow">What Is Discipleship?</span>
+    <h2>Following Jesus, <em>One Step at a Time.</em></h2>
+    <blockquote class="scripture">
+      "Come, follow me… and I will make you fishers of men."
+      <cite>Matthew 4:19</cite>
+    </blockquote>
+    <p>Discipleship is the lifelong work of becoming more like Jesus — in how you think, how you love, how you serve, and how you invest in the people around you. It's not a class to finish or a box to check. It's a daily "yes" to follow Jesus a little further than yesterday.</p>
+    <p>At Christ Church, this looks different for everyone — but it's never meant to happen alone. Wherever you are right now is the right place to start. PATHways is simply a clearer way to see where you are, what's next, and who's walking with you.</p>
+
+    <div class="four-grid">
+      <div class="fw p"><div class="fw-ltr">P</div><div class="fw-name">Participate</div><div class="fw-tag">Belong — Start Here</div></div>
+      <div class="fw a"><div class="fw-ltr">A</div><div class="fw-name">Apply</div><div class="fw-tag">Grow in Your Faith</div></div>
+      <div class="fw t"><div class="fw-ltr">T</div><div class="fw-name">Take Action</div><div class="fw-tag">Make a Difference</div></div>
+      <div class="fw h"><div class="fw-ltr">H</div><div class="fw-name">Help Others</div><div class="fw-tag">Pass It On</div></div>
+    </div>
+  </div>
+
+  <!-- PARTICIPATE -->
+  <div class="stage p">
+    <div class="stage-head">
+      <div class="stage-ico">P</div>
+      <div>
+        <div class="stage-name">Participate</div>
+        <div class="stage-sub">Exploring faith · First steps · Finding your people</div>
+      </div>
+    </div>
+    <p class="stage-desc">Explore faith, find community, and take your first steps at Christ Church. Every journey begins with belonging — and you're already in the right place.</p>
+    <div class="res-list">
+      <div class="res"><div class="res-title">Weekend Services<span class="res-badge">In Person &amp; Online</span></div><p class="res-desc">Sun 9am, 11am &amp; 1pm at Montclair, Rockaway &amp; Lodi — or worship live online and catch sermons on-demand 24/7.</p><p class="res-link">christchurchusa.org/visit</p></div>
+      <div class="res"><div class="res-title">'Next Step'<span class="res-badge">Following Jesus</span></div><p class="res-desc">New to faith or just exploring? This page was written just for you — a guided starting point for your spiritual journey here.</p><p class="res-link">christchurchusa.org/whatsnext</p></div>
+      <div class="res"><div class="res-title">Water Baptism<span class="res-badge">Oct 2026</span></div><p class="res-desc">Take the public step of faith in your journey — your declaration of commitment to follow Jesus. Sign up for the next class.</p><p class="res-link">christchurchusa.org/waterbaptism</p></div>
+      <div class="res"><div class="res-title">Encounter with God<span class="res-badge">Quarterly</span></div><p class="res-desc">An all-night prayer and worship gathering (Midnight Watch) at the Rockaway Campus — a powerful first immersive spiritual experience.</p><p class="res-link">christchurchusa.org/encounter</p></div>
+      <div class="res"><div class="res-title">Watch Sermons</div><p class="res-desc">Catch up on past messages anytime — full sermon archive available on-demand in English and Spanish.</p><p class="res-link">christchurchusa.org/sermons</p></div>
+      <div class="res"><div class="res-title">CC Online</div><p class="res-desc">Join us live every Sunday from wherever you are — a full online campus experience, chat and all.</p><p class="res-link">live.christchurchusa.org</p></div>
+    </div>
+  </div>
+
+  <!-- APPLY -->
+  <div class="stage a">
+    <div class="stage-head">
+      <div class="stage-ico">A</div>
+      <div>
+        <div class="stage-name">Apply</div>
+        <div class="stage-sub">Daily rhythms with Jesus · Real community</div>
+      </div>
+    </div>
+    <p class="stage-desc">Commit to growing. Join a Life Group, build daily rhythms with Jesus, and start living a life that honors God. This is where followers become disciples.</p>
+    <div class="res-list">
+      <div class="res"><div class="res-title">Small Groups<span class="res-badge">Seasonal</span></div><p class="res-desc">Find a Life Group and commit to 8 weeks of community and growth — where friends become family through real conversation.</p><p class="res-link">christchurchusa.org/smallgroups</p></div>
+      <div class="res"><div class="res-title">Joining Our Church Family<span class="res-badge">Membership</span></div><p class="res-desc">8-lesson online course covering our mission, vision, and values. Free, self-paced, and the foundation for belonging here.</p><p class="res-link">christchurchusa.org/membership</p></div>
+      <div class="res"><div class="res-title">Pastoral Care<span class="res-badge">Resources Available</span></div><p class="res-desc">Support, prayer, and personal guidance at every stage. Our team is here — whether you're thriving, struggling, or somewhere in between.</p><p class="res-link">christchurchusa.org/pastoralcare</p></div>
+      <div class="res"><div class="res-title">Give<span class="res-badge">Generosity</span></div><p class="res-desc">Giving is a discipleship step, not just a transaction — a partnership with Christ Church in uniting people to God and people to people.</p><p class="res-link">christchurchusa.org/giving</p></div>
+      <div class="res"><div class="res-title">Bible Reading Plan</div><p class="res-desc">'The Discipleship' — a structured daily reading plan to walk you through Scripture consistently and with clear spiritual purpose.</p><p class="res-link">christchurchusa.org/documents/TheDiscipleship-2020.pdf</p></div>
+      <div class="res"><div class="res-title">40-Day Prayer Journey</div><p class="res-desc">Build a consistent daily prayer life in 40 days — a structured guide to one of the most essential disciplines of the faith.</p><p class="res-link">christchurchusa.org/documents/40DayBrochure.pdf</p></div>
+      <div class="res"><div class="res-title">Care Groups</div><p class="res-desc">Support for grief, divorce, addiction, and crisis. Our Care Groups walk with you through life's hardest seasons.</p><p class="res-link">christchurchusa.org/careministries</p></div>
+      <div class="res"><div class="res-title">Online Courses</div><p class="res-desc">Self-paced faith formation courses through Church Life Online — study the Bible and grow in discipleship on your schedule.</p><p class="res-link">churchlifeonline.org</p></div>
+      <div class="res"><div class="res-title">School of Prayer</div><p class="res-desc">Dedicated training to develop a consistent, powerful prayer life — part of the Upper Room Community prayer ecosystem.</p><p class="res-link">schoolofprayerusa.org</p></div>
+      <div class="res"><div class="res-title">School of Worship</div><p class="res-desc">Formal training to grow in musicianship and lead others into authentic worship — for singers, musicians, and creatives alike.</p><p class="res-link">schoolofworshipusa.org</p></div>
+      <div class="res"><div class="res-title">Defending Your Faith</div><p class="res-desc">An apologetics course equipping believers to confidently articulate and defend the Christian faith in any environment.</p><p class="res-link">defendingfaith.org</p></div>
+      <div class="res"><div class="res-title">Financial Empowerment Ministry</div><p class="res-desc">Biblically grounded stewardship training, one-on-one financial coaching, and The Generosity Journey blog.</p><p class="res-link">christchurchusa.org/fem</p></div>
+      <div class="res"><div class="res-title">Marriage Ministry</div><p class="res-desc">Married Life Groups, ENRICH enrichment program, premarital counseling, and ongoing marriage support resources.</p><p class="res-link">christchurchusa.org/marriage</p></div>
+      <div class="res"><div class="res-title">Elevate Family Conference</div><p class="res-desc">Annual multi-track family conference with Elevate Marriage, Kids, and Teens tracks featuring nationally recognized coaches.</p><p class="res-link">christchurchusa.org/elevateconference</p></div>
+    </div>
+  </div>
+
+  <!-- TAKE ACTION -->
+  <div class="stage t">
+    <div class="stage-head">
+      <div class="stage-ico">T</div>
+      <div>
+        <div class="stage-name">Take Action</div>
+        <div class="stage-sub">Using your gifts · Serving · Making an impact</div>
+      </div>
+    </div>
+    <p class="stage-desc">Get off the sidelines! Discover how God has wired you, join a serve team, and make a tangible difference in the lives of others — inside the church and beyond.</p>
+    <div class="res-list">
+      <div class="res"><div class="res-title">Join a Serve Team<span class="res-badge">15+ Teams</span></div><p class="res-desc">Welcome, Kids, Media, Worship, Prayer, Security, Hospitality &amp; more. Browse every team and find the one that fits your gifts.</p><p class="res-link">christchurchusa.org/serve</p></div>
+      <div class="res"><div class="res-title">CARE Center of NJ<span class="res-badge">Community</span></div><p class="res-desc">Volunteer with CARE 4 Kids, our Legal Clinic, Mental Health services &amp; more. Real neighbors, real needs, real gospel impact.</p><p class="res-link">carecenterofnewjersey.org</p></div>
+      <div class="res"><div class="res-title">Food Pantry<span class="res-badge">Live Now</span></div><p class="res-desc">Serve families in need through our ongoing food pantry ministry — a hands-on way to show God's love to our neighbors every week.</p><p class="res-link">christchurchusa.org/foodpantry</p></div>
+      <div class="res"><div class="res-title">Discover Your Spiritual Gifts<span class="res-badge">SHAPE</span></div><p class="res-desc">Identify and name your God-given spiritual gifts through the "Discovering Your Gifts" lesson inside the JOCF Course.</p><p class="res-link">christchurchusa.org/membership</p></div>
+    </div>
+  </div>
+
+  <!-- HELP OTHERS -->
+  <div class="stage h">
+    <div class="stage-head">
+      <div class="stage-ico">H</div>
+      <div>
+        <div class="stage-name">Help Others</div>
+        <div class="stage-sub">Mentoring · Leading · Investing in others</div>
+      </div>
+    </div>
+    <p class="stage-desc">You've grown — now help others grow. Lead a group, mentor someone newer in their walk with Jesus, and invest in the people around you. Disciples make disciples.</p>
+    <div class="res-list">
+      <div class="res"><div class="res-title">Small Group Leadership<span class="res-badge">Ongoing</span></div><p class="res-desc">Host or facilitate a Life Group. Walk alongside others and invest in people's spiritual formation from the inside out.</p><p class="res-link">christchurchusa.org/smallgroups/lead</p></div>
+      <div class="res"><div class="res-title">CC Global / Missions<span class="res-badge">Worldwide</span></div><p class="res-desc">Fulfill the Great Commission by winning souls, making disciples, and partnering with international church leaders worldwide.</p><p class="res-link">christchurchusa.org/missions</p></div>
+      <div class="res"><div class="res-title">Inviting Made Easy<span class="res-badge">Easy Start</span></div><p class="res-desc">Equip yourself to personally invite others to church using shareable campus-specific videos, graphics, and messaging templates.</p><p class="res-link">christchurchusa.org/invite</p></div>
+      <div class="res"><div class="res-title">Legacy Group<span class="res-badge">Giving Track</span></div><p class="res-desc">For those with the spiritual gift of giving. Commit to an annual Legacy Offering above your tithe and join a marketplace leaders Connect Group.</p><p class="res-link">christchurchusa.org/legacygroup</p></div>
+    </div>
+  </div>
+
+  <div class="walk">
+    <span class="eyebrow">You Don't Walk Alone</span>
+    <h2>Who Walks <em>With You</em></h2>
+    <p>Following Jesus was never meant to be a solo effort. At every step, real people at Christ Church are praying for you, invested in you, and walking with you. From your first Sunday to leading others, you'll never have to figure this out alone.</p>
+    <div class="walk-grid">
+      <div class="wc"><div class="wc-t">Small Groups</div><div class="wc-s">Small, intentional communities where real relationships form and faith grows together week after week.</div></div>
+      <div class="wc"><div class="wc-t">Pastoral Care</div><div class="wc-s">Dedicated ministers and chaplains for prayer, guidance, and support through every season of life.</div></div>
+      <div class="wc"><div class="wc-t">Leaders &amp; Coaches</div><div class="wc-s">Experienced believers who invest personally in your next stage — walking alongside you, not just pointing the way.</div></div>
+    </div>
+    <div class="contact">
+      <b>Ready to Take Your Next Step?</b>
+      <span>Connect with our Church Life team at ChurchLife@christchurchusa.org, or reach pastoral care directly at christchurchusa.org/pastoralcare.</span>
+    </div>
+  </div>
+
+  <footer class="doc-footer">
+    <span>© 2026 Christ Church. All rights reserved.</span>
+    <span>christchurchusa.org</span>
+  </footer>
+
+</doc-page>
+
+<script src="doc-page.js"></script>
+<script>
+addEventListener('load', () => {
+  (async () => {
+    try { await document.fonts.ready; } catch (e) {}
+    const imgs = Array.from(document.images).filter((i) => !i.complete);
+    await Promise.race([
+      Promise.allSettled(imgs.map((i) => i.decode())),
+      new Promise((r) => setTimeout(r, 8000)),
+    ]);
+    setTimeout(() => window.print(), 500);
+  })();
+});
+</script>
+</body>
+</html>

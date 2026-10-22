@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PATHways · Christ Church — Follow Jesus One Step at a Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --cc-blue:#4D8ADC;--cc-red:#DE2A50;--cc-yellow:#F4AF00;
+  --p:#7FB3E5;--p-dk:var(--p);--p-lt:#EAF3FB;
+  --a:#14A8C2;--a-dk:var(--a);--a-lt:#DFF4F8;
+  --t:#F4AF00;--t-dk:var(--t);--t-lt:#FFF3D6;
+  --h:#DE2A50;--h-dk:var(--h);--h-lt:#FCE4EA;
+  --blk:#111111;--drk:#1c1c1c;--g4:#3d3d3d;--g6:#6b6b6b;
+  --gl:#f4f4f4;--gb:#e0e0e0;--wht:#ffffff;
+  --fh:'Montserrat',sans-serif;--fb:'Open Sans',sans-serif;
+  --mw:1180px;--r:3px;--rl:8px;
+}
+body{font-family:var(--fb);color:var(--drk);background:var(--wht);line-height:1.65;font-size:16px;overflow-x:hidden}
+
+/* NAV */
+.nav{background:var(--blk);position:sticky;top:0;z-index:200;border-bottom:3px solid var(--p)}
+.nav-bar{max-width:var(--mw);margin:0 auto;display:flex;align-items:stretch;justify-content:space-between;min-height:56px}
+.nav-logo{display:flex;align-items:center;padding:0 20px;text-decoration:none;gap:10px}
+.logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:20px;height:20px}
+.lb{border-radius:1px}
+.lb-b{background:var(--p)}.lb-r{background:var(--h)}.lb-y{background:var(--t)}.lb-b2{background:var(--a)}
+.nav-logo-text{font-family:var(--fh);font-size:14px;font-weight:800;color:#fff;letter-spacing:.05em;text-transform:uppercase}
+.nav-logo-text span{color:var(--p)}
+.nav-links{display:flex;align-items:stretch;list-style:none}
+.nav-links li a{display:flex;align-items:center;padding:0 13px;font-family:var(--fh);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;transition:color .15s,background .15s;min-height:56px;white-space:nowrap}
+.nav-links li a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav-links li.active a{color:var(--p)}
+.nav-right{display:flex;align-items:center;padding:0 16px;gap:8px}
+.btn-give{background:var(--p);color:#fff;font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:9px 18px;border:none;border-radius:var(--r);cursor:pointer;text-decoration:none;transition:background .15s}
+.btn-give:hover{background:var(--p-dk)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:10px;background:none;border:none;cursor:pointer}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+
+/* ─── SECTION 1: HERO ─── */
+.hero{background:var(--blk);min-height:94vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-ring{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:600px;height:600px;border-radius:50%;border:80px solid rgba(59,191,191,.05);pointer-events:none;z-index:1}
+.hero-ring2{position:absolute;right:90px;top:50%;transform:translateY(-50%);width:380px;height:380px;border-radius:50%;border:1px solid rgba(59,191,191,.08);pointer-events:none;z-index:1}
+.hero-inner{position:relative;z-index:2;max-width:var(--mw);margin:0 auto;padding:72px 40px 60px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+.hero-eyebrow-line{width:28px;height:2px;background:var(--p)}
+.hero-eyebrow-text{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--p)}
+.hero h1{font-family:var(--fh);font-size:clamp(34px,5.2vw,64px);font-weight:900;color:#fff;line-height:1.04;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:0}
+.hero h1 .hl{color:var(--p);display:block}
+.hero-rule{width:40px;height:3px;background:var(--p);margin:22px 0;border-radius:2px}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.55);line-height:1.75;max-width:500px;margin-bottom:32px;font-weight:300}
+.hero-sub strong{color:rgba(255,255,255,.8);font-weight:600}
+/* Hero CTAs */
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--p);color:#fff;font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:16px 30px;border-radius:var(--r);border:none;cursor:pointer;text-decoration:none;transition:background .15s,transform .1s}
+.btn-primary:hover{background:var(--p-dk);transform:translateY(-1px)}
+.btn-primary svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;flex-shrink:0}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,.7);font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:15px 24px;border-radius:var(--r);border:1.5px solid rgba(255,255,255,.2);text-decoration:none;transition:border-color .15s,color .15s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:#fff}
+/* Hero campus strip */
+.hero-camps{display:flex;align-items:center;gap:20px;padding-top:28px;border-top:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
+.hero-camps-lbl{font-family:var(--fh);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);white-space:nowrap}
+.hero-camp{display:flex;align-items:center;gap:6px;text-decoration:none}
+.hero-camp-dot{width:5px;height:5px;background:var(--p);border-radius:50%;flex-shrink:0}
+.hero-camp-name{font-family:var(--fh);font-size:11px;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em}
+.hero-camp-time{font-size:11px;color:rgba(255,255,255,.3)}
+.hero-camp:hover .hero-camp-name{color:var(--p)}
+/* Hero visual */
+.hero-visual{display:flex;align-items:center;justify-content:center;width:100%}
+.hero-wheel{position:relative;width:100%;max-width:640px;aspect-ratio:1/1}
+.hero-wheel img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 48px rgba(59,191,191,.15))}
+.hero-wheel-cap{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-family:var(--fh);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.22);white-space:nowrap}
+
+/* ─── See More — additional offerings appended to each stage tab ─── */
+#panel-participate{--mc:var(--p-dk);--ma:var(--p)}
+#panel-apply{--mc:var(--a-dk);--ma:var(--a)}
+#panel-takeaction{--mc:var(--t-dk);--ma:var(--t)}
+#panel-helpothers{--mc:var(--h-dk);--ma:var(--h)}
+.rg-more{margin-top:20px;background:var(--wht);border:1px solid var(--gb);color:var(--g4);font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:12px 24px;border-radius:var(--r);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:border-color .15s,color .15s}
+.rg-more:hover{border-color:var(--ma);color:var(--mc)}
+.rg-more .rg-more-caret{transition:transform .2s}
+.rg-more[aria-expanded="true"] .rg-more-caret{transform:rotate(180deg)}
+.rg-extra{margin-top:16px;background:var(--gl);border:1px solid var(--gb);border-radius:var(--rl);padding:6px 30px}
+.rg-extra[hidden]{display:none}
+.rg-extra-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.rx{padding:15px 0;border-bottom:1px solid var(--gb);text-decoration:none;display:block}
+.rx-title{font-family:var(--fh);font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--drk);margin-bottom:4px;display:flex;align-items:center;gap:10px;transition:color .15s}
+.rx-title::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ma);flex-shrink:0}
+.rx-desc{font-size:12px;color:var(--g6);line-height:1.55;padding-left:16px}
+.rx:hover .rx-title{color:var(--mc)}
+@media(max-width:600px){.rg-extra-grid{grid-template-columns:1fr}.rg-extra{padding:6px 22px}}
+
+/* ─── SECTION 2: COMBINED DEFINITION + FRAMEWORK ─── */
+.define{background:var(--gl);padding:0;border-top:1px solid var(--gb)}
+.define-inner{max-width:var(--mw);margin:0 auto}
+
+/* Top row: definition prose */
+.def-top{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid var(--gb)}
+.def-prose{padding:64px 56px 64px 40px;border-right:1px solid var(--gb)}
+.def-eyebrow{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--p);display:block;margin-bottom:14px}
+.def-title{font-family:var(--fh);font-size:clamp(24px,3.2vw,36px);font-weight:800;color:var(--blk);line-height:1.1;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:18px}
+.def-title em{color:var(--p);font-style:normal}
+.def-rule{width:36px;height:3px;background:var(--p);margin-bottom:22px;border-radius:2px}
+.def-scripture{font-family:var(--fb);font-size:15px;font-style:italic;color:var(--g6);line-height:1.6;margin-bottom:22px;padding-left:16px;border-left:2px solid rgba(59,191,191,.4);border-radius:0}
+.def-scripture cite{display:block;font-style:normal;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--p);margin-top:5px;opacity:.7}
+.def-body{font-size:15px;color:var(--g4);line-height:1.78}
+.def-body p{margin-bottom:14px}
+.def-body p:last-child{margin-bottom:0}
+.def-body strong{color:var(--blk);font-weight:600}
+
+/* Right: journey arc timeline */
+.def-journey{padding:64px 40px 64px 48px}
+.dj-label{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g6);margin-bottom:28px;display:block}
+.dj-steps{display:flex;flex-direction:column;gap:0}
+.dj-step{display:grid;grid-template-columns:32px 1fr;gap:0;position:relative}
+.dj-node{display:flex;flex-direction:column;align-items:center;padding-top:3px}
+.dj-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:11px;font-weight:900;color:#fff;flex-shrink:0}
+.dp{background:var(--p)}.da{background:var(--a)}.dt{background:var(--t)}.dh{background:var(--h)}
+.dj-vline{width:1px;flex:1;margin-top:4px}
+.vp{background:rgba(59,191,191,.18)}.va{background:rgba(55,158,180,.18)}.vt{background:rgba(212,184,0,.18)}
+.dj-step:last-child .dj-vline{display:none}
+.dj-content{padding:3px 0 24px 14px}
+.dj-step:last-child .dj-content{padding-bottom:0}
+.dj-sname{font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+.np{color:var(--p-dk)}.na{color:var(--a-dk)}.nt{color:var(--t-dk)}.nh{color:var(--h-dk)}
+.dj-sdesc{font-size:13px;color:var(--g6);line-height:1.55}
+.dj-callout{margin-top:24px;background:rgba(59,191,191,.08);border:1px solid rgba(59,191,191,.2);border-radius:var(--rl);padding:14px 16px;display:flex;align-items:center;gap:10px}
+.dj-callout-dot{width:8px;height:8px;border-radius:50%;background:var(--p);flex-shrink:0}
+.dj-callout-text{font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--p-dk)}
+.dj-callout-text em{color:var(--g6);font-weight:400;font-style:normal;text-transform:none;letter-spacing:0}
+
+/* Stage strip below definition */
+.def-stages{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gb)}
+.fws{padding:28px 24px;background:var(--wht);border-right:1px solid var(--gb);position:relative;display:flex;flex-direction:column;transition:background .15s}
+.fws:last-child{border-right:none}
+.fws:hover{background:var(--gl)}
+.fws-bar{height:3px;position:absolute;top:0;left:0;right:0}
+.fws-p .fws-bar{background:var(--p)}.fws-a .fws-bar{background:var(--a)}.fws-t .fws-bar{background:var(--t)}.fws-h .fws-bar{background:var(--h)}
+.fws-num{font-family:var(--fh);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g6);margin-top:8px;margin-bottom:12px}
+.fws-ltr{font-family:var(--fh);font-size:44px;font-weight:900;line-height:1;margin-bottom:4px}
+.fws-p .fws-ltr{color:var(--p)}.fws-a .fws-ltr{color:var(--a)}.fws-t .fws-ltr{color:var(--t-dk)}.fws-h .fws-ltr{color:var(--h)}
+.fws-word{font-family:var(--fh);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--blk);margin-bottom:3px}
+.fws-tag{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;margin-bottom:0}
+.fws-p .fws-tag{color:var(--p-dk)}.fws-a .fws-tag{color:var(--a-dk)}.fws-t .fws-tag{color:var(--t-dk)}.fws-h .fws-tag{color:var(--h-dk)}
+
+/* Definition disclosure — collapsible “What is Discipleship?” block */
+.def-disclosure{background:transparent;border-top:1px solid var(--gb);border-bottom:1px solid var(--gb)}
+.def-summary{list-style:none;cursor:pointer;padding:22px 40px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;background:var(--wht);transition:background .15s}
+.def-summary::-webkit-details-marker{display:none}
+.def-summary:hover{background:var(--gl)}
+.def-summary-mark{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--p);color:#fff;font-family:var(--fh);font-size:18px;font-weight:800;line-height:1;flex-shrink:0;transition:transform .25s,background .15s}
+.def-disclosure[open] .def-summary-mark{transform:rotate(45deg);background:var(--p-dk)}
+.def-summary-text{display:flex;flex-direction:column;gap:3px;min-width:0}
+.def-summary-eyebrow{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--p)}
+.def-summary-title{font-family:var(--fh);font-size:16px;font-weight:800;color:var(--blk);text-transform:uppercase;letter-spacing:.02em}
+.def-summary-hint{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g6);white-space:nowrap}
+.def-disclosure[open] .def-summary-hint::after{content:" — Hide"}
+.def-disclosure:not([open]) .def-summary-hint::after{content:" — Show"}
+.def-body-wrap{border-top:1px solid var(--gb);background:var(--gl)}
+.def-body-wrap > .def-top{background:var(--gl)}
+@media(max-width:600px){
+  .def-summary{padding:18px 20px;gap:12px;grid-template-columns:auto 1fr}
+  .def-summary-hint{display:none}
+  .def-summary-title{font-size:14px}
+}
+
+/* ─── SECTION 3: STAGE RESOURCES ─── */
+.stages{background:var(--wht);padding:80px 40px}
+.stages-inner{max-width:var(--mw);margin:0 auto}
+/* Entry prompt */
+.stage-entry{background:var(--blk);border-radius:var(--rl);padding:28px 36px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;margin-bottom:48px}
+.se-left{}
+.se-eyebrow{font-family:var(--fh);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--p);margin-bottom:6px;display:block;opacity:.8}
+.se-title{font-family:var(--fh);font-size:20px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.02em;margin-bottom:4px}
+.se-sub{font-size:13px;color:rgba(255,255,255,.45);line-height:1.5}
+.se-sub strong{color:rgba(255,255,255,.7);font-weight:600}
+.se-cta{background:var(--p);color:#fff;font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 24px;border-radius:var(--r);border:none;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .15s;display:inline-block;flex-shrink:0}
+.se-cta:hover{background:var(--p-dk)}
+/* Stage instructions — what you'll find in each tab */
+.s-howto{margin:-28px 0 36px;padding:24px 28px 22px;background:var(--gl);border:1px solid var(--gb);border-radius:var(--rl)}
+.s-howto-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.s-howto-eyebrow{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--p-dk)}
+.s-howto-title{font-family:var(--fh);font-size:14px;font-weight:800;color:var(--blk);text-transform:uppercase;letter-spacing:.02em}
+.s-howto-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--gb)}
+.s-howto-cell{padding:16px 18px 14px;border-right:1px solid var(--gb);position:relative;background:transparent;cursor:pointer;text-align:left;font-family:var(--fb);border-top:none;border-bottom:none;border-left:none;width:100%;transition:background .15s}
+.s-howto-cell:last-child{border-right:none}
+.s-howto-cell:hover{background:rgba(0,0,0,.025)}
+.s-howto-cell::before{content:"";position:absolute;top:0;left:0;right:0;height:2px}
+.s-howto-cell.h-p::before{background:var(--p)}
+.s-howto-cell.h-a::before{background:var(--p);opacity:.78}
+.s-howto-cell.h-t::before{background:var(--t)}
+.s-howto-cell.h-h::before{background:var(--h)}
+.s-howto-letter{font-family:var(--fh);font-size:18px;font-weight:900;line-height:1;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.s-howto-letter span{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g6)}
+.s-howto-cell.h-p .s-howto-letter{color:var(--p-dk)}.s-howto-cell.h-a .s-howto-letter{color:var(--p-dk)}
+.s-howto-cell.h-t .s-howto-letter{color:var(--t-dk)}
+.s-howto-cell.h-h .s-howto-letter{color:var(--h-dk)}
+.s-howto-body{font-size:12.5px;line-height:1.55;color:var(--g4);margin-bottom:8px}
+.s-howto-tap{font-family:var(--fh);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g6);display:inline-flex;align-items:center;gap:4px}
+.s-howto-cell:hover .s-howto-tap{color:var(--p-dk)}
+@media(max-width:820px){.s-howto-grid{grid-template-columns:1fr 1fr}.s-howto-cell:nth-child(2){border-right:none}.s-howto-cell:nth-child(3),.s-howto-cell:nth-child(4){border-top:1px solid var(--gb)}}
+@media(max-width:600px){.s-howto{padding:20px 18px 18px;margin:-20px 0 28px}.s-howto-grid{grid-template-columns:1fr}.s-howto-cell{border-right:none;border-bottom:1px solid var(--gb)}.s-howto-cell:last-child{border-bottom:none}.s-howto-cell:nth-child(3),.s-howto-cell:nth-child(4){border-top:none}}
+
+/* Tabs */
+.s-tabs{display:flex;border-bottom:2px solid var(--gb);margin-bottom:40px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.s-tab{font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 24px;background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;color:var(--g6);white-space:nowrap;transition:color .15s;display:flex;align-items:center;gap:7px}
+.s-tab:hover{color:var(--drk)}
+.td{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.td-p{background:var(--p)}.td-a{background:var(--a)}.td-t{background:var(--t)}.td-h{background:var(--h)}
+.s-tab[data-active="true"].tp{color:var(--p-dk);border-bottom-color:var(--p)}
+.s-tab[data-active="true"].ta{color:var(--a-dk);border-bottom-color:var(--a)}
+.s-tab[data-active="true"].tt{color:var(--t-dk);border-bottom-color:var(--t)}
+.s-tab[data-active="true"].th{color:var(--h-dk);border-bottom-color:var(--h)}
+/* Panel header */
+.s-panel{display:none}.s-panel.on{display:block}
+.s-ph{display:grid;grid-template-columns:72px 1fr;gap:24px;align-items:start;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--gb)}
+.s-ico{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ico-p{background:var(--p)}.ico-a{background:var(--a)}.ico-t{background:var(--t)}.ico-h{background:var(--h)}
+.s-ltr{font-family:var(--fh);font-size:32px;font-weight:900;color:#fff;line-height:1}
+.s-badge{display:inline-block;font-family:var(--fh);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:8px}
+.sb-p{background:var(--p-lt);color:var(--p-dk)}.sb-a{background:var(--a-lt);color:var(--a-dk)}.sb-t{background:var(--t-lt);color:var(--t-dk)}.sb-h{background:var(--h-lt);color:var(--h-dk)}
+.s-name{font-family:var(--fh);font-size:26px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;line-height:1;margin-bottom:5px}
+.nm-p{color:var(--p-dk)}.nm-a{color:var(--a-dk)}.nm-t{color:var(--t-dk)}.nm-h{color:var(--h-dk)}
+.s-sub{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g6);margin-bottom:8px}
+.s-desc{font-size:15px;color:var(--g4);line-height:1.7;max-width:540px}
+/* Resource grid */
+.rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.rc{background:var(--wht);border:1px solid var(--gb);border-radius:var(--rl);padding:20px;display:flex;flex-direction:column;transition:border-color .15s,transform .12s}
+.rc:hover{border-color:var(--p);transform:translateY(-2px)}
+.rc.fd{opacity:.44;pointer-events:none}
+.rb{display:inline-block;font-family:var(--fh);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-bottom:9px;width:fit-content}
+.rb-lv{background:#e4f5f4;color:#0d6e6e}.rb-sn{background:#f0f0f0;color:#888}
+.rb-rq{background:#e7ecf5;color:var(--cc-blue)}.rb-hl{background:var(--h-lt);color:var(--h-dk)}
+.rb-tr{background:var(--p-lt);color:var(--p-dk)}.rb-mo{background:var(--t-lt);color:var(--t-dk)}
+.rb-op{background:#ecf7ec;color:#155a15}
+.rc-title{font-family:var(--fh);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--drk);margin-bottom:6px;line-height:1.3}
+.rc-desc{font-size:13px;color:var(--g6);line-height:1.58;flex:1;margin-bottom:12px}
+.rc-lk{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--p);text-decoration:none;display:flex;align-items:center;gap:5px;margin-top:auto;transition:gap .13s}
+.rc-lk:hover{gap:9px;color:var(--p-dk)}
+.rc-lk.sn{color:var(--g6);pointer-events:none}
+.rc-lk svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5}
+/* Coming soon note */
+.coming-note{margin-top:20px;padding:14px 18px;background:var(--gl);border-radius:var(--r);border:1px solid var(--gb);font-size:13px;color:var(--g6);display:flex;align-items:center;gap:10px}
+.coming-note span{flex:1}
+.coming-note a{color:var(--p);font-weight:600;text-decoration:none;font-family:var(--fh);font-size:11px;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.coming-note a:hover{color:var(--p-dk)}
+
+/* ─── SECTION 4: PASTORAL / WHO WALKS ─── */
+.pastoral{background:var(--blk);padding:80px 40px}
+.pastoral-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.past-eyebrow{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(59,191,191,.7);display:block;margin-bottom:12px}
+.past-title{font-family:var(--fh);font-size:clamp(24px,3.2vw,36px);font-weight:800;color:#fff;line-height:1.1;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:18px}
+.past-title em{color:var(--p);font-style:normal}
+.past-rule{width:36px;height:3px;background:var(--p);margin-bottom:22px;border-radius:2px}
+.past-body{font-size:15px;color:rgba(255,255,255,.48);line-height:1.78}
+.past-body p{margin-bottom:14px}
+.past-body p:last-child{margin-bottom:0}
+.past-cards{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.wc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--rl);padding:18px;display:flex;align-items:flex-start;gap:14px}
+.wc-ico{width:36px;height:36px;border-radius:50%;background:rgba(59,191,191,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wc-ico svg{width:17px;height:17px;stroke:var(--p);fill:none;stroke-width:1.8}
+.wc-t{font-family:var(--fh);font-size:11px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.wc-s{font-size:13px;color:rgba(255,255,255,.38);line-height:1.5}
+.past-ctas{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.btn-past{background:var(--p);color:#fff;font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 26px;border-radius:var(--r);border:none;cursor:pointer;text-decoration:none;transition:background .15s;display:inline-block}
+.btn-past:hover{background:var(--p-dk)}
+.btn-past-o{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.65);font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 22px;border-radius:var(--r);text-decoration:none;transition:border-color .15s,color .15s}
+.btn-past-o:hover{border-color:rgba(255,255,255,.5);color:#fff}
+/* Right: connection card */
+.conn-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
+.conn-card-head{background:rgba(59,191,191,.1);border-bottom:1px solid rgba(59,191,191,.18);padding:22px 26px}
+.cch-eyebrow{font-family:var(--fh);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--p);margin-bottom:6px;opacity:.8;display:block}
+.cch-title{font-family:var(--fh);font-size:16px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.03em}
+.conn-card-body{padding:24px 26px;display:flex;flex-direction:column;gap:14px}
+.conn-field{display:flex;flex-direction:column;gap:6px}
+.conn-label{font-family:var(--fh);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.conn-input{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:11px 14px;font-size:14px;color:rgba(255,255,255,.7);font-family:var(--fb);width:100%;outline:none;transition:border-color .15s}
+.conn-input:focus{border-color:rgba(59,191,191,.5)}
+.conn-input::placeholder{color:rgba(255,255,255,.22)}
+.conn-selects{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.conn-select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:11px 14px;font-size:13px;color:rgba(255,255,255,.6);font-family:var(--fb);width:100%;outline:none;-webkit-appearance:none;cursor:pointer;transition:border-color .15s}
+.conn-select:focus{border-color:rgba(59,191,191,.5)}
+.conn-select option{background:#222;color:#fff}
+.conn-card-foot{padding:0 26px 24px}
+.btn-connect{width:100%;background:var(--p);color:#fff;font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:15px;border-radius:var(--r);border:none;cursor:pointer;transition:background .15s}
+.btn-connect:hover{background:var(--p-dk)}
+.conn-privacy{font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:10px;line-height:1.5}
+
+/* ─── SECTION 5: FOOTER CTA ─── */
+.fcta{background:var(--p);padding:64px 40px;text-align:center}
+.fcta h2{font-family:var(--fh);font-size:clamp(22px,3.2vw,32px);font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.02em;margin-bottom:10px}
+.fcta p{font-size:16px;color:rgba(255,255,255,.8);margin-bottom:28px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.65}
+.fcta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-fw{background:#fff;color:var(--p-dk);font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:var(--r);border:none;cursor:pointer;text-decoration:none;transition:background .15s}
+.btn-fw:hover{background:rgba(255,255,255,.88)}
+.btn-fo{background:transparent;color:#fff;font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 26px;border-radius:var(--r);border:2px solid rgba(255,255,255,.45);cursor:pointer;text-decoration:none;transition:border-color .15s}
+.btn-fo:hover{border-color:#fff}
+/* FOOTER */
+.footer{background:var(--blk)}
+.footer-main{max-width:var(--mw);margin:0 auto;padding:48px 40px 36px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.f-brand{font-family:var(--fh);font-size:15px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px}
+.f-brand span{color:var(--p)}
+.f-tagline{font-size:13px;color:rgba(255,255,255,.3);line-height:1.6;margin-bottom:18px}
+.f-soc{display:flex;gap:8px}
+.soc{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;text-decoration:none;font-family:var(--fh);font-size:9px;font-weight:700;color:rgba(255,255,255,.45);transition:background .15s,color .15s}
+.soc:hover{background:var(--p);color:#fff}
+.f-col h4{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:14px}
+.f-col ul{list-style:none}
+.f-col ul li{margin-bottom:8px}
+.f-col ul li a{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .15s}
+.f-col ul li a:hover{color:var(--p)}
+.f-bot{border-top:1px solid rgba(255,255,255,.07);padding:18px 40px;max-width:var(--mw);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.f-bot p{font-size:12px;color:rgba(255,255,255,.22)}
+.f-blinks{display:flex;gap:18px}
+.f-blinks a{font-size:12px;color:rgba(255,255,255,.22);text-decoration:none;transition:color .15s}
+.f-blinks a:hover{color:rgba(255,255,255,.55)}
+
+/* ─── SECTION 1.5: ORIENT ─ “Not Sure Where to Start?” ─── */
+.orient{background:var(--wht);border-bottom:1px solid var(--gb);padding:64px 40px}
+.orient-inner{max-width:880px;margin:0 auto}
+.orient-head{text-align:center;margin-bottom:28px}
+.orient-eyebrow{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--p);display:inline-block;margin-bottom:10px}
+.orient-title{font-family:var(--fh);font-size:clamp(22px,2.8vw,30px);font-weight:800;color:var(--blk);line-height:1.15;text-transform:uppercase;letter-spacing:-.005em;margin-bottom:14px}
+.orient-rule{width:36px;height:3px;background:var(--p);border-radius:2px;margin:0 auto 14px}
+.orient-sub{font-size:14px;color:var(--g6);line-height:1.6;max-width:520px;margin:0 auto}
+.orient-rows{display:flex;flex-direction:column;gap:8px}
+.or-row{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:18px 22px;background:var(--gl);border:1px solid var(--gb);border-left:3px solid var(--p);border-radius:var(--rl);text-decoration:none;color:var(--drk);transition:background .15s,border-left-color .15s,transform .12s}
+.or-row:hover{background:var(--wht);transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.04)}
+.or-row.r-pa{border-left-color:var(--p)}
+.or-row.r-a{border-left-color:var(--p)}
+.or-row.r-th{border-left-color:var(--t)}
+.or-text{font-family:var(--fb);font-size:15px;font-weight:600;color:var(--drk);line-height:1.4}
+.or-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--p-dk);white-space:nowrap}
+.or-tag .or-arrow{margin-left:2px;transition:transform .15s}
+.or-row:hover .or-arrow{transform:translateX(3px)}
+.or-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:20px;background:var(--p-lt);color:var(--p-dk)}
+.or-pill.pa{background:var(--p-lt);color:var(--p-dk)}
+.or-pill.pt{background:var(--t-lt);color:var(--t-dk)}
+.or-pill.ph{background:var(--h-lt);color:var(--h-dk)}
+.or-dot{width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block;opacity:.85}
+.or-plus{color:var(--g6);font-weight:700;margin:0 2px}
+@media(max-width:600px){
+  .orient{padding:48px 20px}
+  .or-row{grid-template-columns:1fr;gap:10px;padding:16px 18px}
+  .or-tag{font-size:10px}
+}
+
+/* ─── SELF-SELECTION TILES ─── */
+.tiles{background:var(--blk);padding:0;border-top:1px solid rgba(255,255,255,.07)}
+.tiles-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.tile{padding:40px 32px;display:flex;flex-direction:column;gap:16px;text-decoration:none;position:relative;overflow:hidden;transition:filter .15s}
+.tile:hover{filter:brightness(1.08)}
+.tile::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.18)}
+.tile-p{background:var(--p)}
+.tile-a{background:var(--a)}
+.tile-t{background:var(--t-dk)}
+.tile-h{background:var(--h-dk)}
+.tile-num{font-family:var(--fh);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.tile-stage{font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:4px}
+.tile-stmt{font-family:var(--fh);font-size:18px;font-weight:800;color:#fff;line-height:1.2;text-transform:uppercase;letter-spacing:-.01em;flex:1}
+.tile-cta{display:inline-flex;align-items:center;gap:6px;font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:8px;transition:gap .15s}
+.tile:hover .tile-cta{gap:10px;color:#fff}
+.tile-cta svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5}
+@media(max-width:820px){.tiles-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.tiles-inner{grid-template-columns:1fr}}
+
+/* ─── GIVE SECTION ─── */
+.give{background:var(--gl);border-top:1px solid var(--gb);border-bottom:1px solid var(--gb);padding:72px 40px}
+.give-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.give-eyebrow{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--p);display:block;margin-bottom:12px}
+.give-title{font-family:var(--fh);font-size:clamp(22px,2.8vw,34px);font-weight:800;color:var(--blk);line-height:1.1;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:16px}
+.give-title em{color:var(--p);font-style:normal}
+.give-rule{width:36px;height:3px;background:var(--p);border-radius:2px;margin-bottom:20px}
+.give-body{font-size:15px;color:var(--g4);line-height:1.78;margin-bottom:28px}
+.give-body p{margin-bottom:14px}
+.give-body p:last-child{margin-bottom:0}
+.give-body strong{color:var(--blk);font-weight:600}
+.give-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-give-primary{background:var(--p);color:#fff;font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 26px;border-radius:var(--r);border:none;cursor:pointer;text-decoration:none;transition:background .15s;display:inline-block}
+.btn-give-primary:hover{background:var(--p-dk)}
+.btn-give-ghost{background:transparent;color:var(--p-dk);font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:13px 22px;border-radius:var(--r);border:1.5px solid var(--p);cursor:pointer;text-decoration:none;transition:background .15s,color .15s;display:inline-block}
+.btn-give-ghost:hover{background:var(--p-lt)}
+.give-stages{display:flex;flex-direction:column;gap:10px}
+.give-stage-row{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start;padding:16px 18px;background:var(--wht);border:1px solid var(--gb);border-radius:var(--rl)}
+.gsr-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:14px;font-weight:900;color:#fff;flex-shrink:0}
+.gsr-a{background:var(--p)}
+.gsr-title{font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blk);margin-bottom:3px}
+.gsr-desc{font-size:13px;color:var(--g6);line-height:1.5}
+@media(max-width:820px){.give-inner{grid-template-columns:1fr;gap:40px}}
+@media(max-width:600px){.give{padding:56px 20px}}
+
+/* ─── APP BANNER ─── */
+.appbanner{background:var(--gl);padding:64px 40px;border-top:3px solid var(--p)}
+.appbanner-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.app-eyebrow{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--p-dk);display:block;margin-bottom:12px}
+.app-title{font-family:var(--fh);font-size:clamp(22px,2.8vw,34px);font-weight:800;color:var(--blk);line-height:1.1;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:14px}
+.app-title em{color:var(--p-dk);font-style:normal}
+.app-sub{font-size:15px;color:var(--g4);line-height:1.7;margin-bottom:28px}
+.app-btns{display:flex;gap:12px;flex-wrap:wrap}
+.app-store-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:var(--wht);border:1px solid var(--gb);border-radius:var(--rl);text-decoration:none;transition:background .15s,border-color .15s}
+.app-store-btn:hover{background:var(--p-lt);border-color:var(--p)}
+.app-store-icon{font-size:22px;line-height:1}
+.app-store-text{display:flex;flex-direction:column}
+.app-store-label{font-family:var(--fh);font-size:8px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g6)}
+.app-store-name{font-family:var(--fh);font-size:13px;font-weight:700;color:var(--blk);letter-spacing:.02em}
+.app-reviews{display:flex;flex-direction:column;gap:12px}
+.app-review{background:var(--wht);border:1px solid var(--gb);border-radius:var(--rl);padding:18px 20px}
+.app-review-stars{font-size:13px;letter-spacing:1px;margin-bottom:6px;color:#c9a000}
+.app-review-text{font-size:14px;color:var(--g4);line-height:1.6;font-style:italic;margin-bottom:8px}
+.app-review-author{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g6)}
+@media(max-width:820px){.appbanner-inner{grid-template-columns:1fr;gap:40px}}
+@media(max-width:600px){.appbanner{padding:56px 20px}}
+
+/* MOBILE STICKY CTA */
+.sticky-pastor{display:none;position:fixed;bottom:0;left:0;right:0;z-index:150;background:var(--blk);border-top:2px solid var(--p);padding:12px 20px;align-items:center;justify-content:space-between;gap:12px}
+.sticky-pastor p{font-size:13px;color:rgba(255,255,255,.55);font-family:var(--fh);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.sticky-pastor a{background:var(--p);color:#fff;font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:10px 18px;border-radius:var(--r);text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .15s}
+.sticky-pastor a:hover{background:var(--p-dk)}
+
+/* RESPONSIVE */
+@media(max-width:1020px){
+  .hero-inner{grid-template-columns:1fr;gap:40px;padding:60px 40px 72px}
+  .hero-wheel{max-width:480px}
+  .def-top{grid-template-columns:1fr}
+  .def-prose{border-right:none;border-bottom:1px solid var(--gb);padding:52px 40px}
+  .def-journey{padding:52px 40px}
+  .pastoral-inner{grid-template-columns:1fr;gap:48px}
+}
+@media(max-width:820px){
+  .def-stages{grid-template-columns:1fr 1fr}
+  .fws:nth-child(2){border-right:none}
+  .fws:nth-child(3){border-right:none;border-top:1px solid var(--gb)}
+  .fws:nth-child(4){border-top:1px solid var(--gb)}
+  .footer-main{grid-template-columns:1fr 1fr}
+  .stage-entry{grid-template-columns:1fr;gap:16px}
+}
+@media(max-width:600px){
+  .nav-links{display:none}.hamburger{display:flex}
+  .hero-inner{padding:48px 20px 64px}.hero h1{font-size:34px}
+  .hero-wheel{max-width:340px}
+  .def-prose,.def-journey{padding:44px 20px}
+  .stages,.pastoral,.fcta{padding:56px 20px}
+  .def-stages{grid-template-columns:1fr}
+  .fws{border-right:none;border-bottom:1px solid var(--gb)}
+  .fws:last-child{border-bottom:none}
+  .footer-main{grid-template-columns:1fr;padding:36px 20px 24px}
+  .f-bot{padding:16px 20px;flex-direction:column;text-align:center}
+  .rg{grid-template-columns:1fr}
+  .s-ph{grid-template-columns:1fr}
+  .hero-camps{gap:14px}
+  .fcta-btns{flex-direction:column;align-items:center}
+  .sticky-pastor{display:flex}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV removed — host page provides its own header. -->
+
+<!-- ═══ SECTION 1: HERO ═══ -->
+<section class="hero" aria-labelledby="hero-h1">
+  <div class="hero-ring" aria-hidden="true"></div>
+  <div class="hero-ring2" aria-hidden="true"></div>
+  <div class="hero-inner">
+
+    <div>
+      <h1 id="hero-h1">FOLLOW JESUS ONE STEP
+AT A TIME</h1>
+      <div class="hero-rule" aria-hidden="true"></div>
+      <p class="hero-sub">Whether you’re exploring faith, learning to grow spiritually, discovering your purpose, or helping others follow Jesus, PATHways helps you take your next step in community. We're about uniting people to God, and people to people.</p>
+      <div class="hero-ctas">
+        <a href="#orient" class="btn-primary">
+          Find Your Next Step
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-wheel">
+        <img src="assets/path-wheel.png" alt="The PATH discipleship wheel — four stages: Participate, Apply, Take Action, and Help Others surrounding the Christ Church logo" onerror="this.src='assets/Picture1.png';this.onerror=function(){this.style.opacity='.15'};">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ SECTION 1.5: ORIENTATION — "Not Sure Where to Start?" ═══ -->
+<section class="orient" id="orient" aria-labelledby="orient-title">
+  <div class="orient-inner">
+    <div class="orient-head">
+      <h2 class="orient-title" id="orient-title">No matter where you are, there's a next step.</h2>
+      <div class="orient-rule" aria-hidden="true"></div>
+      <p class="orient-sub">A quick way to find your next step. No quiz, no pressure — just a starting point.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 1.75: SELF-SELECTION TILES ═══ -->
+<section class="tiles" aria-label="Where are you on your journey?">
+  <div class="tiles-inner">
+    <a class="tile tile-p" href="#panel-participate" data-goto="participate" aria-label="I'm exploring faith or new to church. Go to Participate stage.">
+      <span class="tile-num">Path 01</span>
+      <span class="tile-stage">Participate</span>
+      <span class="tile-stmt">I'm exploring faith or new to church.</span>
+      <span class="tile-cta">Start Here <svg viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+    <a class="tile tile-a" href="#panel-apply" data-goto="apply" aria-label="I'm following Jesus and want to grow in my faith. Go to Apply stage.">
+      <span class="tile-num">Path 02</span>
+      <span class="tile-stage">Apply</span>
+      <span class="tile-stmt">I'm following Jesus and want to grow in my faith.</span>
+      <span class="tile-cta">Go Deeper <svg viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+    <a class="tile tile-t" href="#panel-takeaction" data-goto="takeaction" aria-label="I want to make a difference. Go to Take Action stage.">
+      <span class="tile-num">Path 03</span>
+      <span class="tile-stage">Take Action</span>
+      <span class="tile-stmt">I want to make a difference.</span>
+      <span class="tile-cta">Find a Team <svg viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+    <a class="tile tile-h" href="#panel-helpothers" data-goto="helpothers" aria-label="I'm ready to help others grow in their faith. Go to Help Others stage.">
+      <span class="tile-num">Path 04</span>
+      <span class="tile-stage">Help Others</span>
+      <span class="tile-stmt">I'm ready to help others grow in their faith.</span>
+      <span class="tile-cta">Lead <svg viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ SECTION 2: DEFINITION + FRAMEWORK (collapsible) ═══ -->
+<section class="define" aria-labelledby="def-title">
+  <div class="define-inner">
+    <details class="def-disclosure">
+      <summary class="def-summary" aria-label="Learn about discipleship and the four PATH stages">
+        <span class="def-summary-mark" aria-hidden="true">+</span>
+        <span class="def-summary-text">
+          <span class="def-summary-eyebrow">Learn More</span>
+          <span class="def-summary-title">What is Discipleship? + The Four Pathways</span>
+        </span>
+        <span class="def-summary-hint" aria-hidden="true"></span>
+      </summary>
+      <div class="def-body-wrap">
+
+        <!-- Two-column: prose left, journey arc right -->
+        <div class="def-top">
+          <div class="def-prose">
+            <span class="def-eyebrow" style="color:#379EB4">What Is Discipleship?</span>
+            <h2 class="def-title" id="def-title">Following Jesus,<br><em>One Step at a Time.</em></h2>
+            <div class="def-rule" aria-hidden="true"></div>
+            <blockquote class="def-scripture">
+              "Come, follow me… and I will make you fishers of men."
+              <cite style="color:#379EB4">Matthew 4:19</cite>
+            </blockquote>
+            <div class="def-body">
+              <p>Discipleship is the lifelong work of becoming more like Jesus — in how you think, how you love, how you serve, and how you invest in the people around you. It's not a class to finish or a box to check. It's a daily “yes” to follow Jesus a little further than yesterday.</p>
+              <p>At Christ Church, this looks different for everyone — but it's never meant to happen alone. <strong>Wherever you are right now is the right place to start.</strong> PATHways is simply a clearer way to see where you are, what's next, and who's walking with you.</p>
+            </div>
+          </div>
+          <div class="def-journey">
+            <span class="dj-label">The Four Pathways of Discipleship</span>
+            <div class="dj-steps" role="list">
+              <div class="dj-step" role="listitem">
+                <div class="dj-node"><div class="dj-dot dp">P</div><div class="dj-vline vp"></div></div>
+                <div class="dj-content"><div class="dj-sname np">Participate</div><p class="dj-sdesc">You show up. You explore. You belong. Following Jesus begins with an invitation — every step starts with the first one through the door.</p></div>
+              </div>
+              <div class="dj-step" role="listitem">
+                <div class="dj-node"><div class="dj-dot da" style="background-color:#379EB4">A</div><div class="dj-vline va"></div></div>
+                <div class="dj-content"><div class="dj-sname na">Apply</div><p class="dj-sdesc">You commit. You go deeper. Join a community, build daily rhythms with Jesus, and begin living a life the reflects Him.</p></div>
+              </div>
+              <div class="dj-step" role="listitem">
+                <div class="dj-node"><div class="dj-dot dt">T</div><div class="dj-vline vt"></div></div>
+                <div class="dj-content"><div class="dj-sname nt">Take Action</div><p class="dj-sdesc">Discover how God wired you — and use those gifts to serve God and people, and strengthen others.</p></div>
+              </div>
+              <div class="dj-step" role="listitem">
+                <div class="dj-node"><div class="dj-dot dh">H</div></div>
+                <div class="dj-content"><div class="dj-sname nh">Help Others</div><p class="dj-sdesc">Lead, mentor, and invest in someone else — so others can take their next step with Jesus, too.</p></div>
+              </div>
+            </div>
+            <div class="dj-callout" aria-label="Call to action">
+              <div class="dj-callout-dot" aria-hidden="true"></div>
+              <span class="dj-callout-text">You are somewhere on this path. <em>Your next step is below.</em></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage strip: name + tagline only — no descriptions, no repetition -->
+        <div class="def-stages" role="list" aria-label="The four PATH stages at a glance">
+          <div class="fws fws-p" role="listitem">
+            <div class="fws-bar" aria-hidden="true"></div>
+            <div class="fws-num">Stage 01</div>
+            <div class="fws-ltr" aria-hidden="true">P</div>
+            <div class="fws-word">Participate</div>
+            <div class="fws-tag">Belong — Start Here</div>
+          </div>
+          <div class="fws fws-a" role="listitem">
+            <div class="fws-bar" aria-hidden="true"></div>
+            <div class="fws-num">Stage 02</div>
+            <div class="fws-ltr" aria-hidden="true">A</div>
+            <div class="fws-word">Apply</div>
+            <div class="fws-tag">Grow in Your Faith</div>
+          </div>
+          <div class="fws fws-t" role="listitem">
+            <div class="fws-bar" aria-hidden="true"></div>
+            <div class="fws-num">Stage 03</div>
+            <div class="fws-ltr" aria-hidden="true">T</div>
+            <div class="fws-word">Take Action</div>
+            <div class="fws-tag" style="color: rgb(154, 132, 0);">Make a Difference</div>
+          </div>
+          <div class="fws fws-h" role="listitem">
+            <div class="fws-bar" aria-hidden="true"></div>
+            <div class="fws-num">Stage 04</div>
+            <div class="fws-ltr" aria-hidden="true">H</div>
+            <div class="fws-word">Help Others</div>
+            <div class="fws-tag">Pass It On</div>
+          </div>
+        </div>
+
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ═══ SECTION 3: STAGE RESOURCES ═══ -->
+<section class="stages" id="find-your-stage" aria-labelledby="stages-title">
+  <div class="stages-inner">
+
+    <!-- Stage tabs -->
+    <div class="s-tabs" role="tablist" aria-label="PATH stages">
+      <button class="s-tab tp" role="tab" aria-selected="true" aria-controls="panel-participate" data-stage="participate" data-active="true">
+        <span class="td td-p" aria-hidden="true"></span>Participate
+      </button>
+      <button class="s-tab ta" role="tab" aria-selected="false" aria-controls="panel-apply" data-stage="apply">
+        <span class="td td-a" aria-hidden="true"></span>Apply
+      </button>
+      <button class="s-tab tt" role="tab" aria-selected="false" aria-controls="panel-takeaction" data-stage="takeaction">
+        <span class="td td-t" aria-hidden="true"></span>Take Action
+      </button>
+      <button class="s-tab th" role="tab" aria-selected="false" aria-controls="panel-helpothers" data-stage="helpothers">
+        <span class="td td-h" aria-hidden="true"></span>Help Others
+      </button>
+    </div>
+
+    <!-- PARTICIPATE -->
+    <div class="s-panel on" id="panel-participate" role="tabpanel">
+      <div class="s-ph">
+        <div class="s-ico ico-p"><span class="s-ltr">P</span></div>
+        <div>
+          <span class="s-badge sb-p">Belong — Start Here</span>
+          <div class="s-name nm-p">Participate</div>
+          <div class="s-sub">Exploring faith · First steps · Finding your people</div>
+          <p class="s-desc">Explore faith, find community, and take your first steps at Christ Church. Every journey begins with belonging — and you're already in the right place.</p>
+        </div>
+      </div>
+      <div class="rg" role="list">
+        <div class="rc" role="listitem"><span class="rb rb-lv">In Person &amp; Online</span><div class="rc-title">Weekend Services</div><p class="rc-desc">Sun 9am, 11am &amp; 1pm at Montclair, Rockaway &amp; Lodi — or worship live online and catch sermons on-demand 24/7. The front door to everything at Christ Church.</p><a href="https://christchurchusa.org/visit" class="rc-lk">Plan a Visit<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+        <div class="rc" role="listitem"><span class="rb rb-lv">FOLLOWING JESUS</span><div class="rc-title">'NEXT STEP'</div><p class="rc-desc">New to faith or just exploring? This page was written just for you — a guided starting point for your spiritual journey here.</p><a href="https://christchurchusa.org/membership/" class="rc-lk">Get Started<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+        <div class="rc" role="listitem"><span class="rb rb-lv">OCT 2026</span><div class="rc-title">Water Baptism</div><p class="rc-desc">Take the public step of faith in your journey. Water Baptism is your declaration of commitment to follow Jesus. Sign up for the next class.</p><a href="https://christchurchusa.org/waterbaptism/" class="rc-lk">Sign Up<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+        <div class="rc" role="listitem"><span class="rb rb-mo">Quarterly</span><div class="rc-title">Encounter with God</div><p class="rc-desc">A quarterly all-night prayer and worship gathering (Midnight Watch) at the Rockaway Campus — a powerful first immersive spiritual experience.</p><a href="https://christchurchusa.org/ccevents/" class="rc-lk">Learn More<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+      </div>
+      <button class="rg-more" aria-expanded="false">See More <span class="rg-more-caret" aria-hidden="true">▾</span></button>
+      <div class="rg-extra" hidden>
+        <div class="rg-extra-grid">
+          <a class="rx" href="https://live.christchurchusa.org">
+            <div class="rx-title">Watch Sermons / CC Online</div>
+            <p class="rx-desc">Access weekly sermon content on-demand in English and Spanish, plus the full online campus experience.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- APPLY -->
+    <div class="s-panel" id="panel-apply" role="tabpanel">
+      <div class="s-ph">
+        <div class="s-ico ico-a"><span class="s-ltr">A</span></div>
+        <div>
+          <span class="s-badge sb-a">Grow in Your Faith</span>
+          <div class="s-name nm-a">Apply</div>
+          <div class="s-sub">Daily rhythms with Jesus · Real community</div>
+          <p class="s-desc">Commit to growing. Join a Life Group, build daily rhythms with Jesus, and start living a life that honors God. This is where followers become disciples.</p>
+        </div>
+      </div>
+      <div class="rg" role="list">
+        <div class="rc" role="listitem"><span class="rb rb-rq">SEASONAL</span><div class="rc-title">Small Groups</div><p class="rc-desc">Find a Life Group and commit to 8 weeks of community and growth. Small groups are where friends become family through real conversation.</p><a href="https://christchurchusa.org/smallgroups/" class="rc-lk">Find a Group<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+        <div class="rc" role="listitem"><span class="rb rb-rq">MEMBERSHIP</span><div class="rc-title">Joining Our Church Family</div><p class="rc-desc">8-lesson online course covering our mission, vision, and values. Free, self-paced, and the foundation for belonging here.</p><a href="https://my.christchurchusa.org/JOCF" class="rc-lk">Start Course<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+        <div class="rc" role="listitem"><span class="rb rb-lv">RESOURCES AVAILABLE</span><div class="rc-title">Pastoral Care</div><p class="rc-desc">Support, prayer, and personal guidance at every stage. Our team is here — whether you're thriving, struggling, or somewhere in between.</p><a href="https://christchurchusa.org/pastoralcare/" class="rc-lk">Reach Out<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+        <div class="rc" role="listitem"><span class="rb rb-mo">Generosity</span><div class="rc-title">Give</div><p class="rc-desc">Giving is a discipleship step, not just a transaction. Generosity is one of the five core rhythms of the Apply stage — an act of trust that shapes who you're becoming.</p><a href="https://christchurchusa.org/giving" class="rc-lk">Give Now<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+      </div>
+      <button class="rg-more" aria-expanded="false">See More <span class="rg-more-caret" aria-hidden="true">▾</span></button>
+      <div class="rg-extra" hidden>
+        <div class="rg-extra-grid">
+          <a class="rx" href="https://christchurchusa.org/documents/TheDiscipleship-2020.pdf">
+            <div class="rx-title">Bible Reading Plan</div>
+            <p class="rx-desc">'The Discipleship' — a structured daily reading plan to walk you through Scripture consistently and with clear spiritual purpose.</p>
+          </a>
+          <a class="rx" href="https://christchurchusa.org/documents/40DayBrochure.pdf">
+            <div class="rx-title">40-Day Prayer Journey</div>
+            <p class="rx-desc">Build a consistent daily prayer life in 40 days. A structured guide to developing one of the most essential disciplines of the faith.</p>
+          </a>
+          <a class="rx" href="https://christchurchusa.org/about/what_we_believe">
+            <div class="rx-title">What We Believe</div>
+            <p class="rx-desc">Explore the core doctrinal foundations of Christ Church — covering Scripture, Jesus, salvation, and the Holy Spirit.</p>
+          </a>
+          <a class="rx" href="https://christchurchusa.org/careministries/">
+            <div class="rx-title">Care Groups</div>
+            <p class="rx-desc">Support for grief, divorce, addiction, and crisis. Our Care Groups walk with you through life's hardest seasons — you don't carry this alone.</p>
+          </a>
+          <a class="rx" href="https://churchlifeonline.org/">
+            <div class="rx-title">Online Courses</div>
+            <p class="rx-desc">Self-paced faith formation courses through Church Life Online — study the Bible and grow in discipleship on your schedule.</p>
+          </a>
+          <a class="rx" href="https://schoolofprayerusa.org/">
+            <div class="rx-title">School of Prayer</div>
+            <p class="rx-desc">Dedicated training to develop a consistent, powerful prayer life — part of Christ Church's Upper Room Community prayer ecosystem.</p>
+          </a>
+          <a class="rx" href="https://www.defendingfaith.org/">
+            <div class="rx-title">Defending Your Faith</div>
+            <p class="rx-desc">An apologetics course equipping believers to confidently articulate and defend the Christian faith in any environment.</p>
+          </a>
+          <a class="rx" href="https://christchurchusa.org/fem/">
+            <div class="rx-title">Financial Empowerment Ministry</div>
+            <p class="rx-desc">Biblically grounded stewardship training, one-on-one financial coaching, and The Generosity Journey blog.</p>
+          </a>
+          <a class="rx" href="https://christchurchusa.org/marriage/">
+            <div class="rx-title">Marriage Ministry</div>
+            <p class="rx-desc">Married Life Groups, ENRICH enrichment program, premarital counseling, and ongoing marriage support resources.</p>
+          </a>
+          <a class="rx" href="https://christchurchusa.org/elevateconference/">
+            <div class="rx-title">Elevate Family Conference</div>
+            <p class="rx-desc">Annual multi-track family conference with Elevate Marriage, Kids, and Teens tracks featuring nationally recognized coaches.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAKE ACTION -->
+    <div class="s-panel" id="panel-takeaction" role="tabpanel">
+      <div class="s-ph">
+        <div class="s-ico ico-t"><span class="s-ltr">T</span></div>
+        <div>
+          <span class="s-badge sb-t">Make a Difference</span>
+          <div class="s-name nm-t">Take Action</div>
+          <div class="s-sub">Using your gifts · Serving · Making an impact</div>
+          <p class="s-desc">Get off the sidelines! Discover how God has wired you, join a serve team, and make a tangible difference in the lives of others — inside the church and beyond.</p>
+        </div>
+      </div>
+      <div class="rg" role="list">
+        <div class="rc" role="listitem"><span class="rb rb-tr">15+ Teams</span><div class="rc-title">JOIN A SERVE TEAM</div><p class="rc-desc">Welcome, Kids, Media, Worship, Prayer, Security, Hospitality &amp; more. Browse every team and find the one that fits your gifts and schedule.</p><a href="https://christchurchusa.org/serve" class="rc-lk">Browse Teams<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+        <div class="rc" role="listitem"><span class="rb rb-lv">Community</span><div class="rc-title">CARE Center of NJ</div><p class="rc-desc">Volunteer with CARE 4 Kids, our Legal Clinic, Mental Health services &amp; more. Real neighbors, real needs, real gospel impact.</p><a href="https://carecenterofnewjersey.org/" class="rc-lk">Volunteer<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+        <div class="rc" role="listitem"><span class="rb rb-lv">Live Now</span><div class="rc-title">Food Pantry</div><p class="rc-desc">Serve families in need through our ongoing food pantry ministry — a hands-on way to show God's love to our neighbors every week.</p><a href="https://christchurchusa.org/foodpantry/" class="rc-lk">Get Involved<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+        <div class="rc" role="listitem"><span class="rb rb-tr">SHAPE</span><div class="rc-title">Discover Your Spiritual Gifts</div><p class="rc-desc">Identify and name your God-given spiritual gifts through the dedicated "Discovering Your Gifts" lesson inside the JOCF Course.</p><a href="https://christchurchusa.org/membership/" class="rc-lk">Discover<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+      </div>
+    </div>
+
+    <!-- HELP OTHERS -->
+    <div class="s-panel" id="panel-helpothers" role="tabpanel">
+      <div class="s-ph">
+        <div class="s-ico ico-h"><span class="s-ltr">H</span></div>
+        <div>
+          <span class="s-badge sb-h">Pass It On</span>
+          <div class="s-name nm-h">Help Others</div>
+          <div class="s-sub">Mentoring · Leading · Investing in others</div>
+          <p class="s-desc">You've grown — now help others grow. Lead a group, mentor someone newer in their walk with Jesus, and invest in the people around you. Disciples make disciples.</p>
+        </div>
+      </div>
+      <div class="rg" role="list">
+        <div class="rc" role="listitem"><span class="rb rb-lv">Ongoing</span><div class="rc-title">Small Group Leadership</div><p class="rc-desc">Host or facilitate a Life Group. Walk alongside others and invest in people's spiritual formation from the inside out.</p><a href="https://christchurchusa.org/smallgroups/" class="rc-lk">Inquire<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+        <div class="rc" role="listitem"><span class="rb rb-lv">Worldwide</span><div class="rc-title">CC Global / Missions</div><p class="rc-desc">Fulfill the Great Commission by winning souls, making disciples, and partnering with international church leaders worldwide.</p><a href="https://christchurchusa.org/missions/" class="rc-lk">Get Involved<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+        <div class="rc" role="listitem"><span class="rb rb-op">Easy Start</span><div class="rc-title">Inviting Made Easy</div><p class="rc-desc">Equip yourself to personally invite others to church using shareable campus-specific videos, graphics, and messaging templates.</p><a href="https://christchurchusa.org/invite/" class="rc-lk">Get Tools<svg viewBox="0 0 11 11"><path d="M2 5.5h7M6 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a></div>
+      </div>
+      <button class="rg-more" aria-expanded="false">See More <span class="rg-more-caret" aria-hidden="true">▾</span></button>
+      <div class="rg-extra" hidden>
+        <div class="rg-extra-grid">
+          <a class="rx" href="https://christchurchusa.org/legacygroup/">
+            <div class="rx-title">Legacy Group</div>
+            <p class="rx-desc">For those with the spiritual gift of giving. Commit to an annual Legacy Offering above your tithe and join a marketplace leaders Connect Group.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Entry prompt — moved below the stage tabs -->
+    <div class="stage-entry" role="complementary" aria-label="Stage selection guidance" style="margin:48px 0 0">
+      <div class="se-left">
+        <div class="se-title" id="stages-title">Where Are You Right Now?</div>
+        <p class="se-sub">Choose the tab that best describes you. <strong>Not sure? Start with Participate</strong> — it's for everyone.</p>
+      </div>
+      <a href="https://christchurchusa.org/pastoralcare/" class="se-cta">NEED HELP?</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 4: PASTORAL CARE + CONNECTION CARD ═══ -->
+<section class="pastoral" aria-labelledby="past-title">
+  <div class="pastoral-inner">
+
+    <div>
+      <h2 class="past-title" id="past-title">Who Walks<br><em>With You</em></h2>
+      <div class="past-rule" aria-hidden="true"></div>
+      <div class="past-body">
+        <p>Following Jesus was never meant to be a solo effort. At every step, real people at Christ Church are praying for you, invested in you, and walking with you. From your first Sunday to leading others, you'll never have to figure this out alone.</p>
+      </div>
+      <div class="past-cards" role="list">
+        <div class="wc" role="listitem">
+          <div class="wc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4"/></svg></div>
+          <div><div class="wc-t">Small Groups</div><div class="wc-s">Small, intentional communities where real relationships form and faith grows together week after week.</div></div>
+        </div>
+        <div class="wc" role="listitem">
+          <div class="wc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><div class="wc-t">Pastoral Care</div><div class="wc-s">Dedicated ministers and chaplains for prayer, guidance, and support through every season of life.</div></div>
+        </div>
+        <div class="wc" role="listitem">
+          <div class="wc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><div class="wc-t">Leaders &amp; Coaches</div><div class="wc-s">Experienced believers who invest personally in your next stage — walking alongside you, not just pointing the way.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Connection card — soft, low-commitment entry point -->
+    <div>
+      <div class="conn-card" role="form" aria-labelledby="conn-title">
+        <div class="conn-card-head">
+          <span class="cch-eyebrow">Get Connected.</span>
+          <div class="cch-title" id="conn-title">Let Us Know You're Here</div>
+        </div>
+        <div class="conn-card-body">
+          <div class="conn-field">
+            <label class="conn-label" for="conn-name">Your Name</label>
+            <input class="conn-input" id="conn-name" type="text" placeholder="First and last name" autocomplete="name">
+          </div>
+          <div class="conn-field">
+            <label class="conn-label" for="conn-email">Email Address</label>
+            <input class="conn-input" id="conn-email" type="email" placeholder="your@email.com" autocomplete="email">
+          </div>
+          <div class="conn-selects">
+            <div class="conn-field">
+              <label class="conn-label" for="conn-campus">Campus</label>
+              <select class="conn-select" id="conn-campus">
+                <option value="">Select campus</option>
+                <option>Montclair</option>
+                <option>Rockaway</option>
+                <option>Lodi</option>
+                <option>Online</option>
+              </select>
+            </div>
+            <div class="conn-field">
+              <label class="conn-label" for="conn-stage">My Stage</label>
+              <select class="conn-select" id="conn-stage">
+                <option value="">Not sure yet</option>
+                <option>Participate</option>
+                <option>Apply</option>
+                <option>Take Action</option>
+                <option>Help Others</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="conn-card-foot">
+          <button class="btn-connect" id="conn-submit" type="button">Send My Info →</button>
+          <p class="conn-privacy">
+</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 4.75: APP BANNER ═══ -->
+<section class="appbanner" aria-labelledby="app-title">
+  <div class="appbanner-inner">
+    <div>
+      <h2 class="app-title" id="app-title">Your Next Step Is<br><em>One Tap Away.</em></h2>
+      <p class="app-sub">Messages, giving, groups, events, and your PATHways next step — all in one place. Download the Christ Church app and stay connected to what matters.</p>
+      <div class="app-btns">
+        <a href="https://apps.apple.com/app/christ-church" class="app-store-btn" aria-label="Download on the App Store">
+          <span class="app-store-icon">🍎</span>
+          <span class="app-store-text">
+            <span class="app-store-label">Download on the</span>
+            <span class="app-store-name">App Store</span>
+          </span>
+        </a>
+        <a href="https://play.google.com/store/apps/christ-church" class="app-store-btn" aria-label="Get it on Google Play">
+          <span class="app-store-icon">▶</span>
+          <span class="app-store-text">
+            <span class="app-store-label">Get it on</span>
+            <span class="app-store-name">Google Play</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="app-reviews" aria-label="App reviews">
+      <div class="app-review">
+        <div class="app-review-stars">★★★★★</div>
+        <p class="app-review-text">"This app completely changed how I engage with my church. I can find my next step, watch sermons, and connect with my group all in one place."</p>
+        <span class="app-review-author">— Montclair Campus</span>
+      </div>
+      <div class="app-review">
+        <div class="app-review-stars">★★★★★</div>
+        <p class="app-review-text">"The PATHways section helped me realize I'd been stuck in the same stage for two years. I finally knew what to do next."</p>
+        <span class="app-review-author">— Rockaway Campus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-main">
+    <div>
+      <div class="f-brand">Christ <span>Church</span></div>
+      <p class="f-tagline">Uniting people to God<br>and people to people.</p>
+      <div class="f-soc" aria-label="Social media">
+        <a href="https://www.facebook.com/ChristChurchUSA/" class="soc" aria-label="Facebook">Fb</a>
+        <a href="https://instagram.com/christchurchusa" class="soc" aria-label="Instagram">Ig</a>
+        <a href="https://www.youtube.com/channel/UCFYvnTlOLAPKXyoXsBljmrg" class="soc" aria-label="YouTube">Yt</a>
+        <a href="https://www.tiktok.com/@christchurchusa" class="soc" aria-label="TikTok">Tk</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>PATHways</h4>
+      <ul>
+        <li><a href="#panel-participate" data-goto="participate">Participate</a></li>
+        <li><a href="#panel-apply" data-goto="apply">Apply</a></li>
+        <li><a href="#panel-takeaction" data-goto="takeaction">Take Action</a></li>
+        <li><a href="#panel-helpothers" data-goto="helpothers">Help Others</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Christ Church</h4>
+      <ul>
+        <li><a href="https://christchurchusa.org/about/">Our Story</a></li>
+        <li><a href="https://christchurchusa.org/visit">Locations</a></li>
+        <li><a href="https://christchurchusa.org/sermons">Messages</a></li>
+        <li><a href="https://christchurchusa.org/giving">Give</a></li>
+        <li><a href="https://christchurchusa.org/careers/">Careers</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Get Connected</h4>
+      <ul>
+        <li><a href="https://christchurchusa.org/smallgroups/">Small Groups</a></li>
+        <li><a href="https://christchurchusa.org/serve">Serve</a></li>
+        <li><a href="https://christchurchusa.org/pastoralcare/">Pastoral Care</a></li>
+        <li><a href="https://christchurchusa.org/chaptertwo/">Chapter Two</a></li>
+        <li><a href="https://my.christchurchusa.org">My Account</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bot">
+    <p>&copy; 2026 Christ Church. All rights reserved.</p>
+    <div class="f-blinks">
+      <a href="https://christchurchusa.org/privacy-notice">Privacy Policy</a>
+      <a href="https://christchurchusa.org/contact-us">Contact Us</a>
+      <a href="https://christchurchusa.org/ccevents/">Events</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="sticky-pastor" role="complementary" aria-label="Mobile pastoral contact">
+  <p>Not sure where to start?</p>
+  <a href="https://christchurchusa.org/pastoralcare/">Talk to a Pastor →</a>
+</div>
+
+<script>
+function switchStage(id){
+  document.querySelectorAll('.s-panel').forEach(function(p){p.classList.remove('on')});
+  var panel=document.getElementById('panel-'+id);
+  if(panel){panel.classList.add('on');}
+  document.querySelectorAll('.s-tab').forEach(function(t){
+    var active=t.dataset.stage===id;
+    t.setAttribute('data-active',active?'true':'false');
+    t.setAttribute('aria-selected',active?'true':'false');
+  });
+}
+document.querySelectorAll('.s-tab').forEach(function(tab){
+  tab.addEventListener('click',function(){switchStage(tab.dataset.stage);});
+});
+document.querySelectorAll('[data-goto]').forEach(function(el){
+  el.addEventListener('click',function(e){
+    e.preventDefault();
+    var id=el.dataset.goto;
+    switchStage(id);
+    var sec=document.getElementById('find-your-stage');
+    if(sec)sec.scrollIntoView({behavior:'smooth'});
+  });
+});
+// Stage "See More" — reveal additional offerings within each tab
+document.querySelectorAll('.rg-more').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var extra=btn.parentElement.querySelector('.rg-extra');
+    if(!extra)return;
+    if(extra.hasAttribute('hidden')){
+      extra.removeAttribute('hidden');
+      btn.innerHTML='See Less <span class="rg-more-caret" aria-hidden="true">\u25BE</span>';
+      btn.setAttribute('aria-expanded','true');
+    }else{
+      extra.setAttribute('hidden','');
+      btn.innerHTML='See More <span class="rg-more-caret" aria-hidden="true">\u25BE</span>';
+      btn.setAttribute('aria-expanded','false');
+    }
+  });
+});
+var connBtn=document.getElementById('conn-submit');
+if(connBtn){
+  connBtn.addEventListener('click',function(){
+    var name=document.getElementById('conn-name').value.trim();
+    var email=document.getElementById('conn-email').value.trim();
+    if(!name||!email){connBtn.textContent='Please fill in your name and email.';connBtn.style.background='#a81f46';setTimeout(function(){connBtn.textContent='Send My Info \u2192';connBtn.style.background='';},2800);return;}
+    connBtn.textContent='Thank you \u2014 a pastor will reach out soon.';
+    connBtn.style.background='#137a7a';
+    connBtn.disabled=true;
+  });
+}
+</script>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "PATHways Landing";
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    for (let y = 0; y <= full; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => requestAnimationFrame(r));
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…}. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var STAMP = true;
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false } };
+  }
+
+  // Declared kind: a doc-page tag names the kind outright, so no signal
+  // heuristics run (like the deck branch above, signals report false —
+  // they describe inferred classifications only). The tag alone is not
+  // trusted: the element must have upgraded (shadowRoot present), so a
+  // leftover tag whose script was deleted falls through to the heuristics
+  // that handle plain markup.
+  var stageSx = window.scrollX || 0, stageSy = window.scrollY || 0;
+  var dp = document.querySelector('doc-page');
+  if (dp && dp.shadowRoot) {
+    // Crop to the sheet, not the host — the desk around it is screen-only
+    // chrome that must not land in PNG exports.
+    var sheet = dp.shadowRoot.querySelector('.sheet');
+    var sr = (sheet || dp).getBoundingClientRect();
+    return { kind: 'paper-doc', source: 'declared', doc: doc,
+      frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
+        width: sr.width, height: sr.height }],
+      authored: [{ width: false, height: false }],
+      signals: { paperPage: false, pxPage: false } };
+  }
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    if (STAMP) el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', source: 'inferred', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: ≥2 visible non-fixed children, each with authored px width
+  // AND height, all within ±2px of each other. Off unless the page opts in
+  // via data-om-multi-frame on the stop element — guards against card grids
+  // and pricing tables that match the geometry but aren't separate canvases.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var cands = [];
+    for (var k = 0; k < el.children.length; k++) {
+      var ch = el.children[k];
+      var cs; try { cs = getComputedStyle(ch); } catch (e) { continue; }
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed') continue;
+      var rc = rectOf(ch);
+      if (rc.width < 2 || rc.height < 2) continue;
+      if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+      cands.push(rc);
+    }
+    if (cands.length >= 2) {
+      var w0 = cands[0].width, h0 = cands[0].height, ok = true;
+      for (var q = 1; q < cands.length; q++)
+        if (Math.abs(cands[q].width - w0) > 2 || Math.abs(cands[q].height - h0) > 2) ok = false;
+      if (ok) return { kind: 'multi-frame', source: 'inferred', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  if (STAMP) el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', source: 'inferred', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (__m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          if (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always') {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>
