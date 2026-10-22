@@ -20,6 +20,8 @@ All paths are relative, so the site works from any folder.
 - **Next steps:** the 31 active on-ramps from the PATHways app's approved catalogue, with its names, descriptions and links. Each stage shows its four highest-priority items as cards; the rest go under See more. Items without a link point to the guide form.
 - **Fonts:** no paid font files are included. The page uses Gill Sans and Proxima Nova when they are installed, and otherwise falls back to Lato and Montserrat from Google Fonts.
 - **Hero:** the PATHways logo replaces the text heading.
+- **Walking trail:** `js/main.js` draws a winding trail behind the page, from the hero to "Who walks with you". It keeps to the side margins, passes through the four letter circles (now set above their cards as stops), and fills in as you scroll, with a yellow marker where you are. Section labels carry a small trail marker.
+- **Wording:** each person's own walk with Jesus, never "the path".
 
 ## Upload with cPanel
 

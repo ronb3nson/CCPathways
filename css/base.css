@@ -48,6 +48,17 @@ a:hover { color: var(--red-hover); text-decoration: underline; }
   color: var(--ink);
   margin-bottom: 12px;
 }
+/* A small trail marker, so section labels read like signs along the way */
+.lbl::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  vertical-align: 1px;
+}
 
 .link-btn {
   background: none;

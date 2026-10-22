@@ -38,6 +38,7 @@
       card.setAttribute('data-active', String(on));
       card.querySelector('.st-cta').setAttribute('aria-expanded', String(on));
     });
+    queueBuild();
   }
 
   $$('.st-cta').forEach(function (btn) {
@@ -81,6 +82,7 @@
     explainer.hidden = !open;
     defToggle.setAttribute('aria-expanded', String(open));
     defToggle.textContent = open ? 'Hide explainer ↑' : 'What is discipleship? →';
+    queueBuild();
   });
 
   /* See more */
@@ -91,6 +93,7 @@
       list.hidden = !open;
       btn.setAttribute('aria-expanded', String(open));
       btn.textContent = open ? 'See less ▴' : 'See more ▾';
+      queueBuild();
     });
   });
 
@@ -134,6 +137,130 @@
   } else {
     fab.classList.add('show');
   }
+
+  /* Trail: a winding walking path behind the page that fills in as you scroll */
+  var main = $('main');
+  var NS = 'http://www.w3.org/2000/svg';
+  var trail = document.createElementNS(NS, 'svg');
+  trail.setAttribute('class', 'trail');
+  trail.setAttribute('aria-hidden', 'true');
+  trail.setAttribute('focusable', 'false');
+  trail.innerHTML =
+    '<defs><mask id="trail-walked" maskUnits="userSpaceOnUse"><path class="trail-reveal"/></mask></defs>' +
+    '<path class="trail-bed"/><path class="trail-dots"/>' +
+    '<path class="trail-dots trail-dots-walked" mask="url(#trail-walked)"/>' +
+    '<circle class="trail-walker" r="8"/>';
+  main.insertBefore(trail, main.firstChild);
+  var trailMask = trail.querySelector('mask');
+  var trailPaths = $$('.trail path');
+  var trailReveal = trail.querySelector('.trail-reveal');
+  var walker = trail.querySelector('.trail-walker');
+  var trailLen = 0;
+  var trailSamples = [];
+
+  function rel(el) {
+    var r = el.getBoundingClientRect();
+    var m = main.getBoundingClientRect();
+    return { top: r.top - m.top, bottom: r.bottom - m.top, left: r.left - m.left, right: r.right - m.left,
+      cx: (r.left + r.right) / 2 - m.left, cy: (r.top + r.bottom) / 2 - m.top };
+  }
+
+  // Waypoints: the trail keeps to the side margins and crosses between sections, so it never runs behind text
+  function trailRoute() {
+    var W = main.clientWidth;
+    var contentLeft = rel($('.choose .wrap')).left + 24;
+    var L = contentLeft / 2;
+    var R = W - contentLeft / 2;
+    var wig = Math.min(28, contentLeft * 0.25);
+    var pad = parseFloat(getComputedStyle($('.assess')).paddingTop);
+    var hero = rel($('.hero'));
+    var as = rel($('.assess'));
+    var ch = rel($('.choose'));
+    var wk = rel($('.walk'));
+    var stops = $$('.st .lc').map(rel);
+    var pts = [];
+
+    function run(x, y1, y2, dir) {
+      pts.push([x, y1]);
+      if (y2 - y1 > 240) pts.push([x + dir * wig, (y1 + y2) / 2]);
+      pts.push([x, y2]);
+    }
+
+    pts.push([hero.cx, hero.bottom]);
+    run(R, as.top + pad * 0.7, as.bottom - pad * 0.7, -1);
+    run(L, ch.top + pad * 0.7, stops[0].cy - 60, 1);
+    stops.forEach(function (s) { pts.push([s.cx, s.cy]); });
+    run(R, stops[stops.length - 1].cy + 60, ch.bottom - pad * 0.7, -1);
+    // The trail ends beside "Who walks with you"
+    run(L, wk.top + pad * 0.7, wk.bottom - pad, 1);
+    return pts;
+  }
+
+  // Catmull-Rom spline through the waypoints, written as cubic Béziers
+  function smoothPath(p) {
+    function f(n) { return Math.round(n * 10) / 10; }
+    var d = 'M' + f(p[0][0]) + ' ' + f(p[0][1]);
+    for (var i = 0; i < p.length - 1; i++) {
+      var p0 = p[i - 1] || p[i], p1 = p[i], p2 = p[i + 1], p3 = p[i + 2] || p2;
+      d += ' C' + f(p1[0] + (p2[0] - p0[0]) / 6) + ' ' + f(p1[1] + (p2[1] - p0[1]) / 6) +
+        ' ' + f(p2[0] - (p3[0] - p1[0]) / 6) + ' ' + f(p2[1] - (p3[1] - p1[1]) / 6) +
+        ' ' + f(p2[0]) + ' ' + f(p2[1]);
+    }
+    return d;
+  }
+
+  function buildTrail() {
+    var W = main.clientWidth;
+    var H = main.offsetHeight;
+    trail.setAttribute('width', W);
+    trail.setAttribute('height', H);
+    trail.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    ['width', 'height'].forEach(function (a, i) { trailMask.setAttribute(a, [W, H][i]); });
+    // Narrow screens have little margin, so the trail narrows to stay clear of text
+    var contentLeft = rel($('.choose .wrap')).left + 24;
+    trail.querySelector('.trail-bed').style.strokeWidth = Math.max(10, Math.min(30, contentLeft * 0.8)) + 'px';
+    var d = smoothPath(trailRoute());
+    trailPaths.forEach(function (p) { p.setAttribute('d', d); });
+    trailLen = trailPaths[0].getTotalLength();
+    trailReveal.style.strokeDasharray = trailLen + ' ' + trailLen;
+    trailSamples = [];
+    for (var l = 0; l <= trailLen; l += 8) {
+      var pt = trailPaths[0].getPointAtLength(l);
+      trailSamples.push([l, pt.x, pt.y]);
+    }
+    walkTrail();
+  }
+
+  // The walked part ends where the trail crosses 60% of the way down the window
+  function walkTrail() {
+    if (!trailSamples.length) return;
+    var target = window.innerHeight * 0.6 - main.getBoundingClientRect().top;
+    var i = 0;
+    while (i < trailSamples.length - 1 && trailSamples[i + 1][2] <= target) i++;
+    var s = trailSamples[i];
+    trailReveal.style.strokeDashoffset = trailLen - s[0];
+    walker.setAttribute('cx', s[1]);
+    walker.setAttribute('cy', s[2]);
+    walker.style.opacity = target > trailSamples[0][2] ? 1 : 0;
+  }
+
+  var walkQueued = false;
+  window.addEventListener('scroll', function () {
+    if (walkQueued) return;
+    walkQueued = true;
+    requestAnimationFrame(function () { walkQueued = false; walkTrail(); });
+  }, { passive: true });
+
+  var buildTimer;
+  function queueBuild() {
+    clearTimeout(buildTimer);
+    buildTimer = setTimeout(buildTrail, 60);
+  }
+  // Rebuild when the layout moves: resizes, late-loading fonts and images, and the toggles above
+  window.addEventListener('resize', queueBuild);
+  window.addEventListener('load', queueBuild);
+  if ('ResizeObserver' in window) new ResizeObserver(queueBuild).observe(main);
+  buildTrail();
 
   /* Quiz modal */
   var Q = [

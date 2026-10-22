@@ -1,3 +1,14 @@
+/* Trail: drawn by main.js behind the section content */
+main { position: relative; }
+.sec > .wrap { position: relative; z-index: 1; }
+.trail { position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none; }
+.trail path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.trail-bed { stroke: rgba(17, 17, 17, .055); stroke-width: 30px; }
+.trail-dots { stroke: rgba(17, 17, 17, .22); stroke-width: 3px; stroke-dasharray: 0 11; }
+.trail-dots-walked { stroke: var(--ink); stroke-opacity: .7; }
+.trail-reveal { stroke: #fff; stroke-width: 40px; }
+.trail-walker { fill: var(--yel); stroke: var(--ink); stroke-width: 2.5px; transition: opacity .2s; }
+
 /* Header */
 .hdr { position: sticky; top: 0; z-index: 150; height: var(--hdr-h); background: #000; display: flex; align-items: center; }
 .hdr-in { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; }
@@ -44,8 +55,9 @@
 .scrip { margin: 22px 0; text-align: center; font-size: 19px; font-style: italic; }
 .scrip cite { display: block; margin-top: 6px; text-align: right; font-size: 17.5px; font-style: normal; }
 
-.stepper { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin-top: 44px; }
-.st { display: flex; flex-direction: column; align-items: center; padding: 30px 18px 26px; text-align: center; border-radius: var(--r-md); cursor: pointer; outline: 3px solid transparent; outline-offset: -3px; transition: outline-color .15s; }
+/* Each area's letter circle sits above its card as a stop on the trail */
+.stepper { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 84px 20px; margin-top: 108px; }
+.st { position: relative; display: flex; flex-direction: column; align-items: center; padding: 30px 18px 26px; text-align: center; border-radius: var(--r-md); cursor: pointer; outline: 3px solid transparent; outline-offset: -3px; transition: outline-color .15s; }
 .st-p { background: var(--p-lt); }
 .st-a { background: var(--a-lt); }
 .st-t { background: var(--t-lt); }
@@ -54,7 +66,7 @@
 .st-a[data-active="true"] { outline-color: var(--a); }
 .st-t[data-active="true"] { outline-color: var(--t); }
 .st-h[data-active="true"] { outline-color: var(--h); }
-.st .lc { margin-bottom: 16px; }
+.st .lc { position: absolute; top: -64px; left: 50%; transform: translateX(-50%); box-shadow: 0 0 0 6px var(--white); }
 .st h3 { margin-bottom: 2px; }
 .st-tag, .s-tag { font-family: var(--fh); font-size: 15px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
 .st-tag { margin-bottom: 12px; }
@@ -176,6 +188,7 @@
 @media (max-width: 640px) {
   .hdr-logo img { height: 40px; }
   .hero-logo { height: 48px; }
+  .trail-dots { stroke-width: 2.5px; stroke-dasharray: 0 9; }
   .stepper, .rg, .rx-grid, .fields2 { grid-template-columns: 1fr; }
   .detail { padding: 56px 20px 28px; }
   .s-ph { padding-right: 0; }
