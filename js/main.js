@@ -110,8 +110,8 @@
       return;
     }
     var campus = byId('conn-campus').value || 'Not specified';
-    var path = byId('conn-stage').value || 'Not sure yet';
-    var body = 'Name: ' + name + '\nEmail: ' + email + '\nCampus: ' + campus + '\nPath: ' + path;
+    var interest = byId('conn-stage').value || 'Not sure yet';
+    var body = 'Name: ' + name + '\nEmail: ' + email + '\nCampus: ' + campus + '\nInterested in: ' + interest;
     window.location.href = 'mailto:ChurchLife@christchurchusa.org?subject=' +
       encodeURIComponent('PATHways: next-step guide') + '&body=' + encodeURIComponent(body);
     submit.textContent = 'Thank you!';
