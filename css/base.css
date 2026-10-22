@@ -38,26 +38,41 @@ a:hover { color: var(--red-hover); text-decoration: underline; }
 .wrap { max-width: var(--mw); margin: 0 auto; padding: 0 var(--gutter); }
 .sec { padding: var(--sec-pad) 0; }
 
+/* Section labels are trail signs: a dark board with a pointed end, on a short post */
 .lbl {
-  display: block;
+  position: relative;
+  display: inline-block;
+  height: 30px;
+  margin: 0 14px 34px 0;
+  padding: 7px 10px 7px 14px;
   font-family: var(--fh);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 2px;
+  line-height: 16px;
   text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 12px;
+  white-space: nowrap;
+  color: var(--white);
+  background: var(--ink);
+  border-radius: 2px 0 0 2px;
 }
-/* A small trail marker, so section labels read like signs along the way */
+.lbl::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 13px solid var(--ink);
+}
 .lbl::before {
   content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-right: 10px;
-  border: 2px solid currentColor;
-  border-radius: 50%;
-  vertical-align: 1px;
+  position: absolute;
+  top: 100%;
+  left: 16px;
+  width: 5px;
+  height: 18px;
+  background: var(--ink);
 }
 
 .link-btn {

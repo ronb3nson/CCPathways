@@ -148,13 +148,11 @@
   trail.innerHTML =
     '<defs><mask id="trail-walked" maskUnits="userSpaceOnUse"><path class="trail-reveal"/></mask></defs>' +
     '<path class="trail-bed"/><path class="trail-dots"/>' +
-    '<path class="trail-dots trail-dots-walked" mask="url(#trail-walked)"/>' +
-    '<circle class="trail-walker" r="8"/>';
+    '<path class="trail-dots trail-dots-walked" mask="url(#trail-walked)"/>';
   main.insertBefore(trail, main.firstChild);
   var trailMask = trail.querySelector('mask');
   var trailPaths = $$('.trail path');
   var trailReveal = trail.querySelector('.trail-reveal');
-  var walker = trail.querySelector('.trail-walker');
   var trailLen = 0;
   var trailSamples = [];
 
@@ -186,7 +184,8 @@
       pts.push([x, y2]);
     }
 
-    pts.push([hero.cx, hero.bottom]);
+    // Picks up where the hero's footpath leaves the bottom of the landscape
+    pts.push([hero.cx, hero.bottom - 24]);
     run(R, as.top + pad * 0.7, as.bottom - pad * 0.7, -1);
     run(L, ch.top + pad * 0.7, stops[0].cy - 60, 1);
     stops.forEach(function (s) { pts.push([s.cx, s.cy]); });
@@ -237,19 +236,53 @@
     var target = window.innerHeight * 0.6 - main.getBoundingClientRect().top;
     var i = 0;
     while (i < trailSamples.length - 1 && trailSamples[i + 1][2] <= target) i++;
-    var s = trailSamples[i];
-    trailReveal.style.strokeDashoffset = trailLen - s[0];
-    walker.setAttribute('cx', s[1]);
-    walker.setAttribute('cy', s[2]);
-    walker.style.opacity = target > trailSamples[0][2] ? 1 : 0;
+    trailReveal.style.strokeDashoffset = trailLen - trailSamples[i][0];
   }
 
-  var walkQueued = false;
-  window.addEventListener('scroll', function () {
-    if (walkQueued) return;
-    walkQueued = true;
-    requestAnimationFrame(function () { walkQueued = false; walkTrail(); });
-  }, { passive: true });
+  /* Hero parallax: the landscape layers drift at different speeds, so the sun rises behind the hills */
+  var hero = $('.hero');
+  var heroIn = $('.hero-in');
+  var layers = $$('.hero-layer');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function parallax() {
+    if (reduceMotion) return;
+    var y = window.pageYOffset;
+    var h = hero.offsetHeight;
+    if (y > h) return;
+    layers.forEach(function (l) {
+      l.style.transform = 'translate3d(0,' + (y * parseFloat(l.dataset.depth)).toFixed(1) + 'px,0)';
+    });
+    // The content drifts and fades only when the whole hero fits on screen; on phones people scroll to reach it
+    var fits = h <= window.innerHeight;
+    heroIn.style.transform = fits ? 'translate3d(0,' + (y * 0.18).toFixed(1) + 'px,0)' : '';
+    heroIn.style.opacity = fits ? Math.max(0, 1 - y / (h * 0.85)).toFixed(3) : '';
+  }
+
+  window.addEventListener('scroll', function () { walkTrail(); parallax(); }, { passive: true });
+  parallax();
+
+  /* Content rises into view as you arrive at it */
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        revealIO.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    $$('.assess-in > div, .choose .wrap > .lbl, .choose .wrap > h2, .choose-sub, .def-toggle, .walk-in > *, .app-in > div')
+      .forEach(function (el) {
+        el.classList.add('reveal');
+        revealIO.observe(el);
+      });
+    // The area cards only fade, so the trail's stops never move
+    $$('.st').forEach(function (el, i) {
+      el.classList.add('reveal-fade');
+      el.style.setProperty('--reveal-delay', (i * 0.12) + 's');
+      revealIO.observe(el);
+    });
+  }
 
   var buildTimer;
   function queueBuild() {

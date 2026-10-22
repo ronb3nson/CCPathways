@@ -36,8 +36,48 @@
 <main>
 
 <section class="hero" aria-labelledby="hero-h1">
-  <!-- Placeholder: add the hero photo as <img class="hero-photo" src="assets/img/hero.jpg" alt=""> -->
-  <div class="hero-scrim"></div>
+  <!-- Dawn landscape in layers; main.js moves each at its data-depth speed as you scroll -->
+  <div class="hero-scene" aria-hidden="true">
+    <svg class="hero-layer" data-depth="0.22" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" focusable="false">
+      <defs>
+        <linearGradient id="sky" gradientUnits="userSpaceOnUse" x1="0" y1="-400" x2="0" y2="800">
+          <stop offset="0" stop-color="#0B1622"/>
+          <stop offset=".55" stop-color="#1B2E48"/>
+          <stop offset=".76" stop-color="#465070"/>
+          <stop offset=".87" stop-color="#D4895A"/>
+          <stop offset="1" stop-color="#F2C27B"/>
+        </linearGradient>
+      </defs>
+      <rect x="-200" y="-400" width="1840" height="1200" fill="url(#sky)"/>
+    </svg>
+    <svg class="hero-layer" data-depth="0.04" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" focusable="false">
+      <defs>
+        <radialGradient id="sun-glow">
+          <stop offset="0" stop-color="#FFD98A" stop-opacity=".55"/>
+          <stop offset="1" stop-color="#FFB86B" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle cx="752" cy="586" r="340" fill="url(#sun-glow)"/>
+      <circle cx="752" cy="586" r="56" fill="#FFE2A3"/>
+    </svg>
+    <svg class="hero-layer" data-depth="0.22" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" focusable="false">
+      <path fill="#3A4566" d="M0 600 L110 548 L200 578 L320 506 L440 562 L560 522 L680 576 L800 520 L900 556 L1040 498 L1170 556 L1290 522 L1440 566 V800 H0Z"/>
+    </svg>
+    <svg class="hero-layer" data-depth="0.13" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" focusable="false">
+      <path fill="#26314A" d="M0 660 C160 612 300 640 430 616 C560 592 650 650 800 630 C950 610 1080 586 1220 620 C1320 645 1390 630 1440 624 V800 H0Z"/>
+    </svg>
+    <svg class="hero-layer" data-depth="0.06" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" focusable="false">
+      <defs>
+        <linearGradient id="footpath" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#F2C27B" stop-opacity=".6"/>
+          <stop offset="1" stop-color="#FFF1DC" stop-opacity=".3"/>
+        </linearGradient>
+      </defs>
+      <path fill="#161F2E" d="M0 712 C200 684 380 700 560 692 C700 686 820 698 980 688 C1150 678 1300 698 1440 688 V800 H0Z"/>
+      <path fill="url(#footpath)" d="M690 800 C684 762 770 742 800 720 C826 700 790 680 770 664 C756 652 754 640 758 632 L764 632 C762 640 766 650 780 662 C804 682 840 704 812 728 C784 750 750 770 762 800Z"/>
+      <path fill="none" stroke="#FFFFFF" stroke-opacity=".4" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 11" d="M726 800 C722 766 790 744 808 722 C826 702 800 682 776 664 C762 652 760 640 761 632"/>
+    </svg>
+  </div>
   <div class="hero-in">
     <div>
       <h1 id="hero-h1"><img class="hero-logo" src="assets/img/pathways-logo-white-text.svg" alt="PATHways" width="395" height="64"></h1>
@@ -47,11 +87,11 @@
     <nav aria-label="Choose where to start">
       <p class="hi-label">Where would you like to start?</p>
       <div class="hi-list">
-        <a class="hi-btn" href="#card-worship-service" data-goto="participate" data-card="card-worship-service"><span class="hi-main">I'm new to Christ Church</span><svg class="hi-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="hi-btn" href="#card-salvation-prayer" data-goto="apply" data-card="card-salvation-prayer"><span class="hi-main">I want to follow Jesus</span><svg class="hi-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="hi-btn" href="#choose-path" data-goto="apply"><span class="hi-main">I want to become more like Jesus</span><svg class="hi-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="hi-btn" href="#choose-path" data-goto="takeaction"><span class="hi-main">I want to serve</span><svg class="hi-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="hi-btn" href="#choose-path" data-goto="helpothers"><span class="hi-main">I want to help someone else follow Jesus</span><svg class="hi-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="hi-btn" href="#card-worship-service" data-goto="participate" data-card="card-worship-service"><span class="hi-main">I'm new to Christ Church</span></a>
+        <a class="hi-btn" href="#card-salvation-prayer" data-goto="apply" data-card="card-salvation-prayer"><span class="hi-main">I want to follow Jesus</span></a>
+        <a class="hi-btn" href="#choose-path" data-goto="apply"><span class="hi-main">I want to become more like Jesus</span></a>
+        <a class="hi-btn" href="#choose-path" data-goto="takeaction"><span class="hi-main">I want to serve</span></a>
+        <a class="hi-btn" href="#choose-path" data-goto="helpothers"><span class="hi-main">I want to help someone else follow Jesus</span></a>
       </div>
     </nav>
   </div>

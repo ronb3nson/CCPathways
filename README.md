@@ -19,8 +19,9 @@ All paths are relative, so the site works from any folder.
 - **Colors:** the PATHways app's stage colors (Participate #7FB3E5, Apply #14A8C2, Take Action #F4AF00, Help Others #DE2A50) and #111111 for text. Letter circles use dark text, except on Help Others.
 - **Next steps:** the 31 active on-ramps from the PATHways app's approved catalogue, with its names, descriptions and links. Each stage shows its four highest-priority items as cards; the rest go under See more. Items without a link point to the guide form.
 - **Fonts:** no paid font files are included. The page uses Gill Sans and Proxima Nova when they are installed, and otherwise falls back to Lato and Montserrat from Google Fonts.
-- **Hero:** the PATHways logo replaces the text heading.
-- **Walking trail:** `js/main.js` draws a winding trail behind the page, from the hero to "Who walks with you". It keeps to the side margins, passes through the four letter circles (now set above their cards as stops), and fills in as you scroll, with a yellow marker where you are. Section labels carry a small trail marker.
+- **Hero:** an illustrated dawn landscape in layers replaces the photo. As you scroll, the layers move at different speeds and the sun rises over the hills. A footpath leads from the sun down to the bottom of the hero. The PATHways logo replaces the text heading, and the five starting choices are the arms of a signpost.
+- **Walking trail:** `js/main.js` continues the footpath as a winding trail behind the page, down to "Who walks with you". It keeps to the side margins, passes through the four letter circles (now set above their cards as stops), and darkens as you scroll past it.
+- **Journey details:** section labels are trail signs, each section's top edge is a hill line, and content rises gently into view. Visitors who turn on reduced motion get no parallax and no reveal effects.
 - **Wording:** each person's own walk with Jesus, never "the path".
 
 ## Upload with cPanel
@@ -31,7 +32,7 @@ All paths are relative, so the site works from any folder.
 
 ## Still to do
 
-- Hero photo and one round photo per next-step card (they are gray placeholders).
+- One round photo per next-step card (they are light placeholders).
 - App Store and Google Play links, social icons and the X handle.
 - A white Christ Church logo for the footer. A CSS filter whitens the color logo for now, and both logos are loaded from christchurchusa.org.
 - Swap the guide form's `mailto:` for a real form service before launch.
