@@ -3,10 +3,32 @@ main { position: relative; }
 .sec > .wrap { position: relative; z-index: 2; }
 .trail { position: absolute; top: 0; left: 0; z-index: 1; pointer-events: none; }
 .trail path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.trail-bed { stroke: rgba(17, 17, 17, .055); stroke-width: 30px; }
-.trail-dots { stroke: rgba(17, 17, 17, .22); stroke-width: 3px; stroke-dasharray: 0 11; }
-.trail-dots-walked { stroke: var(--ink); stroke-opacity: .7; }
-.trail-reveal { stroke: #fff; stroke-width: 40px; }
+.trail-ghost { stroke: rgba(17, 17, 17, .2); stroke-width: 2.5px; stroke-dasharray: 0 10; }
+.trail-edge { stroke: #D6C39E; }
+.trail-bed { stroke: #EEE2CA; }
+.trail-dots { stroke: #FFFFFF; stroke-opacity: .95; stroke-width: 3px; stroke-dasharray: 0 12; }
+.trail-reveal { stroke: #fff; transition: stroke-dashoffset .8s cubic-bezier(.2, .7, .2, 1); }
+.verge-tuft { color: #8DAA8A; }
+.verge-stone { fill: #CFC5B1; }
+@media (prefers-reduced-motion: reduce) { .trail-reveal { transition: none; } }
+
+/* Scenery: one landscape layer per section, behind the trail and content; main.js adds the parallax */
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.scenery { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.scenery > * { position: absolute; display: block; will-change: transform; }
+.scenery > svg:not(.sc-band):not(.sc-stars) { height: auto; }
+.sc-band { left: 0; bottom: -40px; width: 100%; height: 200px; }
+.sc-band-tall { height: 260px; }
+.sc-compass { right: -110px; top: calc(50% - 170px); width: 340px; color: rgba(17, 17, 17, .07); }
+.sc-dusk { inset: 0; background: linear-gradient(to bottom, rgba(251, 230, 207, 0) 25%, rgba(251, 222, 196, .75) 100%); }
+.sc-stars { left: 0; top: 0; width: 100%; height: 70px; }
+.sc-moon { right: 6%; top: 14px; width: 40px; }
+.tw { animation: twinkle 4.5s ease-in-out infinite; }
+@keyframes twinkle { 50% { fill-opacity: .1; } }
+@media (prefers-reduced-motion: reduce) { .tw { animation: none; } }
+@media (max-width: 1100px) { .sc-margin { display: none; } }
+@media (max-width: 640px) { .sc-compass { width: 240px; right: -90px; top: 24px; } }
+.foot-in, .foot-bot { position: relative; z-index: 2; }
 
 /* Terrain: each section's top edge rolls like a hill line into the one above */
 .assess, .choose, .walk, .app, .foot { position: relative; }

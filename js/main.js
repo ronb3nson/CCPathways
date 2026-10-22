@@ -138,7 +138,8 @@
     fab.classList.add('show');
   }
 
-  /* Trail: a winding walking path behind the page that fills in as you scroll */
+  /* Trail: the hero's footpath continues down the page and is laid ahead of you as you scroll.
+     The route ahead shows as a faint dotted line; the path, its grassy verge and wildflowers fill in behind it. */
   var main = $('main');
   var NS = 'http://www.w3.org/2000/svg';
   var trail = document.createElementNS(NS, 'svg');
@@ -146,15 +147,22 @@
   trail.setAttribute('aria-hidden', 'true');
   trail.setAttribute('focusable', 'false');
   trail.innerHTML =
-    '<defs><mask id="trail-walked" maskUnits="userSpaceOnUse"><path class="trail-reveal"/></mask></defs>' +
-    '<path class="trail-bed"/><path class="trail-dots"/>' +
-    '<path class="trail-dots trail-dots-walked" mask="url(#trail-walked)"/>';
+    '<defs><mask id="trail-walked" maskUnits="userSpaceOnUse" x="0" y="0"><path class="trail-reveal"/></mask></defs>' +
+    '<path class="trail-ghost"/>' +
+    '<g mask="url(#trail-walked)">' +
+    '<path class="trail-edge"/><path class="trail-bed"/><path class="trail-dots"/>' +
+    '<g class="trail-verge"></g>' +
+    '<use class="trail-cairn" href="#i-cairn" width="48" height="56"/>' +
+    '</g>';
   main.insertBefore(trail, main.firstChild);
   var trailMask = trail.querySelector('mask');
   var trailPaths = $$('.trail path');
   var trailReveal = trail.querySelector('.trail-reveal');
+  var trailVerge = trail.querySelector('.trail-verge');
+  var trailCairn = trail.querySelector('.trail-cairn');
   var trailLen = 0;
   var trailSamples = [];
+  var FLOWERS = ['#7FB3E5', '#14A8C2', '#F4AF00', '#DE2A50'];
 
   function rel(el) {
     var r = el.getBoundingClientRect();
@@ -164,12 +172,11 @@
   }
 
   // Waypoints: the trail keeps to the side margins and crosses between sections, so it never runs behind text
-  function trailRoute() {
+  function trailRoute(contentLeft) {
     var W = main.clientWidth;
-    var contentLeft = rel($('.choose .wrap')).left + 24;
     var L = contentLeft / 2;
     var R = W - contentLeft / 2;
-    var wig = Math.min(28, contentLeft * 0.25);
+    var wig = Math.min(34, contentLeft * 0.25);
     var pad = parseFloat(getComputedStyle($('.assess')).paddingTop);
     var hero = rel($('.hero'));
     var as = rel($('.assess'));
@@ -178,19 +185,26 @@
     var stops = $$('.st .lc').map(rel);
     var pts = [];
 
+    // Long straight runs get two gentle bends, so the trail meanders like a real footpath
     function run(x, y1, y2, dir) {
       pts.push([x, y1]);
-      if (y2 - y1 > 240) pts.push([x + dir * wig, (y1 + y2) / 2]);
+      var span = y2 - y1;
+      if (span > 420) {
+        pts.push([x + dir * wig, y1 + span / 3]);
+        pts.push([x - dir * wig * 0.6, y1 + span * 2 / 3]);
+      } else if (span > 200) {
+        pts.push([x + dir * wig, y1 + span / 2]);
+      }
       pts.push([x, y2]);
     }
 
     // Picks up where the hero's footpath leaves the bottom of the landscape
-    pts.push([hero.cx, hero.bottom - 24]);
+    pts.push([hero.cx + 6, hero.bottom - 40]);
     run(R, as.top + pad * 0.7, as.bottom - pad * 0.7, -1);
     run(L, ch.top + pad * 0.7, stops[0].cy - 60, 1);
     stops.forEach(function (s) { pts.push([s.cx, s.cy]); });
     run(R, stops[stops.length - 1].cy + 60, ch.bottom - pad * 0.7, -1);
-    // The trail ends beside "Who walks with you"
+    // The trail ends at a cairn beside "Who walks with you"
     run(L, wk.top + pad * 0.7, wk.bottom - pad, 1);
     return pts;
   }
@@ -208,6 +222,48 @@
     return d;
   }
 
+  // Grass tufts, stones and the odd wildflower along both edges of the path
+  function buildVerge(path, width) {
+    trailVerge.innerHTML = '';
+    if (width < 30) return;
+    var off = width / 2 + 10;
+    var stops = $$('.st .lc').map(rel);
+    for (var l = 70, n = 0; l < trailLen - 40; l += 64, n++) {
+      var a = path.getPointAtLength(l);
+      var b = path.getPointAtLength(l + 1);
+      var dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
+      var side = n % 2 ? 1 : -1;
+      var x = a.x + (-dy / len) * off * side;
+      var y = a.y + (dx / len) * off * side;
+      if (stops.some(function (s) { return Math.hypot(s.cx - x, s.cy - y) < 48; })) continue;
+      var kind = (n * 7) % 10;
+      var el;
+      if (kind < 5) {
+        el = document.createElementNS(NS, 'use');
+        el.setAttribute('href', '#i-tuft');
+        el.setAttribute('class', 'verge-tuft');
+        el.setAttribute('width', 18);
+        el.setAttribute('height', 13);
+        el.setAttribute('x', (x - 9).toFixed(1));
+        el.setAttribute('y', (y - 11).toFixed(1));
+      } else if (kind < 8) {
+        el = document.createElementNS(NS, 'ellipse');
+        el.setAttribute('class', 'verge-stone');
+        el.setAttribute('cx', x.toFixed(1));
+        el.setAttribute('cy', y.toFixed(1));
+        el.setAttribute('rx', 4 + (n % 3));
+        el.setAttribute('ry', 2.6 + (n % 2));
+      } else {
+        el = document.createElementNS(NS, 'circle');
+        el.setAttribute('cx', x.toFixed(1));
+        el.setAttribute('cy', y.toFixed(1));
+        el.setAttribute('r', 3);
+        el.setAttribute('fill', FLOWERS[n % 4]);
+      }
+      trailVerge.appendChild(el);
+    }
+  }
+
   function buildTrail() {
     var W = main.clientWidth;
     var H = main.offsetHeight;
@@ -215,25 +271,34 @@
     trail.setAttribute('height', H);
     trail.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
     ['width', 'height'].forEach(function (a, i) { trailMask.setAttribute(a, [W, H][i]); });
-    // Narrow screens have little margin, so the trail narrows to stay clear of text
+    // Narrow screens have little margin, so the path narrows to stay clear of text
     var contentLeft = rel($('.choose .wrap')).left + 24;
-    trail.querySelector('.trail-bed').style.strokeWidth = Math.max(10, Math.min(30, contentLeft * 0.8)) + 'px';
-    var d = smoothPath(trailRoute());
+    var width = Math.max(14, Math.min(46, contentLeft * 0.42));
+    trail.querySelector('.trail-bed').style.strokeWidth = width + 'px';
+    trail.querySelector('.trail-edge').style.strokeWidth = (width + 6) + 'px';
+    trailReveal.style.strokeWidth = (width + 80) + 'px';
+    var pts = trailRoute(contentLeft);
+    var d = smoothPath(pts);
     trailPaths.forEach(function (p) { p.setAttribute('d', d); });
-    trailLen = trailPaths[0].getTotalLength();
+    var bed = trail.querySelector('.trail-bed');
+    trailLen = bed.getTotalLength();
     trailReveal.style.strokeDasharray = trailLen + ' ' + trailLen;
     trailSamples = [];
     for (var l = 0; l <= trailLen; l += 8) {
-      var pt = trailPaths[0].getPointAtLength(l);
+      var pt = bed.getPointAtLength(l);
       trailSamples.push([l, pt.x, pt.y]);
     }
+    buildVerge(bed, width);
+    var end = pts[pts.length - 1];
+    trailCairn.setAttribute('x', (end[0] - 24).toFixed(1));
+    trailCairn.setAttribute('y', (end[1] - 46).toFixed(1));
     walkTrail();
   }
 
-  // The walked part ends where the trail crosses 60% of the way down the window
+  // The path is laid as far as 70% of the way down the window
   function walkTrail() {
     if (!trailSamples.length) return;
-    var target = window.innerHeight * 0.6 - main.getBoundingClientRect().top;
+    var target = window.innerHeight * 0.7 - main.getBoundingClientRect().top;
     var i = 0;
     while (i < trailSamples.length - 1 && trailSamples[i + 1][2] <= target) i++;
     trailReveal.style.strokeDashoffset = trailLen - trailSamples[i][0];
@@ -259,8 +324,28 @@
     heroIn.style.opacity = fits ? Math.max(0, 1 - y / (h * 0.85)).toFixed(3) : '';
   }
 
-  window.addEventListener('scroll', function () { walkTrail(); parallax(); }, { passive: true });
+  /* Section scenery: each piece moves with its section's distance from the middle of the window.
+     data-depth moves it up or down, data-drift sideways, data-spin turns it (in degrees per pixel). */
+  var scenery = $$('.scenery [data-depth], .scenery [data-drift], .scenery [data-spin]');
+
+  function sceneryMove() {
+    if (reduceMotion) return;
+    var vh = window.innerHeight;
+    scenery.forEach(function (el) {
+      var r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < -300 || r.top > vh + 300) return;
+      var c = r.top + r.height / 2 - vh / 2;
+      var ty = c * (parseFloat(el.dataset.depth) || 0);
+      var tx = c * (parseFloat(el.dataset.drift) || 0);
+      var rot = c * (parseFloat(el.dataset.spin) || 0);
+      el.style.transform = 'translate3d(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px,0)' +
+        (rot ? ' rotate(' + rot.toFixed(1) + 'deg)' : '');
+    });
+  }
+
+  window.addEventListener('scroll', function () { walkTrail(); parallax(); sceneryMove(); }, { passive: true });
   parallax();
+  sceneryMove();
 
   /* Content rises into view as you arrive at it */
   if ('IntersectionObserver' in window && !reduceMotion) {
