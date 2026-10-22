@@ -161,8 +161,8 @@
   });
 
   /* Trail: the hero's footpath continues down the page, edged with grass, stones, wildflowers and
-     trail marker posts. It fades in out of the hero and fades out into the night of the footer, so the
-     walk carries on past both ends. Its dotted centre line steps forward a little as you scroll. */
+     trail marker posts. It fades in out of the hero and, at the bottom, turns right and walks off the
+     edge of the screen through the dusk hills, so the journey carries on. Its dotted centre line steps forward a little as you scroll. */
   var main = $('main');
   var NS = 'http://www.w3.org/2000/svg';
   var trail = document.createElementNS(NS, 'svg');
@@ -231,11 +231,11 @@
     // A cairn marks the spot beside "Who walks with you"
     run(L, wk.top + pad * 0.7, wk.bottom - pad, 1);
     cairnAt = pts[pts.length - 1];
-    // Then on past the app section and into the footer, where it fades away
+    // Then down past the app section, turning right through the dusk hills and off the edge of the screen
     var ap = rel($('.app'));
-    var ft = rel($('.foot'));
-    run(R, ap.top + pad * 0.7, ap.bottom - pad * 0.4, -1);
-    pts.push([R - wig * 2, ft.top + 160]);
+    run(R, ap.top + pad * 0.7, ap.bottom - 230, -1);
+    pts.push([R + (W - R) * 0.6, ap.bottom - 130]);
+    pts.push([W + 160, ap.bottom - 105]);
     return pts;
   }
 
@@ -320,9 +320,7 @@
 
   function buildTrail() {
     var W = main.clientWidth;
-    // The trail reaches past the bottom of <main> into the top of the footer
-    var footTop = rel($('.foot')).top;
-    var H = footTop + 200;
+    var H = main.offsetHeight;
     trail.setAttribute('width', W);
     trail.setAttribute('height', H);
     trail.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
@@ -339,9 +337,9 @@
     buildVerge(bed, width);
     trailCairn.setAttribute('x', (cairnAt[0] + width / 2 + 6).toFixed(1));
     trailCairn.setAttribute('y', (cairnAt[1] - 46).toFixed(1));
-    // Fade in over the first 170px below the hero, and out over the top of the footer
+    // Fade in over the first 170px below the hero
     var y0 = pts[0][1];
-    var stops = [[y0, 0], [y0 + 170, 1], [footTop - 90, 1], [footTop + 130, 0]];
+    var stops = [[y0, 0], [y0 + 170, 1]];
     trailFade.setAttribute('y2', H);
     trailFade.innerHTML = stops.map(function (st) {
       return '<stop offset="' + (st[0] / H).toFixed(4) + '" stop-color="#fff" stop-opacity="' + st[1] + '"/>';
